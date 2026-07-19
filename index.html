@@ -1,0 +1,461 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>WANTED — 李斯 · Full-Stack Gunslinger</title>
+  <meta name="description" content="李斯 — 8年全栈开发经验,P7 工程师,研发经理。Java 微服务 / 超大规模金融系统 / AI 驱动研发工作流。悬赏:效率 +300%。">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' fill='%23E4D5AE'/><text y='.85em' x='14' font-size='64' font-family='serif' font-weight='900' fill='%23241A0E'>李</text></svg>">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Rye&family=IBM+Plex+Mono:wght@400;500;600&family=Noto+Serif+SC:wght@600;900&family=Long+Cang&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- 顶部电报带 -->
+  <header class="topbar">
+    <span class="tb-cell">TERRITORY OF INTERNET</span>
+    <span class="tb-cell tb-flex">☠ NOTICE — 悬赏公告 · EST. 2018 · REWARD <b>+300%</b> EFFICIENCY ☠</span>
+    <button class="tb-cell tb-btn" id="deadeye-btn" title="死眼模式 [E]">◉ DEAD EYE</button>
+    <span class="tb-cell" id="clock">00:00:00</span>
+  </header>
+
+  <div class="sheet">
+
+    <!-- ============ 通缉令 ============ -->
+    <section class="poster" id="top">
+      <div class="poster-frame">
+        <span class="corner c-tl">❈</span><span class="corner c-tr">❈</span>
+        <span class="corner c-bl">❈</span><span class="corner c-br">❈</span>
+
+        <p class="poster-top">☆ ☆ ☆ &nbsp;PROCLAMATION — 布告&nbsp; ☆ ☆ ☆</p>
+        <h1 class="poster-wanted">WANTED</h1>
+        <p class="poster-alive">— 活捉:全栈工程师 · FULL-STACK OR NOTHING —</p>
+
+        <div class="poster-name">
+          <span class="pn-star">★</span>
+          <span class="pn-cn">李 斯</span>
+          <span class="pn-star">★</span>
+        </div>
+        <p class="poster-alias">a.k.a. "LI SI" — THE DEAD-EYE CODER · P7</p>
+
+        <div class="poster-desc">
+          <p>此人潜伏于代码荒野八年,枪法奇准:为<b data-mark>千万级</b>用户的金融系统写过核心交易链路;
+          近年拉起一支 <b data-mark>15 人</b>帮派,以 AI SDD 之名横行,交付效率暴涨 <b data-mark>+300%</b>,
+          生产可用率长期 <b data-mark>99%</b>。极度危险,极度好用。</p>
+        </div>
+
+        <div class="poster-reward">
+          <span class="pr-label">REWARD · 悬赏</span>
+          <span class="pr-amount" data-mark>$300<i>%</i></span>
+          <span class="pr-sub">EFFICIENCY — 见者速联 <a class="link" href="mailto:aspirelisi@gmail.com">aspirelisi@gmail.com</a></span>
+        </div>
+
+        <dl class="poster-specs">
+          <div><dt>STATUS</dt><dd class="ok">◉ OPEN TO WORK</dd></div>
+          <div><dt>GRADE</dt><dd><span data-mark>P7</span></dd></div>
+          <div><dt>EXP</dt><dd>8 YRS</dd></div>
+          <div><dt>EDU</dt><dd>中南大学 · 985</dd></div>
+          <div><dt>ARMS</dt><dd>JAVA · GO · TS</dd></div>
+        </dl>
+
+        <div class="wax-seal" aria-hidden="true">斯</div>
+        <div class="paste paste-stamp" data-drag aria-hidden="true">
+          <b>李</b><i>8分</i><u>中华邮政 · FULL-STACK MAIL</u>
+        </div>
+      </div>
+      <p class="poster-note">※ 布告栏提示:页面空白处可开枪(点击) · 按 [E] 进入死眼模式 · 贴画可以拖动 · FIG.5 有一台会说话的终端</p>
+    </section>
+
+    <!-- ============ 布告栏贴画 · 上 ============ -->
+    <div class="board" aria-label="布告栏贴画">
+      <article class="paste paste-medicine" data-drag>
+        <span class="p-tag">李氏药房 · PATENT MEDICINE</span>
+        <h4 class="p-big">AI·SDD 灵药</h4>
+        <p>专治交付缓慢 · 需求跑偏 · 上线惊魂<br>一贴见效,药到病除</p>
+        <span class="p-foot">每瓶 $300% 效率 · 童叟无欺</span>
+      </article>
+      <article class="paste paste-rail" data-drag>
+        <span class="p-tag">铁路告示 · RAILROAD NOTICE</span>
+        <h4 class="p-big">WEBULL 线通车</h4>
+        <p>千万旅客 · 7×24 不停站<br>单元化双轨 · 横向无限延伸</p>
+        <span class="p-foot">— 事故记录:零 —</span>
+      </article>
+      <article class="paste paste-ticket" data-drag>
+        <span class="tk-side">ADMIT ONE</span>
+        <div class="tk-main">
+          <b>入 伙 券</b>
+          <i>凭此券可与李斯共谋一票大的</i>
+          <u>aspirelisi@gmail.com</u>
+        </div>
+        <span class="tk-side">ADMIT ONE</span>
+      </article>
+
+      <!-- 原创手绘海报:牛仔肖像 -->
+      <article class="paste paste-art art-portrait" data-drag>
+        <svg viewBox="0 0 260 356" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="原创西部风海报:神枪程序员">
+          <rect x="5" y="5" width="250" height="346" fill="none" stroke="#241A0E" stroke-width="3"/>
+          <rect x="12" y="12" width="236" height="332" fill="none" stroke="#241A0E" stroke-width="1"/>
+          <text x="130" y="42" text-anchor="middle" font-family="IBM Plex Mono, monospace" font-size="11" letter-spacing="5" fill="#7E1D12">★ WANTED ALIVE ★</text>
+          <text x="130" y="76" text-anchor="middle" font-family="Rye, serif" font-size="26" fill="#241A0E">DEAD-EYE</text>
+          <text x="130" y="104" text-anchor="middle" font-family="Rye, serif" font-size="20" fill="#241A0E">CODER</text>
+          <!-- 落日光线 -->
+          <g stroke="#7E1D12" stroke-width="1.3" opacity="0.75">
+            <line x1="130" y1="126" x2="130" y2="146"/><line x1="86" y1="138" x2="98" y2="154"/>
+            <line x1="174" y1="138" x2="162" y2="154"/><line x1="60" y1="170" x2="80" y2="178"/>
+            <line x1="200" y1="170" x2="180" y2="178"/><line x1="52" y1="208" x2="74" y2="208"/>
+            <line x1="208" y1="208" x2="186" y2="208"/>
+          </g>
+          <!-- 牛仔剪影 -->
+          <g fill="#241A0E">
+            <path d="M62,296 Q84,238 130,234 Q176,238 198,296 Z"/>
+            <circle cx="130" cy="196" r="29"/>
+            <path d="M102,182 Q102,142 130,140 Q158,142 158,182 Z"/>
+            <ellipse cx="130" cy="180" rx="54" ry="10"/>
+          </g>
+          <path d="M102,226 L158,226 L130,260 Z" fill="#7E1D12"/>
+          <!-- 帽带 -->
+          <rect x="104" y="168" width="52" height="6" fill="#7E1D12"/>
+          <text x="130" y="318" text-anchor="middle" font-family="Noto Serif SC, serif" font-weight="900" font-size="15" fill="#241A0E">例 无 虚 发</text>
+          <text x="130" y="336" text-anchor="middle" font-family="IBM Plex Mono, monospace" font-size="8.5" letter-spacing="2" fill="#7E1D12">EVERY COMMIT COUNTS · +300%</text>
+        </svg>
+      </article>
+    </div>
+
+    <!-- ============ 01 悬赏技能 ============ -->
+    <section class="module" id="s1">
+      <header class="mod-head">
+        <span class="mod-no">01</span>
+        <h2>看家本领 <span class="mod-en">WANTED SKILLS</span></h2>
+        <span class="mod-fig">FIG.1</span>
+      </header>
+
+      <div class="cap-grid">
+        <article class="cap reveal">
+          <div class="cap-head"><span class="cap-code">SKILL·A</span><h3>AI SDD 研发体系</h3></div>
+          <p>从零搭建基于 Claude Code 的研发工作流:需求 → 设计 → 编码 → 自动化测试 → 运维全链路。
+          spec 流程把控 AI 代码质量,新人接入知识库 3 天独立开发。</p>
+          <div class="meter" data-meter="96"><i></i><b>96</b></div>
+        </article>
+        <article class="cap reveal">
+          <div class="cap-head"><span class="cap-code">SKILL·B</span><h3>金融级系统架构</h3></div>
+          <p>Webull 千万级用户 7×24 资产交易平台核心开发。账户合规风控体系、
+          系统单元化改造,支撑横向无限扩展与灾备。</p>
+          <div class="meter" data-meter="92"><i></i><b>92</b></div>
+        </article>
+        <article class="cap reveal">
+          <div class="cap-head"><span class="cap-code">SKILL·C</span><h3>团队管理与工程文化</h3></div>
+          <p>管理 15 人研发团队:架构决策、招聘、工程文化。全 Node 架构迁移 Java 生态,
+          周期 6 → 3 个月,零重大生产事故。</p>
+          <div class="meter" data-meter="88"><i></i><b>88</b></div>
+        </article>
+        <article class="cap reveal">
+          <div class="cap-head"><span class="cap-code">SKILL·D</span><h3>全栈独立交付</h3></div>
+          <p>日产中国官网全栈独立交付(Next.js);基于 DeepSeek 的行业智能客服 Agent;
+          40 万用户健康手表全套后台。一个人是一支队伍。</p>
+          <div class="meter" data-meter="90"><i></i><b>90</b></div>
+        </article>
+      </div>
+    </section>
+
+    <!-- ============ 02 足迹 ============ -->
+    <section class="module" id="s2">
+      <header class="mod-head">
+        <span class="mod-no">02</span>
+        <h2>八年足迹 <span class="mod-en">THE TRAIL</span></h2>
+        <span class="mod-fig">FIG.2</span>
+      </header>
+
+      <div class="trail">
+        <article class="exp reveal">
+          <div class="exp-node">★</div>
+          <div class="exp-main">
+            <div class="exp-top">
+              <h3>Tiger EV <span class="exp-role">研发经理</span><span class="exp-role exp-now">CURRENT</span></h3>
+              <span class="exp-date">2024.06 — 2026.06</span>
+            </div>
+            <p class="exp-sub">新能源换电 / 电池租借平台 · 东南亚多国展业</p>
+            <ul>
+              <li>全域架构迁移:Node 早期架构 → Java 生态,周期 6 个月压缩至 <b>3 个月</b>,零重大事故</li>
+              <li>从零搭建 <b>AI SDD 驱动研发团队(15 人)</b>,Claude Code 全链路工作流,效率 <b data-mark>+300%</b></li>
+              <li>Lark 生态 AI 助手矩阵:日志巡检 / Bug 根因分析 Agent / 智能客服</li>
+              <li>企业知识库 + MCP 接入,新人 3 天上手业务开发</li>
+            </ul>
+          </div>
+        </article>
+
+        <article class="exp reveal">
+          <div class="exp-node">✦</div>
+          <div class="exp-main">
+            <div class="exp-top">
+              <h3>自由职业 <span class="exp-role">全栈开发</span></h3>
+              <span class="exp-date">2024.01 — 2024.06</span>
+            </div>
+            <p class="exp-sub">独立交付 AI 应用与大型企业官网</p>
+            <ul>
+              <li>基于 DeepSeek 的五金行业智能客服 Agent(销售 / 跟单场景)</li>
+              <li>健康手表项目(40 万用户):后台 / H5 / Admin 全套独立负责</li>
+              <li>主导<a class="link" href="https://www.nissan.com.cn/" target="_blank" rel="noopener">日产中国官网 ↗</a>全栈开发部署,含历史数据迁移</li>
+            </ul>
+          </div>
+        </article>
+
+        <article class="exp reveal">
+          <div class="exp-node">✦</div>
+          <div class="exp-main">
+            <div class="exp-top">
+              <h3>湖南福米科技 · Webull 全球研发总部 <span class="exp-role">核心开发</span></h3>
+              <span class="exp-date">2020.06 — 2023.12</span>
+            </div>
+            <p class="exp-sub">北美证券交易平台 · 千万级用户 · 纳斯达克上市</p>
+            <ul>
+              <li>主导账户系统开户 / 合规业务:用户生命周期、多品类交易权限、风险管控</li>
+              <li>账单 / 盈亏 / 出入金 / 转仓系统;自研清算商对接,百万级用户迁移</li>
+              <li>系统单元化改造 — 横向无限扩展 + 灾备;7.0 网关升级整合五端接口</li>
+              <li>主导加拿大展业账户系统设计开发</li>
+            </ul>
+          </div>
+        </article>
+
+        <article class="exp reveal">
+          <div class="exp-node">✦</div>
+          <div class="exp-main">
+            <div class="exp-top">
+              <h3>湖南草花互动 <span class="exp-role">核心程序员</span></h3>
+              <span class="exp-date">2018.03 — 2020.03</span>
+            </div>
+            <p class="exp-sub">百万级手游平台投放系统</p>
+            <ul>
+              <li>今日头条 / 广点通 / 百度 / UC 等 30+ 媒体对接,一体化投放平台</li>
+              <li>广告监测服务:日均 PV <b>600W+</b>,峰值 <b data-mark>7000W+</b></li>
+              <li>MongoDB 点击归因存留 1 天 → 7 天;Redis 集群内存优化</li>
+              <li>从零搭建 DMP 自动化系统;数据仓库(Hadoop / Hive)</li>
+            </ul>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <!-- ============ 03 战绩 ============ -->
+    <section class="module" id="s3">
+      <header class="mod-head">
+        <span class="mod-no">03</span>
+        <h2>已收赏金 <span class="mod-en">BOUNTIES CLAIMED</span></h2>
+        <span class="mod-fig">FIG.3</span>
+      </header>
+
+      <div class="works">
+        <a class="work reveal" href="mailto:aspirelisi@gmail.com">
+          <span class="work-no">№1</span>
+          <div class="work-body">
+            <h3>AI SDD 研发工作流</h3>
+            <p>Claude Code 规格驱动全链路 · 巡检 / 根因分析 Agent · 智能客服</p>
+          </div>
+          <span class="work-reward" data-mark>$300<i>%</i></span>
+          <span class="work-stamp">CLAIMED</span>
+        </a>
+        <a class="work reveal" href="mailto:aspirelisi@gmail.com">
+          <span class="work-no">№2</span>
+          <div class="work-body">
+            <h3>Webull 证券交易平台</h3>
+            <p>账户合规 · 清算迁移 · 系统单元化 · 多端网关重构</p>
+          </div>
+          <span class="work-reward" data-mark>10M<i>+</i></span>
+          <span class="work-stamp">CLAIMED</span>
+        </a>
+        <a class="work reveal" href="https://www.nissan.com.cn/" target="_blank" rel="noopener">
+          <span class="work-no">№3</span>
+          <div class="work-body">
+            <h3>日产中国官网</h3>
+            <p>API / Admin / Web 全栈独立交付 · Next.js + Antd Pro</p>
+          </div>
+          <span class="work-reward">NISSAN</span>
+          <span class="work-stamp">CLAIMED</span>
+        </a>
+        <a class="work reveal" href="mailto:aspirelisi@gmail.com">
+          <span class="work-no">№4</span>
+          <div class="work-body">
+            <h3>东南亚换电服务平台</h3>
+            <p>骑手 / 商家 / 供应商一体化 · 全域架构迁移升级</p>
+          </div>
+          <span class="work-reward" data-mark>6→3<i>MO</i></span>
+          <span class="work-stamp">CLAIMED</span>
+        </a>
+      </div>
+    </section>
+
+    <!-- ============ 04 军械库 ============ -->
+    <section class="module" id="s4">
+      <header class="mod-head">
+        <span class="mod-no">04</span>
+        <h2>随身军械 <span class="mod-en">THE ARSENAL</span></h2>
+        <span class="mod-fig">FIG.4</span>
+      </header>
+
+      <table class="bom reveal">
+        <thead>
+          <tr><th>REF</th><th>类目</th><th>装备清单</th><th>状态</th></tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>A·01</td><td>后端 & 架构</td>
+            <td>Java · Go · Spring Cloud · 微服务 · 系统单元化 · JVM · 多线程</td>
+            <td class="bom-note bom-acc">主武器</td>
+          </tr>
+          <tr>
+            <td>A·02</td><td>数据 & 中间件</td>
+            <td>MySQL · MongoDB · Redis · Kafka · Zookeeper · Consul · Quartz · Hadoop/Hive</td>
+            <td class="bom-note">弹药库</td>
+          </tr>
+          <tr>
+            <td>A·03</td><td>前端 & 全栈</td>
+            <td>React · TypeScript · Next.js · NestJS · Hono.js · Tailwind · Antd Pro</td>
+            <td class="bom-note">副武器</td>
+          </tr>
+          <tr>
+            <td>A·04</td><td>AI & 工程效能</td>
+            <td>Claude Code · Cursor · Codex · AI Agent · MCP · SDD · DeepSeek · Docker</td>
+            <td class="bom-note bom-acc">死眼技能</td>
+          </tr>
+        </tbody>
+      </table>
+    </section>
+
+    <!-- ============ 布告栏贴画 · 下 ============ -->
+    <div class="board board-lower" aria-label="布告栏贴画">
+      <article class="paste paste-circus" data-drag>
+        <span class="p-tag">TONIGHT ONLY · 今夜上演</span>
+        <h4 class="p-big">ONE-MAN<br>FULL-STACK SHOW</h4>
+        <p>一人乐队 · 前后端通吃 · 数据库杂耍<br>特邀嘉宾:Claude Code</p>
+        <span class="p-foot">巡演站点:日产官网 · Webull · Tiger EV</span>
+      </article>
+      <article class="paste paste-memo" data-drag>
+        <p>今日待办:</p>
+        <p>☑ 喂马</p>
+        <p>☑ 擦枪</p>
+        <p>☑ deploy 上生产</p>
+        <p>☐ 等一个 offer</p>
+      </article>
+
+      <!-- 原创手绘海报:西部落日铁路 -->
+      <article class="paste paste-art art-west" data-drag>
+        <svg viewBox="0 0 360 252" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="原创西部风海报:向西,上线">
+          <rect x="5" y="5" width="350" height="242" fill="none" stroke="#241A0E" stroke-width="3"/>
+          <rect x="11" y="11" width="338" height="230" fill="none" stroke="#241A0E" stroke-width="1"/>
+          <text x="180" y="40" text-anchor="middle" font-family="Rye, serif" font-size="21" fill="#241A0E">GO WEST · SHIP FAST</text>
+          <!-- 落日 -->
+          <circle cx="180" cy="128" r="38" fill="#7E1D12"/>
+          <g stroke="#7E1D12" stroke-width="1.4" opacity="0.8">
+            <line x1="120" y1="128" x2="102" y2="128"/><line x1="240" y1="128" x2="258" y2="128"/>
+            <line x1="138" y1="92" x2="126" y2="80"/><line x1="222" y1="92" x2="234" y2="80"/>
+            <line x1="180" y1="82" x2="180" y2="64"/>
+          </g>
+          <!-- 山峦 -->
+          <path d="M16,152 L60,112 L96,152 L130,124 L164,152 Z" fill="#241A0E" opacity="0.45"/>
+          <path d="M196,152 L240,116 L276,152 L308,130 L344,152 Z" fill="#241A0E" opacity="0.45"/>
+          <rect x="16" y="150" width="328" height="3" fill="#241A0E"/>
+          <!-- 仙人掌 -->
+          <g fill="#241A0E">
+            <rect x="46" y="96" width="10" height="58" rx="5"/>
+            <rect x="32" y="104" width="8" height="26" rx="4"/><rect x="32" y="122" width="16" height="8" rx="4"/>
+            <rect x="62" y="112" width="8" height="22" rx="4"/><rect x="56" y="126" width="14" height="8" rx="4"/>
+          </g>
+          <!-- 铁轨透视 -->
+          <g stroke="#241A0E" stroke-width="2.4" fill="none">
+            <line x1="126" y1="216" x2="172" y2="154"/>
+            <line x1="234" y1="216" x2="188" y2="154"/>
+          </g>
+          <g stroke="#241A0E" stroke-width="2">
+            <line x1="134" y1="206" x2="226" y2="206"/><line x1="144" y1="192" x2="216" y2="192"/>
+            <line x1="152" y1="180" x2="208" y2="180"/><line x1="160" y1="169" x2="200" y2="169"/>
+            <line x1="166" y1="160" x2="194" y2="160"/>
+          </g>
+          <!-- 火车 -->
+          <g fill="#241A0E">
+            <rect x="172" y="142" width="16" height="10"/>
+            <rect x="174" y="134" width="5" height="8"/>
+            <circle cx="184" cy="130" r="2.6" opacity="0.7"/><circle cx="190" cy="124" r="3.4" opacity="0.5"/><circle cx="198" cy="117" r="4.2" opacity="0.35"/>
+          </g>
+          <text x="180" y="234" text-anchor="middle" font-family="Noto Serif SC, serif" font-weight="900" font-size="13" fill="#7E1D12">向 西 · 上 线 · 不 回 头</text>
+        </svg>
+      </article>
+
+      <!-- 原创手绘传单:每日决斗 -->
+      <article class="paste paste-art art-duel" data-drag>
+        <svg viewBox="0 0 172 232" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="原创西部风传单:每日代码决斗">
+          <rect x="4" y="4" width="164" height="224" fill="none" stroke="#241A0E" stroke-width="2.5"/>
+          <text x="86" y="36" text-anchor="middle" font-family="Rye, serif" font-size="19" fill="#7E1D12">CODE DUEL</text>
+          <text x="86" y="54" text-anchor="middle" font-family="IBM Plex Mono, monospace" font-size="9" letter-spacing="3" fill="#241A0E">DAILY · 每日决斗</text>
+          <!-- 左轮手枪 -->
+          <g transform="translate(14,86)">
+            <rect x="46" y="10" width="66" height="11" fill="#241A0E"/>
+            <rect x="108" y="7" width="5" height="6" fill="#241A0E"/>
+            <circle cx="40" cy="17" r="15" fill="#241A0E"/>
+            <circle cx="40" cy="17" r="5" fill="#E4D5AE"/>
+            <rect x="16" y="10" width="26" height="13" fill="#241A0E"/>
+            <path d="M18,22 Q4,28 7,52 Q9,64 22,60 L30,25 Z" fill="#241A0E"/>
+            <path d="M34,26 Q40,40 52,38" stroke="#241A0E" stroke-width="2.4" fill="none"/>
+            <!-- 枪口飞出代码 -->
+            <text x="122" y="20" font-family="IBM Plex Mono, monospace" font-weight="600" font-size="15" fill="#7E1D12">&lt;/&gt;</text>
+            <g stroke="#7E1D12" stroke-width="1.2">
+              <line x1="116" y1="4" x2="124" y2="-2"/><line x1="118" y1="12" x2="128" y2="12" transform="translate(0,-2)"/>
+            </g>
+          </g>
+          <text x="86" y="172" text-anchor="middle" font-family="Noto Serif SC, serif" font-weight="900" font-size="14" fill="#241A0E">先出枪者未必赢</text>
+          <text x="86" y="192" text-anchor="middle" font-family="Noto Serif SC, serif" font-size="10.5" fill="#241A0E" opacity="0.7">先想清楚者赢</text>
+          <text x="86" y="214" text-anchor="middle" font-family="IBM Plex Mono, monospace" font-size="9" letter-spacing="1.5" fill="#7E1D12">输入 /duel 应战</text>
+        </svg>
+      </article>
+    </div>
+
+    <!-- ============ 05 Claude 终端 ============ -->
+    <section class="module" id="s5">
+      <header class="mod-head">
+        <span class="mod-no">05</span>
+        <h2>营地终端 <span class="mod-en">CLAUDE CODE @ CAMP</span></h2>
+        <span class="mod-fig">FIG.5</span>
+      </header>
+
+      <div class="term reveal" id="term">
+        <div class="term-titlebar">
+          <span class="t-dot"></span><span class="t-dot"></span><span class="t-dot"></span>
+          <span class="term-title">claude — lisi/camp</span>
+        </div>
+        <div class="term-out" id="term-out"></div>
+        <div class="term-in">
+          <span class="term-ps1">›</span>
+          <input id="term-input" type="text" autocomplete="off" spellcheck="false" aria-label="terminal input" placeholder='输入 /help,或直接跟 Claude 说话…'>
+        </div>
+      </div>
+      <p class="term-hint">[TAB] 补全 · [↑][↓] 历史 · 试试 <code>/duel</code> 拔枪决斗 · <code>/deadeye</code> · 或直接问它问题</p>
+    </section>
+
+    <!-- ============ 页脚 ============ -->
+    <footer class="colophon">
+      <div class="colo-left">
+        <p class="colo-cta">有一票大的?<a class="link" href="mailto:aspirelisi@gmail.com">来营地聊 →</a></p>
+        <p class="colo-note">性格外向 · 热爱分享 · 遇事不甩锅 · 旅行 / 摄影 / 极限飞盘</p>
+      </div>
+      <div class="colo-right">
+        <div class="barcode" aria-hidden="true"></div>
+        <span class="colo-code">LS·1873·P7·GUNSLINGER</span>
+      </div>
+    </footer>
+
+    <div class="endline">— END OF PROCLAMATION · 本布告由 CLAUDE CODE 印制 —</div>
+  </div>
+
+  <!-- 底部状态栏 -->
+  <div class="statusbar" aria-hidden="true">
+    <span id="sb-pos">LNG 000.0 · LAT 000.0</span>
+    <span class="sb-honor">HONOR <i id="sb-honor-bar"><b></b></i> <span id="sb-scroll">000%</span></span>
+    <span class="sb-right" id="sb-mode">◎ NORMAL</span>
+  </div>
+
+  <!-- 死眼遮罩 -->
+  <div class="deadeye-vignette" aria-hidden="true"></div>
+
+  <script src="main.js"></script>
+</body>
+</html>

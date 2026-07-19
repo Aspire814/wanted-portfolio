@@ -1,0 +1,10 @@
+# Claude Code 本地配置(预览服务器等)
+.claude/
+
+# 系统文件
+.DS_Store
+Thumbs.db
+
+# 依赖 / 构建产物(当前为纯静态站点,预留)
+node_modules/
+dist/
