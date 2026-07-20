@@ -644,40 +644,81 @@
         <div><dt>展业范围</dt><dd>东南亚多国</dd></div>
         <div><dt>角色端</dt><dd>骑手·商家·供应商</dd></div>
       </dl>
-      <p class="dos-body">新能源换电 / 电池租借平台,骑手、商家、供应商三端一体化。主导<b>全域架构迁移</b>:早期 Node 架构整体迁往 Java 微服务生态,原计划 6 个月的周期压缩至 3 个月完成,期间业务不中断、零重大生产事故。</p>
+      <p class="dos-body">新能源换电 / 电池租借平台,骑手、商家、供应商三端一体化,换电柜硬件经 <b>MQTT</b> 接入。网关之下 nginx 负载均衡打到<b>多节点统一后端服务</b>,配硬件同步服务与 task 调度节点;业务侧通过消息队列与内部 <b>Odoo</b> 系统异步通信;自建 Admin 实现<b>多租户管理与运营</b>。主导全域架构迁移:早期 Node 架构整体迁往 Java 生态,周期 6 个月压缩至 3 个月,业务不中断、零重大生产事故。</p>
       <figure class="dos-fig">
-        <svg viewBox="0 0 720 252" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="换电平台架构迁移示意">
+        <svg viewBox="0 0 720 500" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="换电平台架构示意:多节点统一后端、MQTT 硬件链路、Odoo 集成与多租户 Admin">
+          <!-- 客户端三端 + 硬件 -->
           <g fill="none" stroke="#241A0E" stroke-width="2">
-            <rect x="150" y="16" width="130" height="38"/><rect x="295" y="16" width="130" height="38"/><rect x="440" y="16" width="130" height="38"/>
+            <rect x="40" y="12" width="130" height="36"/><rect x="185" y="12" width="130" height="36"/><rect x="330" y="12" width="130" height="36"/>
           </g>
           <g font-family="Noto Serif SC, serif" font-weight="900" font-size="13" fill="#241A0E" text-anchor="middle">
-            <text x="215" y="40">骑手 App</text><text x="360" y="40">商家端</text><text x="505" y="40">供应商端</text>
+            <text x="105" y="35">骑手 App</text><text x="250" y="35">商家端</text><text x="395" y="35">供应商端</text>
           </g>
+          <rect x="540" y="12" width="150" height="36" fill="none" stroke="#241A0E" stroke-width="2"/>
+          <text x="615" y="28" font-family="Noto Serif SC, serif" font-weight="900" font-size="12" fill="#241A0E" text-anchor="middle">换电柜 · 电池硬件</text>
+          <text x="615" y="42" font-family="IBM Plex Mono, monospace" font-size="7.5" fill="#7E1D12" text-anchor="middle">IOT DEVICES</text>
+          <!-- 客户端 → 网关 -->
           <g stroke="#241A0E" stroke-width="1.6">
-            <line x1="215" y1="54" x2="330" y2="86"/><line x1="360" y1="54" x2="360" y2="86"/><line x1="505" y1="54" x2="390" y2="86"/>
+            <line x1="105" y1="48" x2="230" y2="80"/><line x1="250" y1="48" x2="280" y2="80"/><line x1="395" y1="48" x2="340" y2="80"/>
           </g>
-          <rect x="250" y="88" width="220" height="36" fill="none" stroke="#241A0E" stroke-width="2"/>
-          <text x="360" y="111" font-family="IBM Plex Mono, monospace" font-size="10.5" fill="#241A0E" text-anchor="middle">统一网关 GATEWAY</text>
-          <line x1="360" y1="124" x2="360" y2="146" stroke="#241A0E" stroke-width="1.6"/>
-          <rect x="170" y="148" width="380" height="50" fill="none" stroke="#7E1D12" stroke-width="2"/>
-          <text x="360" y="169" font-family="Noto Serif SC, serif" font-weight="900" font-size="13" fill="#7E1D12" text-anchor="middle">Java 微服务生态</text>
-          <text x="360" y="188" font-family="IBM Plex Mono, monospace" font-size="9.5" fill="#241A0E" text-anchor="middle">换电 · 电池租借 · 计费 · 风控</text>
-          <rect x="200" y="216" width="320" height="26" fill="none" stroke="#241A0E" stroke-width="1.6"/>
-          <text x="360" y="233" font-family="IBM Plex Mono, monospace" font-size="9.5" fill="#241A0E" text-anchor="middle">MYSQL · REDIS · KAFKA</text>
-          <line x1="360" y1="198" x2="360" y2="216" stroke="#241A0E" stroke-width="1.6"/>
-          <rect x="586" y="148" width="110" height="50" fill="none" stroke="#241A0E" stroke-width="1.6" stroke-dasharray="6 4"/>
-          <text x="641" y="169" font-family="Noto Serif SC, serif" font-size="11.5" fill="#241A0E" text-anchor="middle">旧 Node 架构</text>
-          <text x="641" y="186" font-family="IBM Plex Mono, monospace" font-size="8.5" fill="#7E1D12" text-anchor="middle">RETIRING…</text>
-          <path d="M586,173 L550,173" fill="none" stroke="#7E1D12" stroke-width="1.4" stroke-dasharray="5 4"/>
-          <text x="568" y="164" font-family="IBM Plex Mono, monospace" font-size="8.5" fill="#7E1D12" text-anchor="middle">绞杀式迁移</text>
+          <rect x="170" y="82" width="250" height="34" fill="none" stroke="#7E1D12" stroke-width="2"/>
+          <text x="295" y="104" font-family="Noto Serif SC, serif" font-weight="900" font-size="13" fill="#7E1D12" text-anchor="middle">统一网关 GATEWAY</text>
+          <!-- 网关 → nginx → 后端集群 -->
+          <line x1="295" y1="116" x2="295" y2="142" stroke="#241A0E" stroke-width="1.6"/>
+          <rect x="195" y="144" width="200" height="32" fill="none" stroke="#241A0E" stroke-width="2"/>
+          <text x="295" y="165" font-family="IBM Plex Mono, monospace" font-size="10.5" fill="#241A0E" text-anchor="middle">NGINX 负载均衡</text>
+          <line x1="295" y1="176" x2="295" y2="202" stroke="#241A0E" stroke-width="1.6"/>
+          <!-- 统一后端服务(多节点堆叠) -->
+          <rect x="66" y="196" width="400" height="140" fill="none" stroke="#241A0E" stroke-width="1" opacity="0.35"/>
+          <rect x="60" y="202" width="400" height="140" fill="none" stroke="#241A0E" stroke-width="2.5"/>
+          <text x="260" y="226" font-family="IBM Plex Mono, monospace" font-size="11" fill="#241A0E" text-anchor="middle">统一后端服务 × N 节点 — JAVA 生态</text>
+          <line x1="78" y1="236" x2="442" y2="236" stroke="#241A0E" stroke-width="0.8" opacity="0.3"/>
+          <g fill="none" stroke="#241A0E" stroke-width="1.5">
+            <rect x="78" y="248" width="82" height="26"/><rect x="172" y="248" width="82" height="26"/>
+            <rect x="266" y="248" width="82" height="26"/><rect x="360" y="248" width="82" height="26"/>
+          </g>
+          <g font-family="Noto Serif SC, serif" font-weight="900" font-size="12" fill="#241A0E" text-anchor="middle">
+            <text x="119" y="266">换电</text><text x="213" y="266">电池租借</text><text x="307" y="266">计费</text><text x="401" y="266">风控</text>
+          </g>
+          <text x="260" y="300" font-family="IBM Plex Mono, monospace" font-size="8.5" fill="#7E1D12" text-anchor="middle">多节点水平扩展 · 自 NODE 架构绞杀式迁移而来(6→3 个月 · 零重大事故)</text>
+          <text x="260" y="318" font-family="IBM Plex Mono, monospace" font-size="8.5" fill="#241A0E" text-anchor="middle">MYSQL · REDIS</text>
+          <!-- 右列:MQTT / 硬件同步 / TASK 调度 / Admin -->
+          <line x1="615" y1="48" x2="615" y2="82" stroke="#7E1D12" stroke-width="1.6" stroke-dasharray="5 4"/>
+          <text x="638" y="68" font-family="IBM Plex Mono, monospace" font-size="8.5" fill="#7E1D12" text-anchor="middle">MQTT</text>
+          <rect x="540" y="84" width="150" height="32" fill="none" stroke="#241A0E" stroke-width="2"/>
+          <text x="615" y="105" font-family="IBM Plex Mono, monospace" font-size="10" fill="#241A0E" text-anchor="middle">MQTT 接入服务</text>
+          <line x1="615" y1="116" x2="615" y2="142" stroke="#241A0E" stroke-width="1.6"/>
+          <rect x="540" y="144" width="150" height="32" fill="none" stroke="#241A0E" stroke-width="2"/>
+          <text x="615" y="165" font-family="Noto Serif SC, serif" font-weight="900" font-size="11.5" fill="#241A0E" text-anchor="middle">硬件同步服务</text>
+          <line x1="540" y1="160" x2="460" y2="220" stroke="#241A0E" stroke-width="1.4"/>
+          <rect x="540" y="204" width="150" height="32" fill="none" stroke="#241A0E" stroke-width="2"/>
+          <text x="615" y="225" font-family="Noto Serif SC, serif" font-weight="900" font-size="11.5" fill="#241A0E" text-anchor="middle">TASK 调度节点</text>
+          <line x1="540" y1="220" x2="460" y2="250" stroke="#241A0E" stroke-width="1.4"/>
+          <rect x="540" y="264" width="150" height="48" fill="none" stroke="#7E1D12" stroke-width="2"/>
+          <text x="615" y="284" font-family="Noto Serif SC, serif" font-weight="900" font-size="11.5" fill="#7E1D12" text-anchor="middle">自建 Admin</text>
+          <text x="615" y="302" font-family="IBM Plex Mono, monospace" font-size="8" fill="#241A0E" text-anchor="middle">多租户管理 · 运营</text>
+          <line x1="540" y1="288" x2="460" y2="288" stroke="#241A0E" stroke-width="1.4"/>
+          <!-- 消息队列 → Odoo -->
+          <line x1="260" y1="342" x2="260" y2="376" stroke="#241A0E" stroke-width="1.6"/>
+          <rect x="60" y="378" width="400" height="34" fill="none" stroke="#241A0E" stroke-width="2"/>
+          <text x="260" y="400" font-family="IBM Plex Mono, monospace" font-size="10" fill="#241A0E" text-anchor="middle" letter-spacing="2">消息队列 · MESSAGE QUEUE</text>
+          <line x1="460" y1="395" x2="540" y2="395" stroke="#7E1D12" stroke-width="1.4" stroke-dasharray="5 4"/>
+          <text x="500" y="388" font-family="IBM Plex Mono, monospace" font-size="8" fill="#7E1D12" text-anchor="middle">异步通信</text>
+          <rect x="540" y="372" width="150" height="46" fill="none" stroke="#241A0E" stroke-width="2"/>
+          <text x="615" y="392" font-family="IBM Plex Mono, monospace" font-size="11" fill="#241A0E" text-anchor="middle">ODOO</text>
+          <text x="615" y="408" font-family="Noto Serif SC, serif" font-size="10" fill="#241A0E" text-anchor="middle">内部经营系统</text>
+          <!-- 底注 -->
+          <text x="360" y="452" font-family="IBM Plex Mono, monospace" font-size="9.5" fill="#7E1D12" text-anchor="middle">东南亚多国展业 — 一套平台 · 多租户运营</text>
         </svg>
-        <figcaption>FIG.D — 逐域绞杀式迁移,新旧并行直至旧架构退役</figcaption>
+        <figcaption>FIG.D — 多节点统一后端 + MQTT 硬件链路 + 消息队列对接 Odoo,自建 Admin 多租户运营</figcaption>
       </figure>
       <h4 class="dos-sub">关键决策</h4>
       <ul class="dos-list">
-        <li><b>绞杀式而非大爆炸</b>:按业务域逐个迁移、新旧并行,业务全程在线 — "重写一切"在多国展业的生产系统上等于赌命</li>
-        <li><b>迁移与 AI SDD 双线并进</b>:用 Claude Code 工作流承担大量迁移编码,这是 6 个月压到 3 个月的底气(详见案卷 №1)</li>
-        <li><b>三端一套领域模型</b>:骑手 / 商家 / 供应商共享换电与计费域,端上只做角色视图,避免三套业务逻辑漂移</li>
+        <li><b>绞杀式而非大爆炸</b>:按业务域逐个迁移、新旧并行,业务全程在线 — "重写一切"在多国展业的生产系统上等于赌命;最终 6 个月周期压到 3 个月</li>
+        <li><b>硬件链路独立成环</b>:换电柜经 MQTT 接入,硬件同步服务收敛设备状态,task 调度节点跑批 — 设备侧的抖动与重连不打穿业务侧</li>
+        <li><b>业务与经营系统解耦</b>:与内部 Odoo 走消息队列异步通信,削峰、失败可重放,经营系统的节奏不拖累交易链路</li>
+        <li><b>自建 Admin 收口多租户</b>:多国多租户的管理与运营统一一个后台,租户隔离在平台层解决而不是散在各业务里</li>
+        <li><b>迁移与 AI SDD 双线并进</b>:用 Claude Code 工作流承担大量迁移编码,这是周期压半的底气(详见案卷 №1)</li>
       </ul>
       <p class="dos-role"><span>ROLE · 角色</span>研发经理 — 迁移方案制定与执行主导,15 人团队</p>
       <span class="dos-stamp">已归档</span>
