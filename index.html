@@ -571,6 +571,40 @@
         </svg>
         <figcaption>FIG.B — 单元化全景:GZone 全局聚合 · 同构单元横向复制 · 灰度单元承接指定流量</figcaption>
       </figure>
+      <h4 class="dos-sub">单元化 · 特点与优势</h4>
+      <div class="dos-grid">
+        <div class="dos-tile">
+          <span>BLAST RADIUS · 爆炸半径</span>
+          <h5>故障锁死在单元内</h5>
+          <p>单元级隔离让任何故障的影响面 = 1/N 个分片,"全站不可用"这类事故从架构机制上被消灭,而不是靠运气规避。</p>
+        </div>
+        <div class="dos-tile">
+          <span>SCALE-OUT · 线性扩展</span>
+          <h5>容量 = 单元数 × 单元容量</h5>
+          <p>用户翻倍,答案是复制一个同构单元,而不是把存量系统越堆越高 — 扩容动作标准化,不触碰已验证的架构。</p>
+        </div>
+        <div class="dos-tile">
+          <span>FAILOVER · 切流即容灾</span>
+          <h5>异地灾备 · 可用区隔离</h5>
+          <p>单元跨可用区部署、异地灾备,故障转移是一次路由切换而不是一场抢修 — 7×24 交易市场里灾难恢复以分钟计。</p>
+        </div>
+        <div class="dos-tile">
+          <span>CANARY · 真实拓扑灰度</span>
+          <h5>灰度单元承接指定流量</h5>
+          <p>低配单元路由少量与指定用户,新版本在真实生产架构与真实资金链路上验证 — 灰度结论可信,回切只需改路由。</p>
+        </div>
+        <div class="dos-tile">
+          <span>DATA LOCALITY · 数据闭环</span>
+          <h5>分片数据单元内自包含</h5>
+          <p>交易主链路在单元内闭环,不缴"分布式事务税";跨单元的聚合与全局视图统一收口到 GZone,一致性边界清晰。</p>
+        </div>
+        <div class="dos-tile">
+          <span>ELASTICITY · 弹性与成本</span>
+          <h5>容量可度量,成本可核算</h5>
+          <p>服务多实例 + 弹性缩扩容 + task 智能调度,容量按单元度量、按单元规划 — 大促加单元,平峰缩实例,成本跟着流量走。</p>
+        </div>
+      </div>
+      <p class="dos-note">※ 与蚂蚁 LDC、异地多活同属一个思想谱系 — 这里是它在证券交易场景下的工程化落地。</p>
       <h4 class="dos-sub">关键决策</h4>
       <ul class="dos-list">
         <li><b>单元 = 一座完整的小交易所</b>:行情 / 交易 / 账户 / 风控 / 出入金 / 盈亏全套微服务在单元内闭环,每个服务多实例部署,弹性缩扩容 + task 智能调度,可用区隔离 + 异地灾备</li>
