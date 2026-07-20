@@ -370,6 +370,7 @@ const dossierBox = (function () {
         '  №2  Webull 交易平台      <span class="t-ok">10M+ users · 7×24</span>',
         '  №3  日产中国官网         <a href="https://www.nissan.com.cn/" target="_blank" rel="noopener">nissan.com.cn ↗</a>',
         '  №4  东南亚换电平台       <span class="t-ok">周期 6→3mo · 0 事故</span>',
+        '  №5  草花投放监测系统     <span class="t-ok">PV 峰值 7000W+ · DMP</span>',
         '',
         '<span class="t-dim">※ FIG.3 的赏金卡都能点开 — 完整案卷:背景 / 架构图 / 关键决策</span>',
       ].join('\n'),
