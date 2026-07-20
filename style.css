@@ -1247,3 +1247,398 @@ body.deadeye .sheet {
   * { transition-duration: 0.01ms !important; animation-duration: 0.01ms !important; }
   .t-draw { animation: none; }
 }
+
+/* ============ AI 副手动作:区块高亮 ============ */
+.mod-flash { animation: mod-flash 1.8s ease; }
+
+@keyframes mod-flash {
+  0%, 100% { box-shadow: none; }
+  20% { box-shadow: 0 0 0 3px var(--red), 0 0 46px rgba(126, 29, 18, 0.4); }
+  60% { box-shadow: 0 0 0 3px var(--red), 0 0 26px rgba(126, 29, 18, 0.25); }
+}
+
+/* ============ 案卷浮层 ============ */
+.works-hint {
+  margin-top: 14px;
+  font-family: var(--mono);
+  font-size: 11px;
+  letter-spacing: 0.05em;
+  color: var(--ink-3);
+}
+
+body.no-scroll { overflow: hidden; }
+
+.dossier-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 300;
+  display: none;
+  overflow-y: auto;
+  background: rgba(22, 15, 8, 0.62);
+  padding: 5vh 16px 8vh;
+}
+
+.dossier-overlay.open { display: block; }
+
+.dossier {
+  display: none;
+  position: relative;
+  max-width: 860px;
+  margin: 0 auto;
+  background:
+    radial-gradient(ellipse at 20% 0%, rgba(255, 248, 226, 0.5), transparent 55%),
+    var(--paper);
+  border: 2px solid var(--ink);
+  box-shadow:
+    inset 0 0 0 5px var(--paper),
+    inset 0 0 0 6px var(--ink-3),
+    0 24px 60px rgba(10, 6, 2, 0.55);
+  padding: 30px 36px 40px;
+}
+
+.dossier.active { display: block; animation: dossier-in 0.24s ease-out; }
+
+@keyframes dossier-in {
+  from { transform: translateY(18px) rotate(0.4deg); opacity: 0; }
+  to   { transform: none; opacity: 1; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .dossier.active { animation: none; }
+}
+
+.dos-head {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: 6px 14px;
+  border-bottom: 3px double var(--ink);
+  padding-bottom: 14px;
+  margin-bottom: 18px;
+}
+
+.dos-eyebrow {
+  flex-basis: 100%;
+  font-family: var(--mono);
+  font-size: 10.5px;
+  letter-spacing: 0.18em;
+  color: var(--red);
+}
+
+.dos-head h3 {
+  font-family: var(--serif-cn);
+  font-weight: 900;
+  font-size: clamp(22px, 3.4vw, 30px);
+  color: var(--ink);
+}
+
+.dos-close {
+  margin-left: auto;
+  font-family: var(--mono);
+  font-size: 11px;
+  letter-spacing: 0.08em;
+  color: var(--ink-2);
+  background: none;
+  border: 1.5px solid var(--hair);
+  padding: 6px 12px;
+  cursor: pointer;
+}
+
+.dos-close:hover, .dos-close:focus-visible { background: var(--red); border-color: var(--red); color: var(--paper); outline: none; }
+
+.dos-meta {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+  gap: 0;
+  border: 1.5px solid var(--ink);
+  margin-bottom: 18px;
+}
+
+.dos-meta > div { padding: 10px 14px; border-right: 1px solid var(--hair); }
+.dos-meta > div:last-child { border-right: 0; }
+.dos-meta dt { font-family: var(--mono); font-size: 9.5px; letter-spacing: 0.14em; color: var(--ink-3); margin-bottom: 4px; }
+.dos-meta dd { font-family: var(--serif-cn); font-weight: 900; font-size: 17px; color: var(--red); }
+
+.dos-body { font-size: 14.5px; line-height: 1.85; color: var(--ink-2); margin-bottom: 20px; }
+.dos-body b { color: var(--ink); }
+
+.dos-fig { margin: 0 0 22px; border: 1.5px solid var(--ink); padding: 14px 14px 10px; }
+.dos-fig svg { display: block; width: 100%; height: auto; }
+.dos-fig figcaption {
+  margin-top: 10px;
+  font-family: var(--mono);
+  font-size: 10px;
+  letter-spacing: 0.1em;
+  color: var(--ink-3);
+  text-align: center;
+}
+
+.dos-sub {
+  font-family: var(--mono);
+  font-size: 11px;
+  letter-spacing: 0.22em;
+  color: var(--red);
+  margin-bottom: 10px;
+}
+
+.dos-list { list-style: none; margin-bottom: 22px; }
+.dos-list li {
+  position: relative;
+  padding: 7px 0 7px 22px;
+  font-size: 13.5px;
+  line-height: 1.75;
+  color: var(--ink-2);
+  border-bottom: 1px dashed var(--hair);
+}
+.dos-list li::before { content: "➹"; position: absolute; left: 0; top: 7px; color: var(--red); }
+.dos-list b { color: var(--ink); }
+
+.dos-role {
+  font-size: 13px;
+  color: var(--ink-2);
+  border-left: 3px solid var(--red);
+  padding: 6px 0 6px 14px;
+}
+.dos-role span {
+  display: block;
+  font-family: var(--mono);
+  font-size: 9.5px;
+  letter-spacing: 0.18em;
+  color: var(--ink-3);
+  margin-bottom: 3px;
+}
+
+.dos-stamp {
+  position: absolute;
+  right: 44px;
+  bottom: 34px;
+  font-family: var(--serif-cn);
+  font-weight: 900;
+  font-size: 20px;
+  color: var(--red);
+  border: 3px solid var(--red);
+  border-radius: 6px;
+  padding: 4px 14px;
+  transform: rotate(9deg);
+  opacity: 0.7;
+  pointer-events: none;
+}
+
+@media (max-width: 640px) {
+  .dossier { padding: 22px 18px 30px; }
+  .dos-stamp { top: auto; bottom: 24px; right: 20px; }
+}
+
+/* ============ 案卷:优势矩阵 ============ */
+.dos-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+  gap: 12px;
+  margin-bottom: 14px;
+}
+
+.dos-tile {
+  border: 1.5px solid var(--ink);
+  padding: 13px 15px 14px;
+  background: rgba(255, 248, 226, 0.25);
+}
+
+.dos-tile span {
+  display: block;
+  font-family: var(--mono);
+  font-size: 8.5px;
+  letter-spacing: 0.16em;
+  color: var(--red);
+  margin-bottom: 6px;
+}
+
+.dos-tile h5 {
+  font-family: var(--serif-cn);
+  font-weight: 900;
+  font-size: 14.5px;
+  color: var(--ink);
+  margin-bottom: 6px;
+}
+
+.dos-tile p {
+  font-size: 12px;
+  line-height: 1.75;
+  color: var(--ink-2);
+}
+
+.dos-note {
+  font-family: var(--mono);
+  font-size: 10px;
+  letter-spacing: 0.04em;
+  color: var(--ink-3);
+  margin-bottom: 22px;
+}
+
+/* ============ 案卷入口引导 ============ */
+.work[data-case] { cursor: pointer; }
+
+.work-open {
+  display: inline-block;
+  margin-top: 8px;
+  font-family: var(--mono);
+  font-size: 10px;
+  letter-spacing: 0.14em;
+  color: var(--ink-3);
+  border: 1px solid var(--hair);
+  padding: 3px 9px;
+  transition: background 0.18s, color 0.18s, border-color 0.18s, transform 0.18s;
+}
+
+.work:hover .work-open,
+.work:focus-visible .work-open {
+  background: var(--red);
+  border-color: var(--red);
+  color: var(--paper);
+  transform: translateX(3px);
+}
+
+.works-scribble {
+  position: absolute;
+  right: 10px;
+  top: 44px;
+  z-index: 3;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  font-family: "Long Cang", "Kaiti SC", cursive;
+  font-size: 26px;
+  line-height: 1.1;
+  color: var(--red);
+  pointer-events: none;
+  transform: rotate(-5deg);
+}
+
+.works-scribble svg { width: 44px; height: auto; margin: 2px 22px 0 0; }
+
+@media (prefers-reduced-motion: no-preference) {
+  .works-scribble.visible { animation: scribble-sway 2.4s ease-in-out 0.8s infinite alternate; }
+}
+
+@keyframes scribble-sway {
+  from { transform: rotate(-4deg); }
+  to   { transform: rotate(-8deg) translateY(2px); }
+}
+
+@media (max-width: 640px) {
+  .works-scribble { font-size: 20px; top: 52px; }
+  .works-scribble svg { width: 34px; }
+}
+
+/* ============ 电报局弹窗 ============ */
+.tele-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 320;
+  display: none;
+  background: rgba(22, 15, 8, 0.62);
+  padding: 16px;
+  overflow-y: auto;
+}
+
+.tele-overlay.open { display: flex; align-items: center; justify-content: center; }
+
+.tele-card {
+  position: relative;
+  width: min(500px, 94vw);
+  background:
+    radial-gradient(ellipse at 50% 0%, rgba(255, 248, 226, 0.55), transparent 60%),
+    var(--paper);
+  border: 2px solid var(--ink);
+  box-shadow:
+    inset 0 0 0 5px var(--paper),
+    inset 0 0 0 6px var(--ink-3),
+    0 24px 60px rgba(10, 6, 2, 0.55);
+  padding: 26px 30px 20px;
+  text-align: center;
+  animation: dossier-in 0.22s ease-out;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .tele-card { animation: none; }
+}
+
+.tele-line {
+  display: block;
+  font-family: var(--mono);
+  font-size: 9.5px;
+  letter-spacing: 0.22em;
+  color: var(--red);
+  margin-bottom: 8px;
+}
+
+.tele-title {
+  font-family: var(--serif-cn);
+  font-weight: 900;
+  font-size: 26px;
+  color: var(--ink);
+  margin-bottom: 10px;
+}
+
+.tele-close {
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  font-family: var(--mono);
+  font-size: 13px;
+  color: var(--ink-2);
+  background: none;
+  border: 1.5px solid var(--hair);
+  width: 30px;
+  height: 30px;
+  cursor: pointer;
+}
+
+.tele-close:hover, .tele-close:focus-visible { background: var(--red); border-color: var(--red); color: var(--paper); outline: none; }
+
+.tele-to { font-size: 13px; color: var(--ink-2); }
+.tele-to span {
+  display: block;
+  font-family: var(--mono);
+  font-size: 9.5px;
+  letter-spacing: 0.1em;
+  color: var(--ink-3);
+  margin-top: 4px;
+}
+
+.tele-code {
+  font-family: var(--mono);
+  font-size: clamp(15px, 3.6vw, 20px);
+  font-weight: 600;
+  color: var(--red);
+  border: 2px dashed var(--red);
+  padding: 14px 10px;
+  margin: 16px 0;
+  letter-spacing: 0.03em;
+  user-select: all;
+}
+
+.tele-actions { display: flex; flex-direction: column; gap: 9px; }
+
+.tele-btn {
+  font-family: var(--mono);
+  font-size: 12px;
+  letter-spacing: 0.08em;
+  border: 1.5px solid var(--ink);
+  background: none;
+  padding: 11px 10px;
+  cursor: pointer;
+  color: var(--ink);
+  text-decoration: none;
+  display: block;
+  transition: background 0.15s, color 0.15s, border-color 0.15s;
+}
+
+.tele-btn:hover, .tele-btn:focus-visible { background: var(--red); border-color: var(--red); color: var(--paper); outline: none; }
+
+.tele-copy.done, .tele-copy.done:hover { background: var(--ok); border-color: var(--ok); color: var(--paper); }
+
+.tele-foot {
+  margin-top: 16px;
+  font-size: 11.5px;
+  color: var(--ink-3);
+}

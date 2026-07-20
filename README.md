@@ -12,24 +12,33 @@
   - ◉ 死眼模式(按 `E`)—— 画面褪色,关键数据被逐个标记
   - ⚡ `/duel` 拔枪决斗小游戏,测反应毫秒数
 - **Claude Code 风格终端**:`✳ Welcome` 欢迎框、`/` 命令体系、Tab 补全、↑↓ 历史,支持自然语言问答
+- **真 · LLM 已上膛**:终端可接入 DeepSeek(SSE 流式输出),AI 副手还能**操作页面** —— 滚动高亮任意区块、开枪、发起决斗、切死眼模式;`/cost` 显示本次会话真实 token 花费。后端不在线时自动降级为本地脚本回答,站点永不"坏"
 
 ## ✦ 技术
 
-纯手写 `HTML + CSS + JavaScript`,无框架、无打包工具。字体来自 Google Fonts(Rye / IBM Plex Mono / Noto Serif SC / Long Cang)。
+前端纯手写 `HTML + CSS + JavaScript`,无框架、无打包工具。字体来自 Google Fonts(Rye / IBM Plex Mono / Noto Serif SC / Long Cang)。后端为零依赖 Node 单文件(可选)。
 
 ```
-index.html   结构与内容
-style.css    全部样式与动效
-main.js      交互逻辑(终端 / 死眼 / 开枪 / 拖拽 / 决斗)
+index.html               结构与内容
+style.css                全部样式与动效
+main.js                  交互逻辑(终端 / 死眼 / 开枪 / 拖拽 / 决斗 / LLM 接线)
+server/camp-terminal.mjs 可选后端:DeepSeek 中转 · 限流 · 熔断 · SSE(见 server/README.md)
 ```
 
 ## ✦ 本地预览
 
-任意静态服务器即可:
+纯静态模式(终端走本地脚本回答):
 
 ```bash
 python3 -m http.server 8899
 # 打开 http://localhost:8899
+```
+
+带真 LLM 模式(需 Node 18+ 与 DeepSeek API key):
+
+```bash
+DEEPSEEK_API_KEY=sk-xxx node server/camp-terminal.mjs
+# 打开 http://127.0.0.1:8787,部署上服务器的姿势见 server/README.md
 ```
 
 ## ✦ 联系

@@ -65,7 +65,7 @@
           <b>李</b><i>8分</i><u>中华邮政 · FULL-STACK MAIL</u>
         </div>
       </div>
-      <p class="poster-note">※ 布告栏提示:页面空白处可开枪(点击) · 按 [E] 进入死眼模式 · 贴画可以拖动 · FIG.5 有一台会说话的终端</p>
+      <p class="poster-note">※ 布告栏提示:页面空白处可开枪(点击) · 按 [E] 进入死眼模式 · 贴画可以拖动 · FIG.3 赏金卡内藏完整案卷 · FIG.5 有一台会说话的终端</p>
     </section>
 
     <!-- ============ 布告栏贴画 · 上 ============ -->
@@ -245,44 +245,61 @@
         <span class="mod-fig">FIG.3</span>
       </header>
 
+      <span class="works-scribble reveal" aria-hidden="true">每张都能翻开!<svg viewBox="0 0 60 50" xmlns="http://www.w3.org/2000/svg"><path d="M50,4 Q56,20 44,32 Q36,40 28,40" fill="none" stroke="#7E1D12" stroke-width="2.6" stroke-linecap="round"/><path d="M36,33 L27,41 L38,44" fill="none" stroke="#7E1D12" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+
       <div class="works">
-        <a class="work reveal" href="mailto:aspirelisi@gmail.com">
+        <a class="work reveal" href="#case-sdd" data-case="case-sdd">
           <span class="work-no">№1</span>
           <div class="work-body">
             <h3>AI SDD 研发工作流</h3>
             <p>Claude Code 规格驱动全链路 · 巡检 / 根因分析 Agent · 智能客服</p>
+            <span class="work-open">▸ 翻开案卷 · CASE FILE</span>
           </div>
           <span class="work-reward" data-mark>$300<i>%</i></span>
           <span class="work-stamp">CLAIMED</span>
         </a>
-        <a class="work reveal" href="mailto:aspirelisi@gmail.com">
+        <a class="work reveal" href="#case-webull" data-case="case-webull">
           <span class="work-no">№2</span>
           <div class="work-body">
             <h3>Webull 证券交易平台</h3>
             <p>账户合规 · 清算迁移 · 系统单元化 · 多端网关重构</p>
+            <span class="work-open">▸ 翻开案卷 · CASE FILE</span>
           </div>
           <span class="work-reward" data-mark>10M<i>+</i></span>
           <span class="work-stamp">CLAIMED</span>
         </a>
-        <a class="work reveal" href="https://www.nissan.com.cn/" target="_blank" rel="noopener">
+        <a class="work reveal" href="#case-nissan" data-case="case-nissan">
           <span class="work-no">№3</span>
           <div class="work-body">
             <h3>日产中国官网</h3>
-            <p>API / Admin / Web 全栈独立交付 · Next.js + Antd Pro</p>
+            <p>车型库 / 试驾预约 / CMS · Next.js + Java 全栈独立交付</p>
+            <span class="work-open">▸ 翻开案卷 · CASE FILE</span>
           </div>
           <span class="work-reward">NISSAN</span>
           <span class="work-stamp">CLAIMED</span>
         </a>
-        <a class="work reveal" href="mailto:aspirelisi@gmail.com">
+        <a class="work reveal" href="#case-tiger" data-case="case-tiger">
           <span class="work-no">№4</span>
           <div class="work-body">
             <h3>东南亚换电服务平台</h3>
             <p>骑手 / 商家 / 供应商一体化 · 全域架构迁移升级</p>
+            <span class="work-open">▸ 翻开案卷 · CASE FILE</span>
           </div>
           <span class="work-reward" data-mark>6→3<i>MO</i></span>
           <span class="work-stamp">CLAIMED</span>
         </a>
+        <a class="work reveal" href="#case-caohua" data-case="case-caohua">
+          <span class="work-no">№5</span>
+          <div class="work-body">
+            <h3>手游投放与广告监测系统</h3>
+            <p>30+ 媒体一体化投放 · 监测峰值 7000W PV · 归因 1→7 天 · DMP</p>
+            <span class="work-open">▸ 翻开案卷 · CASE FILE</span>
+          </div>
+          <span class="work-reward" data-mark>70M<i>PV</i></span>
+          <span class="work-stamp">CLAIMED</span>
+        </a>
       </div>
+      <p class="works-hint">※ 每张赏金卡都可点开完整案卷 — 背景 · 架构图 · 关键决策</p>
     </section>
 
     <!-- ============ 04 军械库 ============ -->
@@ -444,6 +461,510 @@
     </footer>
 
     <div class="endline">— END OF PROCLAMATION · 本布告由 CLAUDE CODE 印制 —</div>
+  </div>
+
+  <!-- ============ 电报局弹窗 ============ -->
+  <div class="tele-overlay" id="telegraph" role="dialog" aria-modal="true" aria-label="联系方式">
+    <div class="tele-card">
+      <span class="tele-line">✉ CAMP TELEGRAPH OFFICE · EST. 2018</span>
+      <h3 class="tele-title">营地电报局</h3>
+      <button class="tele-close" aria-label="关闭">✕</button>
+      <p class="tele-to">收报人:李斯 · LI SI — 全栈枪手<span>回电承诺:24 小时内 · 星期日照常营业</span></p>
+      <div class="tele-code">aspirelisi@gmail.com</div>
+      <div class="tele-actions">
+        <button class="tele-btn tele-copy" id="tele-copy" data-done="✓ 电报码已抄录 — 见字如面">⎘ 抄录电报码(复制邮箱)</button>
+        <a class="tele-btn" id="tele-mailto" href="mailto:aspirelisi@gmail.com">✉ 直接拍发电报(打开邮件)</a>
+        <button class="tele-btn" id="tele-term">◉ 先跟营地终端的 AI 副手聊聊</button>
+      </div>
+      <p class="tele-foot">— 对有意思的项目,枪随时上膛 —</p>
+    </div>
+  </div>
+
+  <!-- ============ 案卷浮层 ============ -->
+  <div class="dossier-overlay" id="dossier" role="dialog" aria-modal="true" aria-label="案卷详情">
+
+    <!-- №1 AI SDD -->
+    <article class="dossier" id="case-sdd">
+      <header class="dos-head">
+        <span class="dos-eyebrow">CASE FILE №1 · TIGER EV · 2024—2026</span>
+        <h3>AI SDD 研发工作流</h3>
+        <button class="dos-close" aria-label="合上案卷">✕ 合上案卷</button>
+      </header>
+      <dl class="dos-meta">
+        <div><dt>交付效率</dt><dd>+300%</dd></div>
+        <div><dt>生产可用率</dt><dd>99%</dd></div>
+        <div><dt>团队规模</dt><dd>15 人</dd></div>
+        <div><dt>新人上手</dt><dd>3 天</dd></div>
+      </dl>
+      <p class="dos-body">从零搭建基于 Claude Code 的 <b>SDD(规格驱动开发)</b>研发体系,覆盖需求 → spec → 编码 → 自动化测试 → 运维全链路。需求先由 <b>AI 生成模板化 spec</b>,工程师评审把关后才进入编码;spec 同时是自动化测试与交付验收的<b>基准</b>,归档进企业知识库经 MCP 反哺 AI 与新人。效率 <b>+300%</b> 经需求交付周期、迭代吞吐、交付频率与返工率多口径交叉度量。</p>
+      <figure class="dos-fig">
+        <svg viewBox="0 0 720 412" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="AI SDD 工作流:AI 生成 spec、人工评审闸门、spec 基准交付与运维 Agent 矩阵">
+          <!-- Row A:spec 流水线 -->
+          <g fill="none" stroke="#241A0E" stroke-width="2">
+            <rect x="30" y="16" width="120" height="46"/><rect x="180" y="16" width="160" height="46"/>
+          </g>
+          <rect x="370" y="16" width="180" height="46" fill="none" stroke="#7E1D12" stroke-width="2"/>
+          <g font-family="Noto Serif SC, serif" font-weight="900" font-size="13" text-anchor="middle">
+            <text x="90" y="38" fill="#241A0E">需求卷宗</text>
+            <text x="260" y="38" fill="#241A0E">AI 生成 SPEC</text>
+            <text x="460" y="38" fill="#7E1D12">工程师评审</text>
+          </g>
+          <g font-family="IBM Plex Mono, monospace" font-size="8" text-anchor="middle">
+            <text x="90" y="53" fill="#7E1D12">REQUIREMENT</text>
+            <text x="260" y="53" fill="#241A0E">模板化分节 · CLAUDE CODE 起草</text>
+            <text x="460" y="53" fill="#241A0E">质量闸门 · 缺项不准开工</text>
+          </g>
+          <g fill="#7E1D12" font-family="IBM Plex Mono, monospace" font-size="14" text-anchor="middle">
+            <text x="165" y="44">→</text><text x="355" y="44">→</text>
+          </g>
+          <path d="M460,16 Q360,2 262,15" fill="none" stroke="#7E1D12" stroke-width="1.3" stroke-dasharray="5 4"/>
+          <text x="360" y="10" font-family="IBM Plex Mono, monospace" font-size="7.5" fill="#7E1D12" text-anchor="middle">打回重写</text>
+          <text x="360" y="78" font-family="IBM Plex Mono, monospace" font-size="8" fill="#241A0E" text-anchor="middle">spec 分节:需求背景 / 技术方案 / 接口定义 / 测试用例</text>
+          <!-- 度量口径 -->
+          <rect x="580" y="16" width="120" height="120" fill="none" stroke="#241A0E" stroke-width="1.6" stroke-dasharray="6 4"/>
+          <text x="640" y="36" font-family="IBM Plex Mono, monospace" font-size="9" fill="#7E1D12" text-anchor="middle" letter-spacing="2">度量口径</text>
+          <g font-family="Noto Serif SC, serif" font-size="9.5" fill="#241A0E" text-anchor="middle">
+            <text x="640" y="56">需求交付周期对比</text>
+            <text x="640" y="72">迭代吞吐量</text>
+            <text x="640" y="88">交付频率 + 返工率</text>
+            <text x="640" y="104">典型案例实测</text>
+          </g>
+          <text x="640" y="126" font-family="IBM Plex Mono, monospace" font-size="10" fill="#7E1D12" text-anchor="middle">⇒ +300%</text>
+          <!-- 通过 → Row B -->
+          <line x1="460" y1="62" x2="200" y2="120" stroke="#241A0E" stroke-width="1.6"/>
+          <text x="315" y="98" font-family="IBM Plex Mono, monospace" font-size="8" fill="#241A0E" text-anchor="middle">评审通过</text>
+          <!-- Row B:交付流水线 -->
+          <g fill="none" stroke="#241A0E" stroke-width="2">
+            <rect x="110" y="122" width="170" height="46"/><rect x="310" y="122" width="180" height="46"/><rect x="520" y="122" width="130" height="46"/>
+          </g>
+          <g font-family="Noto Serif SC, serif" font-weight="900" font-size="13" fill="#241A0E" text-anchor="middle">
+            <text x="195" y="144">AI 编码</text><text x="400" y="144">自动化测试</text><text x="585" y="144">部署上线</text>
+          </g>
+          <g font-family="IBM Plex Mono, monospace" font-size="8" text-anchor="middle">
+            <text x="195" y="159" fill="#241A0E">CLAUDE CODE · SPEC 上下文</text>
+            <text x="400" y="159" fill="#7E1D12">以 SPEC 为验收基准</text>
+            <text x="585" y="159" fill="#241A0E">SHIP</text>
+          </g>
+          <g fill="#7E1D12" font-family="IBM Plex Mono, monospace" font-size="14" text-anchor="middle">
+            <text x="295" y="150">→</text><text x="505" y="150">→</text>
+          </g>
+          <!-- 线上反馈 → Agent 矩阵 -->
+          <line x1="585" y1="168" x2="500" y2="200" stroke="#7E1D12" stroke-width="1.4" stroke-dasharray="5 4"/>
+          <text x="590" y="192" font-family="IBM Plex Mono, monospace" font-size="8" fill="#7E1D12" text-anchor="middle">线上反馈</text>
+          <!-- Row C:运维 Agent 矩阵 -->
+          <rect x="30" y="200" width="540" height="118" fill="none" stroke="#7E1D12" stroke-width="2"/>
+          <text x="300" y="222" font-family="IBM Plex Mono, monospace" font-size="10" fill="#7E1D12" text-anchor="middle">运维 AGENT 矩阵 — LARK 生态 · CLAUDE CODE + MCP 驱动</text>
+          <line x1="46" y1="232" x2="554" y2="232" stroke="#241A0E" stroke-width="0.8" opacity="0.3"/>
+          <g fill="none" stroke="#241A0E" stroke-width="1.5">
+            <rect x="50" y="244" width="160" height="60"/><rect x="222" y="244" width="160" height="60"/><rect x="394" y="244" width="160" height="60"/>
+          </g>
+          <g font-family="Noto Serif SC, serif" font-weight="900" font-size="12" fill="#241A0E" text-anchor="middle">
+            <text x="130" y="264">日志巡检 Agent</text><text x="302" y="264">根因分析 Agent</text><text x="474" y="264">智能客服 Agent</text>
+          </g>
+          <g font-family="IBM Plex Mono, monospace" font-size="7.5" fill="#241A0E" text-anchor="middle">
+            <text x="130" y="280">定时巡检日志与监控</text><text x="302" y="280">告警触发 · 自动翻</text><text x="474" y="280">接企业知识库</text>
+            <text x="130" y="293">主动推送 LARK 告警</text><text x="302" y="293">日志 / 代码 / 最近发布</text><text x="474" y="293">工单与咨询处理</text>
+          </g>
+          <!-- 底座 -->
+          <line x1="300" y1="318" x2="300" y2="344" stroke="#241A0E" stroke-width="1.4" stroke-dasharray="4 3"/>
+          <rect x="30" y="346" width="660" height="52" fill="none" stroke="#241A0E" stroke-width="2" stroke-dasharray="7 4"/>
+          <text x="360" y="368" font-family="IBM Plex Mono, monospace" font-size="9.5" fill="#7E1D12" text-anchor="middle" letter-spacing="2">企业知识库 + MCP · KNOWLEDGE BASE</text>
+          <text x="360" y="386" font-family="IBM Plex Mono, monospace" font-size="9" fill="#241A0E" text-anchor="middle">评审过的 spec 归档为资产 · 业务上下文喂给 AI 与新人 — 新人 3 天独立开发</text>
+        </svg>
+        <figcaption>FIG.A — AI 产能用在生成,人的判断力用在把关;spec 是编码、测试与验收的同一基准</figcaption>
+      </figure>
+      <h4 class="dos-sub">关键决策</h4>
+      <ul class="dos-list">
+        <li><b>AI 写 spec,人守闸门</b>:需求先由 AI 生成模板化 spec(需求背景 / 技术方案 / 接口定义 / 测试用例分节,缺项不准开工),工程师评审通过才进入编码 — AI 的产能用在生成,人的判断力用在把关</li>
+        <li><b>spec 即验收标准</b>:编码与自动化测试都以 spec 为基准,交付物对着 spec 验收 — "做完了"有客观定义,返工率随之可控</li>
+        <li><b>+300% 有度量口径</b>:需求交付周期对比、迭代吞吐量、交付频率 + 返工率、典型案例实测,四条线交叉验证 — 不是拍脑袋的数字</li>
+        <li><b>运维 Agent 各司其职</b>:巡检 Agent 定时扫日志监控、主动推 Lark 告警;告警触发根因 Agent 自动翻日志、代码与最近发布,产出定位报告;客服 Agent 接知识库处理工单 — 全部 Claude Code + MCP 驱动</li>
+        <li><b>知识库是体系的地基</b>:评审过的 spec 归档进知识库,经 MCP 同时喂给 AI 和新人 — 3 天上手不是培训出来的,是体系带出来的</li>
+      </ul>
+      <p class="dos-role"><span>ROLE · 角色</span>研发经理 — 体系设计者与推行者,从 0 到 15 人团队全员落地</p>
+      <span class="dos-stamp">已归档</span>
+    </article>
+
+    <!-- №2 Webull -->
+    <article class="dossier" id="case-webull">
+      <header class="dos-head">
+        <span class="dos-eyebrow">CASE FILE №2 · WEBULL 全球研发总部 · 2020—2023</span>
+        <h3>千万级证券交易平台</h3>
+        <button class="dos-close" aria-label="合上案卷">✕ 合上案卷</button>
+      </header>
+      <dl class="dos-meta">
+        <div><dt>用户规模</dt><dd>10M+</dd></div>
+        <div><dt>运行要求</dt><dd>7×24</dd></div>
+        <div><dt>清算迁移</dt><dd>百万级</dd></div>
+        <div><dt>接入端</dt><dd>五端</dd></div>
+        <div><dt>现场勘验</dt><dd><a class="link" href="https://www.webull.com/" target="_blank" rel="noopener">webull.com ↗</a></dd></div>
+      </dl>
+      <p class="dos-body">北美证券交易平台(纳斯达克上市),核心开发。主导<b>账户系统开户 / 合规业务</b>:KYC 开户流程自动化、多品类交易权限分级、账户全生命周期状态机与风险管控;负责账单 / 盈亏 / 出入金 / 转仓;对接<b>内部自研清算体系</b>并完成百万级用户迁移,切换后的<b>新老账户路由 × 单元化路由为我设计</b>;参与系统单元化改造(多单元部署 + GZone 全局聚合 + 灰度单元)与 7.0 网关升级(整合五端接口);主导加拿大展业账户系统从 0 设计。</p>
+      <h4 class="dos-sub">主导的业务域</h4>
+      <div class="dos-grid">
+        <div class="dos-tile">
+          <span>ACCOUNT &amp; KYC · 账户合规</span>
+          <h5>开户与合规自动化</h5>
+          <p>KYC 证件校验与合规审核自动化;股票 / 期权 / 融资融券等多品类交易权限按风险等级分级开通;账户全生命周期状态机 + 异常交易与受限名单风险管控。</p>
+        </div>
+        <div class="dos-tile">
+          <span>CLEARING · 清算迁移</span>
+          <h5>百万级用户无感切换</h5>
+          <p>对接内部自研清算体系替代第三方,成本与可控性双收;执行三重保险:分批灰度切用户、新旧双轨并行对账、资金持仓逐户核对 — 一样不少。</p>
+        </div>
+        <div class="dos-tile">
+          <span>ROUTING · 路由设计</span>
+          <h5>新老账户 × 单元化复合路由</h5>
+          <p>切换清算后账户随之迁移 — 新老账户识别与路由,叠加单元化分片路由的复合设计出自我手,迁移全程用户无感知、交易不中断。</p>
+        </div>
+        <div class="dos-tile">
+          <span>LEDGER &amp; FUNDS · 资金账单</span>
+          <h5>千万级日终批处理</h5>
+          <p>每日账单与盈亏计算的大规模批处理;与清算 / 银行的日终对账体系,差异自动发现;ACH / 电汇多渠道出入金 + ACATS 转仓自动化。</p>
+        </div>
+        <div class="dos-tile">
+          <span>CANADA · 加拿大展业</span>
+          <h5>账户系统从 0 设计</h5>
+          <p>主导加拿大展业账户系统整体设计,处理多地区合规差异 — 把美国的经验复制成可变体的跨区域架构。</p>
+        </div>
+      </div>
+      <figure class="dos-fig">
+        <svg viewBox="0 0 720 424" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="系统单元化架构全景:GZone 全局聚合、同构单元、灰度单元与统一底座">
+          <!-- 五端流量 -->
+          <rect x="200" y="10" width="320" height="34" fill="none" stroke="#241A0E" stroke-width="2"/>
+          <text x="360" y="32" font-family="IBM Plex Mono, monospace" font-size="10.5" fill="#241A0E" text-anchor="middle">五端流量 — APP · WEB · DESKTOP · H5 · OPEN API</text>
+          <text x="360" y="60" font-family="IBM Plex Mono, monospace" font-size="14" fill="#7E1D12" text-anchor="middle">↓</text>
+          <!-- 网关 -->
+          <rect x="205" y="64" width="310" height="36" fill="none" stroke="#7E1D12" stroke-width="2"/>
+          <text x="360" y="87" font-family="Noto Serif SC, serif" font-weight="900" font-size="13.5" fill="#7E1D12" text-anchor="middle">7.0 统一网关 · 按用户分片路由</text>
+          <!-- 路由线:GZone / 单元 / 灰度 -->
+          <path d="M205,82 L105,82 L105,128" fill="none" stroke="#241A0E" stroke-width="1.6"/>
+          <text x="152" y="76" font-family="IBM Plex Mono, monospace" font-size="8.5" fill="#241A0E" text-anchor="middle">全局业务</text>
+          <line x1="330" y1="100" x2="300" y2="128" stroke="#241A0E" stroke-width="1.6"/>
+          <line x1="420" y1="100" x2="600" y2="134" stroke="#241A0E" stroke-width="1.6"/>
+          <path d="M515,82 L668,82 L668,246" fill="none" stroke="#7E1D12" stroke-width="1.4" stroke-dasharray="5 4"/>
+          <text x="596" y="76" font-family="IBM Plex Mono, monospace" font-size="8.5" fill="#7E1D12" text-anchor="middle">少量 · 指定用户</text>
+          <!-- GZone -->
+          <rect x="30" y="130" width="150" height="78" fill="none" stroke="#241A0E" stroke-width="2"/>
+          <text x="105" y="154" font-family="IBM Plex Mono, monospace" font-size="12" fill="#7E1D12" text-anchor="middle">GZONE</text>
+          <text x="105" y="172" font-family="Noto Serif SC, serif" font-weight="900" font-size="11.5" fill="#241A0E" text-anchor="middle">全局聚合业务</text>
+          <text x="105" y="190" font-family="IBM Plex Mono, monospace" font-size="8" fill="#241A0E" text-anchor="middle">跨单元汇总 · 全局视图</text>
+          <line x1="180" y1="180" x2="210" y2="180" stroke="#241A0E" stroke-width="1.4" stroke-dasharray="4 3"/>
+          <!-- UNIT-01:解剖视图 -->
+          <rect x="210" y="130" width="310" height="170" fill="none" stroke="#241A0E" stroke-width="2.5"/>
+          <text x="365" y="152" font-family="IBM Plex Mono, monospace" font-size="11" fill="#241A0E" text-anchor="middle">UNIT-01 — 完整微服务体系</text>
+          <line x1="225" y1="162" x2="505" y2="162" stroke="#241A0E" stroke-width="0.8" opacity="0.3"/>
+          <g fill="none" stroke="#241A0E" stroke-width="1.5">
+            <rect x="225" y="172" width="88" height="26"/><rect x="322" y="172" width="88" height="26"/><rect x="419" y="172" width="88" height="26"/>
+            <rect x="225" y="206" width="88" height="26"/><rect x="322" y="206" width="88" height="26"/><rect x="419" y="206" width="88" height="26"/>
+          </g>
+          <g font-family="Noto Serif SC, serif" font-weight="900" font-size="12" fill="#241A0E" text-anchor="middle">
+            <text x="269" y="190">行情</text><text x="366" y="190">交易</text><text x="463" y="190">账户</text>
+            <text x="269" y="224">风控</text><text x="366" y="224">出入金</text><text x="463" y="224">盈亏</text>
+          </g>
+          <text x="365" y="258" font-family="IBM Plex Mono, monospace" font-size="8.5" fill="#7E1D12" text-anchor="middle">每个服务多实例 · 弹性缩扩容 · TASK 智能调度</text>
+          <text x="365" y="276" font-family="IBM Plex Mono, monospace" font-size="8.5" fill="#241A0E" text-anchor="middle">可用区隔离 · 数据在单元内闭环</text>
+          <!-- UNIT-02…N:同构堆叠 -->
+          <rect x="566" y="130" width="134" height="86" fill="none" stroke="#241A0E" stroke-width="1" opacity="0.35"/>
+          <rect x="560" y="136" width="134" height="86" fill="none" stroke="#241A0E" stroke-width="2"/>
+          <text x="627" y="160" font-family="IBM Plex Mono, monospace" font-size="10.5" fill="#241A0E" text-anchor="middle">UNIT-02 … N</text>
+          <text x="627" y="180" font-family="Noto Serif SC, serif" font-weight="900" font-size="11.5" fill="#241A0E" text-anchor="middle">同构单元</text>
+          <text x="627" y="198" font-family="IBM Plex Mono, monospace" font-size="8" fill="#241A0E" text-anchor="middle">全套服务 + 数据</text>
+          <line x1="520" y1="180" x2="560" y2="180" stroke="#7E1D12" stroke-width="1.6" stroke-dasharray="5 4"/>
+          <text x="540" y="172" font-family="IBM Plex Mono, monospace" font-size="8" fill="#7E1D12" text-anchor="middle">异地灾备</text>
+          <!-- UNIT-G:灰度单元 -->
+          <rect x="560" y="248" width="140" height="86" fill="none" stroke="#241A0E" stroke-width="1.8" stroke-dasharray="7 4"/>
+          <text x="630" y="272" font-family="IBM Plex Mono, monospace" font-size="10.5" fill="#7E1D12" text-anchor="middle">UNIT-G · 灰度</text>
+          <text x="630" y="292" font-family="Noto Serif SC, serif" font-weight="900" font-size="11.5" fill="#241A0E" text-anchor="middle">低配机器 · 灰度 / 测试</text>
+          <text x="630" y="310" font-family="IBM Plex Mono, monospace" font-size="8" fill="#241A0E" text-anchor="middle">承接少量 + 指定用户</text>
+          <!-- 统一底座 -->
+          <rect x="30" y="356" width="660" height="54" fill="none" stroke="#241A0E" stroke-width="2"/>
+          <text x="360" y="378" font-family="IBM Plex Mono, monospace" font-size="9.5" fill="#7E1D12" text-anchor="middle" letter-spacing="2">单元底座 · UNIT BASE</text>
+          <text x="360" y="398" font-family="IBM Plex Mono, monospace" font-size="9" fill="#241A0E" text-anchor="middle">CONSUL 注册发现 · 统一缓存管理 · 统一日志 / ES 查询 · 服务监控告警 · 全链路追踪</text>
+        </svg>
+        <figcaption>FIG.B — 单元化全景:GZone 全局聚合 · 同构单元横向复制 · 灰度单元承接指定流量</figcaption>
+      </figure>
+      <h4 class="dos-sub">单元化 · 特点与优势</h4>
+      <div class="dos-grid">
+        <div class="dos-tile">
+          <span>BLAST RADIUS · 爆炸半径</span>
+          <h5>故障锁死在单元内</h5>
+          <p>单元级隔离让任何故障的影响面 = 1/N 个分片,"全站不可用"这类事故从架构机制上被消灭,而不是靠运气规避。</p>
+        </div>
+        <div class="dos-tile">
+          <span>SCALE-OUT · 线性扩展</span>
+          <h5>容量 = 单元数 × 单元容量</h5>
+          <p>用户翻倍,答案是复制一个同构单元,而不是把存量系统越堆越高 — 扩容动作标准化,不触碰已验证的架构。</p>
+        </div>
+        <div class="dos-tile">
+          <span>FAILOVER · 切流即容灾</span>
+          <h5>异地灾备 · 可用区隔离</h5>
+          <p>单元跨可用区部署、异地灾备,故障转移是一次路由切换而不是一场抢修 — 7×24 交易市场里灾难恢复以分钟计。</p>
+        </div>
+        <div class="dos-tile">
+          <span>CANARY · 真实拓扑灰度</span>
+          <h5>灰度单元承接指定流量</h5>
+          <p>低配单元路由少量与指定用户,新版本在真实生产架构与真实资金链路上验证 — 灰度结论可信,回切只需改路由。</p>
+        </div>
+        <div class="dos-tile">
+          <span>DATA LOCALITY · 数据闭环</span>
+          <h5>分片数据单元内自包含</h5>
+          <p>交易主链路在单元内闭环,不缴"分布式事务税";跨单元的聚合与全局视图统一收口到 GZone,一致性边界清晰。</p>
+        </div>
+        <div class="dos-tile">
+          <span>ELASTICITY · 弹性与成本</span>
+          <h5>容量可度量,成本可核算</h5>
+          <p>服务多实例 + 弹性缩扩容 + task 智能调度,容量按单元度量、按单元规划 — 大促加单元,平峰缩实例,成本跟着流量走。</p>
+        </div>
+      </div>
+      <p class="dos-note">※ 与蚂蚁 LDC、异地多活同属一个思想谱系 — 这里是它在证券交易场景下的工程化落地。</p>
+      <h4 class="dos-sub">关键决策</h4>
+      <ul class="dos-list">
+        <li><b>单元 = 一座完整的小交易所</b>:行情 / 交易 / 账户 / 风控 / 出入金 / 盈亏全套微服务在单元内闭环,每个服务多实例部署,弹性缩扩容 + task 智能调度,可用区隔离 + 异地灾备</li>
+        <li><b>GZone 收口全局业务</b>:跨单元的聚合与全局视图放在单元之上的 GZone,单元保持纯分片、互不感知 — 扩展是加单元,灾难是切单元</li>
+        <li><b>灰度跑在真实拓扑上</b>:专设低配灰度单元,路由少量流量与指定用户 — 新版本先在真实生产架构里烤,而不是在模拟环境里猜</li>
+        <li><b>底座平台化</b>:Consul 注册发现、统一缓存、日志 ES 查询、监控与全链路追踪是平台能力 — 复制单元不复制运维成本</li>
+        <li><b>清算迁移,三重保险 + 一张图纸</b>:对接内部自研清算体系替代第三方;分批灰度切用户、新旧双轨并行对账、资金持仓逐户核对;切换后的新老账户路由 × 单元化路由复合设计出自我手 — 百万级用户无感切换,交易不中断</li>
+      </ul>
+      <p class="dos-role"><span>ROLE · 角色</span>核心开发 — 账户 / 合规 / 清算域主导,新老账户与单元化复合路由设计者;单元化改造与网关升级参与者</p>
+      <span class="dos-stamp">已归档</span>
+    </article>
+
+    <!-- №3 日产官网 -->
+    <article class="dossier" id="case-nissan">
+      <header class="dos-head">
+        <span class="dos-eyebrow">CASE FILE №3 · 自由职业 · 2024</span>
+        <h3>日产中国官网 · 全栈独立交付</h3>
+        <button class="dos-close" aria-label="合上案卷">✕ 合上案卷</button>
+      </header>
+      <dl class="dos-meta">
+        <div><dt>交付端</dt><dd>三端</dd></div>
+        <div><dt>人力</dt><dd>1 人</dd></div>
+        <div><dt>技术栈</dt><dd>Next.js + Java</dd></div>
+        <div><dt>现场勘验</dt><dd><a class="link" href="https://www.nissan.com.cn/" target="_blank" rel="noopener">nissan.com.cn ↗</a></dd></div>
+      </dl>
+      <p class="dos-body">主导日产中国官网的<b>全栈开发与部署</b>:Web 官网(Next.js SSR,含车型库 / 经销商查询 / 预约试驾 / 资讯等模块)、Admin 内容管理后台(Antd Pro,车型 / 页面 / 素材运营可配置)、<b>Java API 服务</b>三端独立交付;历史数据自老站 CMS <b>清洗迁移</b>,含图片附件搬迁。大型车企官网,一个人从接口设计写到上线部署。</p>
+      <figure class="dos-fig">
+        <svg viewBox="0 0 720 286" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="日产官网架构:Next.js 官网、Antd Pro CMS、Java API 与老站数据迁移">
+          <g fill="none" stroke="#241A0E" stroke-width="2">
+            <rect x="70" y="16" width="270" height="66"/><rect x="390" y="16" width="270" height="66"/>
+          </g>
+          <g font-family="Noto Serif SC, serif" font-weight="900" font-size="14" fill="#241A0E" text-anchor="middle">
+            <text x="205" y="38">Web 官网</text><text x="525" y="38">Admin 后台</text>
+          </g>
+          <g font-family="IBM Plex Mono, monospace" font-size="8.5" text-anchor="middle">
+            <text x="205" y="54" fill="#7E1D12">NEXT.JS · SSR / SEO</text><text x="525" y="54" fill="#7E1D12">ANTD PRO · 内容管理 CMS</text>
+          </g>
+          <g font-family="Noto Serif SC, serif" font-size="9.5" fill="#241A0E" text-anchor="middle">
+            <text x="205" y="71">车型库 · 经销商 · 预约试驾 · 资讯</text><text x="525" y="71">车型 / 页面 / 素材 — 运营可配置</text>
+          </g>
+          <g stroke="#241A0E" stroke-width="1.6"><line x1="205" y1="82" x2="320" y2="116"/><line x1="525" y1="82" x2="410" y2="116"/></g>
+          <rect x="250" y="118" width="230" height="46" fill="none" stroke="#7E1D12" stroke-width="2"/>
+          <text x="365" y="138" font-family="Noto Serif SC, serif" font-weight="900" font-size="13.5" fill="#7E1D12" text-anchor="middle">API 服务 — JAVA</text>
+          <text x="365" y="155" font-family="IBM Plex Mono, monospace" font-size="8" fill="#241A0E" text-anchor="middle">接口 · 鉴权 · 业务逻辑</text>
+          <line x1="365" y1="164" x2="365" y2="190" stroke="#241A0E" stroke-width="1.6"/>
+          <rect x="270" y="192" width="190" height="36" fill="none" stroke="#241A0E" stroke-width="2"/>
+          <text x="365" y="215" font-family="IBM Plex Mono, monospace" font-size="10.5" fill="#241A0E" text-anchor="middle">DATABASE</text>
+          <rect x="40" y="118" width="160" height="56" fill="none" stroke="#241A0E" stroke-width="1.6" stroke-dasharray="6 4"/>
+          <text x="120" y="140" font-family="Noto Serif SC, serif" font-weight="900" font-size="11.5" fill="#241A0E" text-anchor="middle">老站 CMS</text>
+          <text x="120" y="158" font-family="IBM Plex Mono, monospace" font-size="7.5" fill="#241A0E" text-anchor="middle">历史数据 · 图片附件</text>
+          <path d="M120,174 Q160,215 268,212" fill="none" stroke="#7E1D12" stroke-width="1.4" stroke-dasharray="5 4"/>
+          <text x="168" y="200" font-family="IBM Plex Mono, monospace" font-size="8" fill="#7E1D12" text-anchor="middle">清洗 → 迁移</text>
+          <text x="365" y="266" font-family="IBM Plex Mono, monospace" font-size="9.5" fill="#7E1D12" text-anchor="middle">三端一人交付 — 从接口设计到上线部署 · 含历史数据迁移</text>
+        </svg>
+        <figcaption>FIG.C — 前端 Next.js 拿 SSR 红利,后端用回主武器 Java;Admin 即 CMS</figcaption>
+      </figure>
+      <h4 class="dos-sub">关键决策</h4>
+      <ul class="dos-list">
+        <li><b>前端 Next.js,后端 Java</b>:车企官网的命脉是 SEO 与首屏,SSR 两个都保;API 用回主武器 Java,稳定与工程质量优先 — 选型各取所长,不为时髦买单</li>
+        <li><b>Admin 即 CMS</b>:车型、页面、素材全部运营可配置,上线后加内容不需要动代码 — 交付的是内容系统,不是一次性页面</li>
+        <li><b>迁移先行</b>:历史数据从老站 CMS 导出、清洗、再导入,含图片附件搬迁 — 先摸清旧数据结构再设计新库,上线时才不会被旧数据"伏击"</li>
+      </ul>
+      <p class="dos-role"><span>ROLE · 角色</span>独立承接 — API / Admin / Web 全栈 + 部署 + 数据迁移,一个人是一支队伍</p>
+      <span class="dos-stamp">已归档</span>
+    </article>
+
+    <!-- №4 换电平台 -->
+    <article class="dossier" id="case-tiger">
+      <header class="dos-head">
+        <span class="dos-eyebrow">CASE FILE №4 · TIGER EV · 2024—2026</span>
+        <h3>东南亚换电服务平台</h3>
+        <button class="dos-close" aria-label="合上案卷">✕ 合上案卷</button>
+      </header>
+      <dl class="dos-meta">
+        <div><dt>迁移周期</dt><dd>6→3 月</dd></div>
+        <div><dt>重大事故</dt><dd>零</dd></div>
+        <div><dt>展业范围</dt><dd>东南亚多国</dd></div>
+        <div><dt>角色端</dt><dd>骑手·商家·供应商</dd></div>
+      </dl>
+      <p class="dos-body">新能源换电 / 电池租借平台,骑手、商家、供应商三端一体化,换电柜硬件经 <b>MQTT</b> 接入。网关之下 nginx 负载均衡打到<b>多节点统一后端服务</b>,配硬件同步服务与 task 调度节点;业务侧通过消息队列与内部 <b>Odoo</b> 系统异步通信;自建 Admin 实现<b>多租户管理与运营</b>。主导全域架构迁移:早期 Node 架构整体迁往 Java 生态,周期 6 个月压缩至 3 个月,业务不中断、零重大生产事故。</p>
+      <figure class="dos-fig">
+        <svg viewBox="0 0 720 500" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="换电平台架构示意:多节点统一后端、MQTT 硬件链路、Odoo 集成与多租户 Admin">
+          <!-- 客户端三端 + 硬件 -->
+          <g fill="none" stroke="#241A0E" stroke-width="2">
+            <rect x="40" y="12" width="130" height="36"/><rect x="185" y="12" width="130" height="36"/><rect x="330" y="12" width="130" height="36"/>
+          </g>
+          <g font-family="Noto Serif SC, serif" font-weight="900" font-size="13" fill="#241A0E" text-anchor="middle">
+            <text x="105" y="35">骑手 App</text><text x="250" y="35">商家端</text><text x="395" y="35">供应商端</text>
+          </g>
+          <rect x="540" y="12" width="150" height="36" fill="none" stroke="#241A0E" stroke-width="2"/>
+          <text x="615" y="28" font-family="Noto Serif SC, serif" font-weight="900" font-size="12" fill="#241A0E" text-anchor="middle">换电柜 · 电池硬件</text>
+          <text x="615" y="42" font-family="IBM Plex Mono, monospace" font-size="7.5" fill="#7E1D12" text-anchor="middle">IOT DEVICES</text>
+          <!-- 客户端 → 网关 -->
+          <g stroke="#241A0E" stroke-width="1.6">
+            <line x1="105" y1="48" x2="230" y2="80"/><line x1="250" y1="48" x2="280" y2="80"/><line x1="395" y1="48" x2="340" y2="80"/>
+          </g>
+          <rect x="170" y="82" width="250" height="34" fill="none" stroke="#7E1D12" stroke-width="2"/>
+          <text x="295" y="104" font-family="Noto Serif SC, serif" font-weight="900" font-size="13" fill="#7E1D12" text-anchor="middle">统一网关 GATEWAY</text>
+          <!-- 网关 → nginx → 后端集群 -->
+          <line x1="295" y1="116" x2="295" y2="142" stroke="#241A0E" stroke-width="1.6"/>
+          <rect x="195" y="144" width="200" height="32" fill="none" stroke="#241A0E" stroke-width="2"/>
+          <text x="295" y="165" font-family="IBM Plex Mono, monospace" font-size="10.5" fill="#241A0E" text-anchor="middle">NGINX 负载均衡</text>
+          <line x1="295" y1="176" x2="295" y2="202" stroke="#241A0E" stroke-width="1.6"/>
+          <!-- 统一后端服务(多节点堆叠) -->
+          <rect x="66" y="196" width="400" height="140" fill="none" stroke="#241A0E" stroke-width="1" opacity="0.35"/>
+          <rect x="60" y="202" width="400" height="140" fill="none" stroke="#241A0E" stroke-width="2.5"/>
+          <text x="260" y="226" font-family="IBM Plex Mono, monospace" font-size="11" fill="#241A0E" text-anchor="middle">统一后端服务 × N 节点 — JAVA 生态</text>
+          <line x1="78" y1="236" x2="442" y2="236" stroke="#241A0E" stroke-width="0.8" opacity="0.3"/>
+          <g fill="none" stroke="#241A0E" stroke-width="1.5">
+            <rect x="78" y="248" width="82" height="26"/><rect x="172" y="248" width="82" height="26"/>
+            <rect x="266" y="248" width="82" height="26"/><rect x="360" y="248" width="82" height="26"/>
+          </g>
+          <g font-family="Noto Serif SC, serif" font-weight="900" font-size="12" fill="#241A0E" text-anchor="middle">
+            <text x="119" y="266">换电</text><text x="213" y="266">电池租借</text><text x="307" y="266">计费</text><text x="401" y="266">风控</text>
+          </g>
+          <text x="260" y="300" font-family="IBM Plex Mono, monospace" font-size="8.5" fill="#7E1D12" text-anchor="middle">多节点水平扩展 · 自 NODE 架构绞杀式迁移而来(6→3 个月 · 零重大事故)</text>
+          <text x="260" y="318" font-family="IBM Plex Mono, monospace" font-size="8.5" fill="#241A0E" text-anchor="middle">MYSQL · REDIS</text>
+          <!-- 右列:MQTT / 硬件同步 / TASK 调度 / Admin -->
+          <line x1="615" y1="48" x2="615" y2="82" stroke="#7E1D12" stroke-width="1.6" stroke-dasharray="5 4"/>
+          <text x="638" y="68" font-family="IBM Plex Mono, monospace" font-size="8.5" fill="#7E1D12" text-anchor="middle">MQTT</text>
+          <rect x="540" y="84" width="150" height="32" fill="none" stroke="#241A0E" stroke-width="2"/>
+          <text x="615" y="105" font-family="IBM Plex Mono, monospace" font-size="10" fill="#241A0E" text-anchor="middle">MQTT 接入服务</text>
+          <line x1="615" y1="116" x2="615" y2="142" stroke="#241A0E" stroke-width="1.6"/>
+          <rect x="540" y="144" width="150" height="32" fill="none" stroke="#241A0E" stroke-width="2"/>
+          <text x="615" y="165" font-family="Noto Serif SC, serif" font-weight="900" font-size="11.5" fill="#241A0E" text-anchor="middle">硬件同步服务</text>
+          <line x1="540" y1="160" x2="460" y2="220" stroke="#241A0E" stroke-width="1.4"/>
+          <rect x="540" y="204" width="150" height="32" fill="none" stroke="#241A0E" stroke-width="2"/>
+          <text x="615" y="225" font-family="Noto Serif SC, serif" font-weight="900" font-size="11.5" fill="#241A0E" text-anchor="middle">TASK 调度节点</text>
+          <line x1="540" y1="220" x2="460" y2="250" stroke="#241A0E" stroke-width="1.4"/>
+          <rect x="540" y="264" width="150" height="48" fill="none" stroke="#7E1D12" stroke-width="2"/>
+          <text x="615" y="284" font-family="Noto Serif SC, serif" font-weight="900" font-size="11.5" fill="#7E1D12" text-anchor="middle">自建 Admin</text>
+          <text x="615" y="302" font-family="IBM Plex Mono, monospace" font-size="8" fill="#241A0E" text-anchor="middle">多租户管理 · 运营</text>
+          <line x1="540" y1="288" x2="460" y2="288" stroke="#241A0E" stroke-width="1.4"/>
+          <!-- 消息队列 → Odoo -->
+          <line x1="260" y1="342" x2="260" y2="376" stroke="#241A0E" stroke-width="1.6"/>
+          <rect x="60" y="378" width="400" height="34" fill="none" stroke="#241A0E" stroke-width="2"/>
+          <text x="260" y="400" font-family="IBM Plex Mono, monospace" font-size="10" fill="#241A0E" text-anchor="middle" letter-spacing="2">消息队列 · MESSAGE QUEUE</text>
+          <line x1="460" y1="395" x2="540" y2="395" stroke="#7E1D12" stroke-width="1.4" stroke-dasharray="5 4"/>
+          <text x="500" y="388" font-family="IBM Plex Mono, monospace" font-size="8" fill="#7E1D12" text-anchor="middle">异步通信</text>
+          <rect x="540" y="372" width="150" height="46" fill="none" stroke="#241A0E" stroke-width="2"/>
+          <text x="615" y="392" font-family="IBM Plex Mono, monospace" font-size="11" fill="#241A0E" text-anchor="middle">ODOO</text>
+          <text x="615" y="408" font-family="Noto Serif SC, serif" font-size="10" fill="#241A0E" text-anchor="middle">内部经营系统</text>
+          <!-- 底注 -->
+          <text x="360" y="452" font-family="IBM Plex Mono, monospace" font-size="9.5" fill="#7E1D12" text-anchor="middle">东南亚多国展业 — 一套平台 · 多租户运营</text>
+        </svg>
+        <figcaption>FIG.D — 多节点统一后端 + MQTT 硬件链路 + 消息队列对接 Odoo,自建 Admin 多租户运营</figcaption>
+      </figure>
+      <h4 class="dos-sub">关键决策</h4>
+      <ul class="dos-list">
+        <li><b>绞杀式而非大爆炸</b>:按业务域逐个迁移、新旧并行,业务全程在线 — "重写一切"在多国展业的生产系统上等于赌命;最终 6 个月周期压到 3 个月</li>
+        <li><b>硬件链路独立成环</b>:换电柜经 MQTT 接入,硬件同步服务收敛设备状态,task 调度节点跑批 — 设备侧的抖动与重连不打穿业务侧</li>
+        <li><b>业务与经营系统解耦</b>:与内部 Odoo 走消息队列异步通信,削峰、失败可重放,经营系统的节奏不拖累交易链路</li>
+        <li><b>自建 Admin 收口多租户</b>:多国多租户的管理与运营统一一个后台,租户隔离在平台层解决而不是散在各业务里</li>
+        <li><b>迁移与 AI SDD 双线并进</b>:用 Claude Code 工作流承担大量迁移编码,这是周期压半的底气(详见案卷 №1)</li>
+      </ul>
+      <p class="dos-role"><span>ROLE · 角色</span>研发经理 — 迁移方案制定与执行主导,15 人团队</p>
+      <span class="dos-stamp">已归档</span>
+    </article>
+
+    <!-- №5 草花互动 -->
+    <article class="dossier" id="case-caohua">
+      <header class="dos-head">
+        <span class="dos-eyebrow">CASE FILE №5 · 湖南草花互动 · 2018—2020</span>
+        <h3>手游投放与广告监测系统</h3>
+        <button class="dos-close" aria-label="合上案卷">✕ 合上案卷</button>
+      </header>
+      <dl class="dos-meta">
+        <div><dt>日均 PV</dt><dd>600W+</dd></div>
+        <div><dt>峰值 PV</dt><dd>7000W+</dd></div>
+        <div><dt>媒体对接</dt><dd>30+</dd></div>
+        <div><dt>归因存留</dt><dd>1→7 天</dd></div>
+        <div><dt>现场勘验</dt><dd><a class="link" href="https://www.caohua.com/" target="_blank" rel="noopener">caohua.com ↗</a></dd></div>
+      </dl>
+      <p class="dos-body">百万级手游平台的一体化投放系统,对接今日头条 / 广点通 / 百度 / UC 等 <b>30+ 媒体</b>。广告监测服务(曝光 / 点击 / 激活)日均 PV 600 万+、峰值 <b>7000 万+</b>,监测口毫秒级应答、重活全部经<b>消息队列异步消费</b>;点击归因库经 MongoDB 体系化改造,存留由 1 天扩展到 <b>7 天</b>;从零搭建 <b>DMP 自动化系统</b>,投放数据沉淀 Hadoop / Hive 数仓,形成投放 → 监测 → 归因 → 回传 → 调控的完整闭环。</p>
+      <figure class="dos-fig">
+        <svg viewBox="0 0 720 516" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="投放与广告监测系统架构:异步监测链路、冷热归因存储与 DMP 闭环">
+          <!-- 顶行:媒体 / 用户 -->
+          <rect x="30" y="14" width="300" height="46" fill="none" stroke="#241A0E" stroke-width="2"/>
+          <text x="180" y="34" font-family="Noto Serif SC, serif" font-weight="900" font-size="13" fill="#241A0E" text-anchor="middle">30+ 媒体平台</text>
+          <text x="180" y="51" font-family="IBM Plex Mono, monospace" font-size="8.5" fill="#7E1D12" text-anchor="middle">今日头条 · 广点通 · 百度 · UC …</text>
+          <rect x="440" y="14" width="250" height="46" fill="none" stroke="#241A0E" stroke-width="2"/>
+          <text x="565" y="34" font-family="Noto Serif SC, serif" font-weight="900" font-size="13" fill="#241A0E" text-anchor="middle">手游用户行为</text>
+          <text x="565" y="51" font-family="IBM Plex Mono, monospace" font-size="8.5" fill="#241A0E" text-anchor="middle">曝光 · 点击 · 激活</text>
+          <!-- 投放平台 -->
+          <line x1="140" y1="60" x2="140" y2="108" stroke="#241A0E" stroke-width="1.6"/>
+          <text x="165" y="90" font-family="IBM Plex Mono, monospace" font-size="8" fill="#241A0E" text-anchor="middle">投放 API</text>
+          <rect x="30" y="110" width="220" height="52" fill="none" stroke="#241A0E" stroke-width="2"/>
+          <text x="140" y="132" font-family="Noto Serif SC, serif" font-weight="900" font-size="13" fill="#241A0E" text-anchor="middle">一体化投放平台</text>
+          <text x="140" y="150" font-family="IBM Plex Mono, monospace" font-size="8" fill="#241A0E" text-anchor="middle">计划 · 创意 · 预算 · 30+ 媒体一键投放</text>
+          <!-- 监测链路 -->
+          <line x1="565" y1="60" x2="545" y2="94" stroke="#7E1D12" stroke-width="1.8"/>
+          <text x="628" y="82" font-family="IBM Plex Mono, monospace" font-size="8" fill="#7E1D12" text-anchor="middle">监测链接 · 峰值 7000W PV</text>
+          <rect x="400" y="96" width="290" height="44" fill="none" stroke="#7E1D12" stroke-width="2"/>
+          <text x="545" y="115" font-family="Noto Serif SC, serif" font-weight="900" font-size="13" fill="#7E1D12" text-anchor="middle">监测接收服务 × N</text>
+          <text x="545" y="132" font-family="IBM Plex Mono, monospace" font-size="8" fill="#241A0E" text-anchor="middle">毫秒级应答 · 只收不算 — 削峰第一道闸</text>
+          <line x1="545" y1="140" x2="545" y2="168" stroke="#241A0E" stroke-width="1.6"/>
+          <rect x="400" y="170" width="290" height="30" fill="none" stroke="#241A0E" stroke-width="2"/>
+          <text x="545" y="190" font-family="IBM Plex Mono, monospace" font-size="10" fill="#241A0E" text-anchor="middle" letter-spacing="2">消息队列 · ASYNC</text>
+          <line x1="545" y1="200" x2="545" y2="228" stroke="#241A0E" stroke-width="1.6"/>
+          <rect x="400" y="230" width="290" height="44" fill="none" stroke="#241A0E" stroke-width="2"/>
+          <text x="545" y="249" font-family="Noto Serif SC, serif" font-weight="900" font-size="13" fill="#241A0E" text-anchor="middle">异步消费 · 归因引擎</text>
+          <text x="545" y="266" font-family="IBM Plex Mono, monospace" font-size="8" fill="#241A0E" text-anchor="middle">解析 · 去重 · 点击归因匹配</text>
+          <!-- 转化回传 -->
+          <line x1="400" y1="252" x2="252" y2="252" stroke="#241A0E" stroke-width="1.6"/>
+          <rect x="30" y="230" width="220" height="44" fill="none" stroke="#241A0E" stroke-width="2"/>
+          <text x="140" y="249" font-family="Noto Serif SC, serif" font-weight="900" font-size="13" fill="#241A0E" text-anchor="middle">转化回传服务</text>
+          <text x="140" y="266" font-family="IBM Plex Mono, monospace" font-size="8" fill="#241A0E" text-anchor="middle">激活 / 付费 → 媒体 API · 驱动 oCPX</text>
+          <path d="M100,230 L100,166" fill="none" stroke="#7E1D12" stroke-width="1.4" stroke-dasharray="5 4"/>
+          <path d="M100,166 L100,60" fill="none" stroke="#7E1D12" stroke-width="1.4" stroke-dasharray="5 4"/>
+          <text x="76" y="200" font-family="IBM Plex Mono, monospace" font-size="8" fill="#7E1D12" text-anchor="middle">回传</text>
+          <!-- 冷热存储 -->
+          <line x1="480" y1="274" x2="400" y2="306" stroke="#241A0E" stroke-width="1.4"/>
+          <line x1="610" y1="274" x2="600" y2="306" stroke="#241A0E" stroke-width="1.4"/>
+          <rect x="290" y="308" width="190" height="66" fill="none" stroke="#241A0E" stroke-width="2"/>
+          <text x="385" y="328" font-family="Noto Serif SC, serif" font-weight="900" font-size="12.5" fill="#241A0E" text-anchor="middle">Redis · 热层</text>
+          <text x="385" y="346" font-family="IBM Plex Mono, monospace" font-size="7.5" fill="#241A0E" text-anchor="middle">近期点击索引 · 结构改造省内存</text>
+          <text x="385" y="362" font-family="IBM Plex Mono, monospace" font-size="7.5" fill="#241A0E" text-anchor="middle">大 KEY 拆分 · 过期策略</text>
+          <rect x="500" y="308" width="190" height="66" fill="none" stroke="#7E1D12" stroke-width="2"/>
+          <text x="595" y="326" font-family="Noto Serif SC, serif" font-weight="900" font-size="12.5" fill="#7E1D12" text-anchor="middle">MongoDB · 归因库</text>
+          <text x="595" y="343" font-family="IBM Plex Mono, monospace" font-size="7.5" fill="#241A0E" text-anchor="middle">分片集群 · 按天分集合 + TTL</text>
+          <text x="595" y="357" font-family="IBM Plex Mono, monospace" font-size="7.5" fill="#241A0E" text-anchor="middle">字段精简压缩 · 索引优化</text>
+          <text x="595" y="371" font-family="IBM Plex Mono, monospace" font-size="8" fill="#7E1D12" text-anchor="middle">存留 1 → 7 天</text>
+          <line x1="482" y1="341" x2="498" y2="341" stroke="#7E1D12" stroke-width="1.2" stroke-dasharray="4 3"/>
+          <!-- 数仓 + DMP -->
+          <line x1="480" y1="374" x2="420" y2="420" stroke="#241A0E" stroke-width="1.4"/>
+          <rect x="30" y="422" width="660" height="70" fill="none" stroke="#241A0E" stroke-width="2"/>
+          <line x1="250" y1="422" x2="250" y2="492" stroke="#241A0E" stroke-width="0.8" opacity="0.3"/>
+          <text x="140" y="450" font-family="IBM Plex Mono, monospace" font-size="10.5" fill="#241A0E" text-anchor="middle">HADOOP / HIVE</text>
+          <text x="140" y="470" font-family="Noto Serif SC, serif" font-size="10.5" fill="#241A0E" text-anchor="middle">投放数据仓库</text>
+          <text x="470" y="446" font-family="Noto Serif SC, serif" font-weight="900" font-size="13" fill="#7E1D12" text-anchor="middle">DMP 自动化系统(0 → 1)</text>
+          <text x="470" y="466" font-family="IBM Plex Mono, monospace" font-size="8.5" fill="#241A0E" text-anchor="middle">人群包构建与同步 · 自动化投放调控 · 效果报表分析</text>
+          <path d="M30,457 L14,457 L14,136 L28,136" fill="none" stroke="#7E1D12" stroke-width="1.4" stroke-dasharray="5 4"/>
+          <text x="14" y="290" font-family="IBM Plex Mono, monospace" font-size="8" fill="#7E1D12" text-anchor="middle" transform="rotate(-90 14 290)">策略反哺投放</text>
+        </svg>
+        <figcaption>FIG.E — 投放 → 监测 → 归因 → 回传 → 调控闭环:异步链路扛峰值,冷热分层存 7 天归因</figcaption>
+      </figure>
+      <h4 class="dos-sub">关键决策</h4>
+      <ul class="dos-list">
+        <li><b>只收不算,削峰第一道闸</b>:监测口毫秒级应答,解析 / 去重 / 归因全部甩给消息队列后的消费集群 — 7000W 峰值下监测链接永不超时,广告计费数据一条不丢</li>
+        <li><b>归因库四板斧,存留 1→7 天</b>:冷热分层(Redis 热索引 + MongoDB 冷库)、分片集群 + 索引优化、字段精简压缩、按天分集合 + TTL 滚动 — 同样的资源,归因窗口翻 7 倍,长转化周期游戏的投放效果从此可评估</li>
+        <li><b>Redis 只留热的</b>:点击明细整体迁往 MongoDB,Redis 经数据结构改造、大 key 拆分与过期策略治理,集群内存从告警线拉回安全水位</li>
+        <li><b>DMP 闭环而非报表工具</b>:数仓沉淀 → 人群包同步媒体 → 出价预算自动调控 → 转化回传驱动媒体 oCPX — 投放运营从人肉盯盘变成系统闭环</li>
+        <li><b>一套平台收口 30+ 媒体</b>:各家投放 / 监测 / 回传协议的差异在平台层统一适配,运营不用学 30 套后台</li>
+      </ul>
+      <p class="dos-role"><span>ROLE · 角色</span>核心程序员 — 监测与归因链路主力,DMP 从 0 到 1</p>
+      <span class="dos-stamp">已归档</span>
+    </article>
   </div>
 
   <!-- 底部状态栏 -->
