@@ -1,5 +1,11 @@
 const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
+/* ============ 营地终端后端地址 ============ */
+// '' = 同源(由 server/camp-terminal.mjs 或 nginx 反代提供 /api/chat);
+// 站点托管在别处(如 GitHub Pages)时,填后端完整地址,如 'https://api.example.com'。
+// 后端不可达时终端自动降级为本地脚本回答,页面不会坏。
+const CAMP_API = '';
+
 /* ============ 时钟 ============ */
 (function clock() {
   const el = document.getElementById('clock');
@@ -100,6 +106,35 @@ if ('IntersectionObserver' in window && !reduceMotion) {
     document.body.classList.add('shake');
   });
 })();
+
+/* ============ 页面动作:供终端 AI 副手调用 ============ */
+function fireShots(n) {
+  if (reduceMotion) return;
+  for (let i = 0; i < n; i++) {
+    setTimeout(() => {
+      const hole = document.createElement('span');
+      hole.className = 'bullet-hole';
+      hole.style.left = `${window.scrollX + 60 + Math.random() * (window.innerWidth - 120)}px`;
+      hole.style.top = `${window.scrollY + 80 + Math.random() * (window.innerHeight - 200)}px`;
+      hole.style.transform = `rotate(${Math.random() * 360}deg)`;
+      document.body.appendChild(hole);
+      setTimeout(() => hole.remove(), 30000);
+      document.body.classList.remove('shake');
+      void document.body.offsetWidth;
+      document.body.classList.add('shake');
+    }, i * 240);
+  }
+}
+
+function gotoSection(id) {
+  const el = /^(top|s[1-5])$/.test(id) ? document.getElementById(id) : null;
+  if (!el) return;
+  el.scrollIntoView({ behavior: reduceMotion ? 'auto' : 'smooth', block: 'start' });
+  el.classList.remove('mod-flash');
+  void el.offsetWidth;
+  el.classList.add('mod-flash');
+  setTimeout(() => el.classList.remove('mod-flash'), 2000);
+}
 
 /* ============ 死眼模式 ============ */
 const deadeye = (function () {
@@ -228,6 +263,9 @@ const deadeye = (function () {
     't-box'
   );
 
+  /* —— 会话状态:真实 token 消耗(后端回传) —— */
+  const usage = { in: 0, out: 0 };
+
   /* —— 数据 —— */
   const SLASH = {
     '/help': () =>
@@ -289,12 +327,20 @@ const deadeye = (function () {
         '  <a href="mailto:aspirelisi@gmail.com">aspirelisi@gmail.com</a>',
         '  <span class="t-dim">对有意思的项目,枪随时上膛。</span>',
       ].join('\n'),
-    '/cost': () =>
-      [
-        'Total cost:            <span class="t-gold">$0.00(本店免费)</span>',
+    '/cost': () => {
+      // deepseek-chat 参考牌价:¥2/M 输入 · ¥8/M 输出(改价了就改这两个数)
+      const est = (usage.in * 2 + usage.out * 8) / 1e6;
+      const live = usage.in + usage.out > 0;
+      return [
+        'Total cost:            ' + (live
+          ? `<span class="t-gold">≈ ¥${est.toFixed(4)}</span> <span class="t-dim">— 比一颗子弹便宜</span>`
+          : '<span class="t-gold">$0.00(本店免费)</span>'),
         'Total duration (wall): 你已停留 ' + Math.round(performance.now() / 1000) + 's',
-        'Token usage:           <span class="t-dim">∞ 诚意</span>',
-      ].join('\n'),
+        'Token usage:           ' + (live
+          ? `<span class="t-gold">${usage.in} in · ${usage.out} out</span>`
+          : '<span class="t-dim">∞ 诚意</span>'),
+      ].join('\n');
+    },
     '/model': () => '当前模型:<span class="t-claude">claude-gunslinger-5</span> <span class="t-dim">(西部特调,不支持切换)</span>',
     '/resume': () => '<span class="t-dim">resume.pdf 是二进制文件 — 完整版请发电报索取:</span><a href="mailto:aspirelisi@gmail.com">aspirelisi@gmail.com</a>',
   };
@@ -352,7 +398,7 @@ const deadeye = (function () {
   }
 
   /* —— 思考动画 —— */
-  function think(done) {
+  function spinner() {
     const verb = SPIN_VERBS[Math.floor(Math.random() * SPIN_VERBS.length)];
     const line = print(`<span class="t-claude">✳</span> <span class="t-dim">${verb}…</span>`);
     const frames = ['✳', '✶', '✷', '✸', '✷', '✶'];
@@ -361,17 +407,122 @@ const deadeye = (function () {
       i++;
       line.innerHTML = `<span class="t-claude">${frames[i % frames.length]}</span> <span class="t-dim">${verb}… <i>(${(i * 0.12).toFixed(1)}s)</i></span>`;
     }, 120);
-    setTimeout(() => {
-      clearInterval(iv);
-      line.remove();
-      done();
-    }, reduceMotion ? 10 : 700 + Math.random() * 800);
+    let stopped = false;
+    return {
+      stop() {
+        if (stopped) return;
+        stopped = true;
+        clearInterval(iv);
+        line.remove();
+      },
+    };
   }
 
-  function answer(q) {
+  function think(done) {
+    const spin = spinner();
+    setTimeout(() => { spin.stop(); done(); }, reduceMotion ? 10 : 700 + Math.random() * 800);
+  }
+
+  /* —— 本地脑:后端不在线时的降级回答 —— */
+  function localAnswer(q) {
     const hit = BRAIN.find((b) => b.re.test(q));
     const text = hit ? hit.a : FALLBACK[Math.floor(Math.random() * FALLBACK.length)];
     think(() => print(`<span class="t-claude">⏺</span> ${text}\n`));
+  }
+
+  /* —— 真 LLM 接线:SSE 流式问答 —— */
+  const CHAT_URL = CAMP_API + '/api/chat';
+  const chatLog = [];
+  let apiDown = false;
+
+  // LLM 输出协议:[gold]/[red]/[dim]/[claude] 高亮标记 + [action:*] 页面动作。
+  // 先转义再翻译标记 — 模型输出永远不直接进 innerHTML。
+  function renderCamp(raw) {
+    return esc(raw.replace(/\[action:[a-z]+(?::[a-z0-9]+)?\]/gi, '').trimEnd())
+      .replace(/\[(gold|red|dim|claude)\]/g, '<span class="t-$1">')
+      .replace(/\[\/(gold|red|dim|claude)\]/g, '</span>')
+      .replace(/aspirelisi@gmail\.com/g, '<a href="mailto:aspirelisi@gmail.com">aspirelisi@gmail.com</a>');
+  }
+
+  function runActions(raw) {
+    const seen = new Set();
+    for (const m of raw.matchAll(/\[action:([a-z]+)(?::([a-z0-9]+))?\]/gi)) {
+      const name = m[1].toLowerCase();
+      const arg = (m[2] || '').toLowerCase();
+      if (seen.has(name + arg)) continue;
+      seen.add(name + arg);
+      if (name === 'deadeye') deadeye.toggle();
+      else if (name === 'duel') startDuel();
+      else if (name === 'shoot') fireShots(2 + Math.floor(Math.random() * 3));
+      else if (name === 'goto') gotoSection(arg);
+    }
+  }
+
+  async function answer(q) {
+    if (apiDown) return localAnswer(q);
+    chatLog.push({ role: 'user', content: q });
+    const spin = spinner();
+
+    let resp = null;
+    try {
+      resp = await fetch(CHAT_URL, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ messages: chatLog.slice(-8) }),
+        signal: AbortSignal.timeout(45000),
+      });
+    } catch { /* 网络不通,下面统一处理 */ }
+
+    if (!resp || !resp.ok || !resp.body) {
+      spin.stop();
+      chatLog.pop();
+      if (resp && (resp.status === 429 || resp.status === 503)) {
+        const info = await resp.json().catch(() => null);
+        print(`<span class="t-red">⏺ ${esc(info?.message || '电报线路拥挤,稍后再试。')}</span>\n`);
+        return;
+      }
+      apiDown = true; // 后端不存在或不可达:本次会话直接走本地脑
+      return localAnswer(q);
+    }
+
+    const reader = resp.body.getReader();
+    const decoder = new TextDecoder();
+    let sse = '';
+    let text = '';
+    let line = null;
+    const flush = () => {
+      if (!line) { spin.stop(); line = print(''); }
+      line.innerHTML = `<span class="t-claude">⏺</span> ${renderCamp(text)}\n`;
+      out.scrollTop = out.scrollHeight;
+    };
+
+    try {
+      for (;;) {
+        const { done, value } = await reader.read();
+        if (done) break;
+        sse += decoder.decode(value, { stream: true });
+        let idx;
+        while ((idx = sse.indexOf('\n')) >= 0) {
+          const l = sse.slice(0, idx).trim();
+          sse = sse.slice(idx + 1);
+          if (!l.startsWith('data:')) continue;
+          const payload = l.slice(5).trim();
+          if (payload === '[DONE]') continue;
+          let msg;
+          try { msg = JSON.parse(payload); } catch { continue; }
+          if (msg.delta) { text += msg.delta; flush(); }
+          if (msg.usage) {
+            usage.in += msg.usage.prompt_tokens || 0;
+            usage.out += msg.usage.completion_tokens || 0;
+          }
+        }
+      }
+    } catch { /* 半路断流:保留已收到的部分 */ }
+
+    spin.stop();
+    if (!text) { chatLog.pop(); return localAnswer(q); }
+    chatLog.push({ role: 'assistant', content: text });
+    runActions(text);
   }
 
   /* —— 主循环 —— */

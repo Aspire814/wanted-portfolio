@@ -1247,3 +1247,12 @@ body.deadeye .sheet {
   * { transition-duration: 0.01ms !important; animation-duration: 0.01ms !important; }
   .t-draw { animation: none; }
 }
+
+/* ============ AI 副手动作:区块高亮 ============ */
+.mod-flash { animation: mod-flash 1.8s ease; }
+
+@keyframes mod-flash {
+  0%, 100% { box-shadow: none; }
+  20% { box-shadow: 0 0 0 3px var(--red), 0 0 46px rgba(126, 29, 18, 0.4); }
+  60% { box-shadow: 0 0 0 3px var(--red), 0 0 26px rgba(126, 29, 18, 0.25); }
+}

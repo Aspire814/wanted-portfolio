@@ -8,3 +8,7 @@ Thumbs.db
 # 依赖 / 构建产物(当前为纯静态站点,预留)
 node_modules/
 dist/
+
+# 密钥与本地环境
+.env
+server/.env
