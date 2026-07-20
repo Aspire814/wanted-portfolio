@@ -1410,8 +1410,8 @@ body.no-scroll { overflow: hidden; }
 
 .dos-stamp {
   position: absolute;
-  right: 46px;
-  top: 138px;
+  right: 44px;
+  bottom: 34px;
   font-family: var(--serif-cn);
   font-weight: 900;
   font-size: 20px;
