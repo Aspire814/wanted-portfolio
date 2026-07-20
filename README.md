@@ -16,14 +16,19 @@
 
 ## ✦ 技术
 
-前端纯手写 `HTML + CSS + JavaScript`,无框架、无打包工具。字体来自 Google Fonts(Rye / IBM Plex Mono / Noto Serif SC / Long Cang)。后端为零依赖 Node 单文件(可选)。
+前端纯手写 `HTML + CSS + JavaScript`,无框架、无打包工具。字体(Rye / IBM Plex Mono / Noto Serif SC / Long Cang)**自托管子集**,按页面实际字符裁剪(约 370KB),不依赖 Google Fonts — 国内外都完整显示。后端为零依赖 Node 单文件(可选)。
 
 ```
 index.html               结构与内容
 style.css                全部样式与动效
-main.js                  交互逻辑(终端 / 死眼 / 开枪 / 拖拽 / 决斗 / LLM 接线)
+main.js                  交互逻辑(终端 / 死眼 / 开枪 / 拖拽 / 决斗 / 案卷 / 电报局 / LLM 接线)
+fonts/                   自托管子集字体(生成产物,勿手改)
+tools/build-fonts.mjs    字体子集生成脚本 — index.html 文案变更后重跑一次
 server/camp-terminal.mjs 可选后端:DeepSeek 中转 · 限流 · 熔断 · SSE(见 server/README.md)
 ```
+
+> 文案改动后新增的汉字若不在子集里会退化为系统字体,重新生成即可:
+> `pip install fonttools brotli && node tools/build-fonts.mjs`
 
 ## ✦ 本地预览
 
@@ -40,6 +45,17 @@ python3 -m http.server 8899
 DEEPSEEK_API_KEY=sk-xxx node server/camp-terminal.mjs
 # 打开 http://127.0.0.1:8787,部署上服务器的姿势见 server/README.md
 ```
+
+## ✦ 部署
+
+**GitHub Pages(海外访问 / 简历外链)**:仓库 Settings → Pages → Source 选
+"Deploy from a branch" → `main` + `/ (root)` → Save,站点即上线于
+`https://<用户名>.github.io/wanted-portfolio/`。纯静态零构建,终端在无后端时
+自动降级为本地脚本回答。
+
+**自有服务器(国内主力入口 + 真 LLM 终端)**:见 [server/README.md](server/README.md) —
+nginx 托管静态 + 反代 `/api/chat`,同源零 CORS。GitHub Pages 版想连上后端,
+把 `main.js` 顶部 `CAMP_API` 填成后端地址,后端设置 `ALLOW_ORIGIN` 即可。
 
 ## ✦ 联系
 
