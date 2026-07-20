@@ -89,8 +89,8 @@ if ('IntersectionObserver' in window && !reduceMotion) {
   const holes = [];
 
   document.addEventListener('click', (e) => {
-    // 交互元素和贴画不吃子弹
-    if (e.target.closest('a, button, input, .term, .work, label, .paste')) return;
+    // 交互元素、贴画和案卷不吃子弹
+    if (e.target.closest('a, button, input, .term, .work, label, .paste, .dossier-overlay')) return;
 
     const hole = document.createElement('span');
     hole.className = 'bullet-hole';
@@ -194,6 +194,56 @@ const deadeye = (function () {
   );
 
   return { toggle };
+})();
+
+/* ============ 案卷浮层 ============ */
+const dossierBox = (function () {
+  const overlay = document.getElementById('dossier');
+  if (!overlay) return { open() {}, close() {} };
+  const cases = overlay.querySelectorAll('.dossier');
+  let opened = null;
+
+  function open(id) {
+    const el = document.getElementById(id);
+    if (!el || !el.classList.contains('dossier')) return;
+    cases.forEach((c) => c.classList.remove('active'));
+    el.classList.add('active');
+    overlay.classList.add('open');
+    overlay.scrollTop = 0;
+    document.body.classList.add('no-scroll');
+    opened = id;
+    history.replaceState(null, '', '#' + id);
+  }
+
+  function close() {
+    if (!opened) return;
+    overlay.classList.remove('open');
+    document.body.classList.remove('no-scroll');
+    opened = null;
+    history.replaceState(null, '', location.pathname + location.search);
+  }
+
+  document.querySelectorAll('[data-case]').forEach((card) =>
+    card.addEventListener('click', (e) => {
+      e.preventDefault();
+      open(card.dataset.case);
+    })
+  );
+
+  // 点浮层空白或"合上案卷"关闭;Esc 优先合案卷(capture 抢在死眼前面)
+  overlay.addEventListener('click', (e) => {
+    if (e.target === overlay || e.target.closest('.dos-close')) close();
+  });
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape' && opened) {
+      close();
+      e.stopPropagation();
+    }
+  }, true);
+
+  if (/^#case-/.test(location.hash)) open(location.hash.slice(1));
+
+  return { open, close };
 })();
 
 /* ============ 贴画拖拽 ============ */
@@ -355,6 +405,7 @@ const deadeye = (function () {
     { re: /(招聘|合作|入伙|offer|工作)/, a: '<span class="t-gold">档案显示:STATUS = OPEN TO WORK。</span>下一票大的还缺个军师?发电报:<a href="mailto:aspirelisi@gmail.com">aspirelisi@gmail.com</a>' },
     { re: /(你好|hello|hi|在吗|嗨)/i, a: '你好,陌生人。营地欢迎你。<span class="t-dim">输入 /help 看看能做什么,或者 /duel 来一场决斗。</span>' },
     { re: /(是谁|什么人|介绍)/, a: '通缉令上写着呢:李斯,人称 THE DEAD-EYE CODER。要完整档案就输 /whoami。' },
+    { re: /(案卷|详情|细节|架构图)/, a: 'FIG.3 布告栏上的四张赏金卡都能点开 — 里面是完整案卷:背景、架构图、关键决策。<span class="t-dim">建议从 №2 Webull 那张看起。</span>' },
     { re: /(飞盘|摄影|旅行|爱好)/, a: '卷宗备注:此人出没于旅行途中、取景框后,以及极限飞盘场上。<span class="t-dim">抓捕时请注意,他跑得很快。</span>' },
   ];
 
@@ -455,6 +506,7 @@ const deadeye = (function () {
       else if (name === 'duel') startDuel();
       else if (name === 'shoot') fireShots(2 + Math.floor(Math.random() * 3));
       else if (name === 'goto') gotoSection(arg);
+      else if (name === 'case') dossierBox.open('case-' + arg);
     }
   }
 
