@@ -246,6 +246,75 @@ const dossierBox = (function () {
   return { open, close };
 })();
 
+/* ============ 电报局:接管全站 mailto ============ */
+(function telegraph() {
+  const overlay = document.getElementById('telegraph');
+  if (!overlay) return;
+  const copyBtn = document.getElementById('tele-copy');
+  const copyLabel = copyBtn.textContent;
+  const EMAIL = 'aspirelisi@gmail.com';
+  let opened = false;
+
+  function show() {
+    overlay.classList.add('open');
+    document.body.classList.add('no-scroll');
+    opened = true;
+  }
+  function hide() {
+    overlay.classList.remove('open');
+    document.body.classList.remove('no-scroll');
+    opened = false;
+  }
+
+  // 全站 mailto 链接统一进电报局(弹窗内的"直接拍发"除外)
+  document.addEventListener('click', (e) => {
+    const a = e.target.closest('a[href^="mailto:"]');
+    if (!a || a.closest('.tele-card')) return;
+    e.preventDefault();
+    show();
+  });
+
+  overlay.addEventListener('click', (e) => {
+    if (e.target === overlay || e.target.closest('.tele-close')) hide();
+  });
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape' && opened) {
+      hide();
+      e.stopPropagation();
+    }
+  }, true);
+
+  copyBtn.addEventListener('click', async () => {
+    let ok = false;
+    try {
+      await navigator.clipboard.writeText(EMAIL);
+      ok = true;
+    } catch {
+      const t = document.createElement('textarea');
+      t.value = EMAIL;
+      t.style.position = 'fixed';
+      t.style.opacity = '0';
+      document.body.appendChild(t);
+      t.select();
+      try { ok = document.execCommand('copy'); } catch { /* 剪贴板不可用 */ }
+      t.remove();
+    }
+    if (!ok) return;
+    copyBtn.textContent = copyBtn.dataset.done;
+    copyBtn.classList.add('done');
+    setTimeout(() => {
+      copyBtn.textContent = copyLabel;
+      copyBtn.classList.remove('done');
+    }, 2200);
+  });
+
+  document.getElementById('tele-term').addEventListener('click', () => {
+    hide();
+    gotoSection('s5');
+    setTimeout(() => document.getElementById('term-input')?.focus({ preventScroll: true }), 700);
+  });
+})();
+
 /* ============ 贴画拖拽 ============ */
 (function dragPaste() {
   let zTop = 90;
