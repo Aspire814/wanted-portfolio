@@ -272,7 +272,7 @@
           <span class="work-no">№3</span>
           <div class="work-body">
             <h3>日产中国官网</h3>
-            <p>API / Admin / Web 全栈独立交付 · Next.js + Antd Pro</p>
+            <p>车型库 / 试驾预约 / CMS · Next.js + Java 全栈独立交付</p>
             <span class="work-open">▸ 翻开案卷 · CASE FILE</span>
           </div>
           <span class="work-reward">NISSAN</span>
@@ -479,39 +479,90 @@
         <div><dt>团队规模</dt><dd>15 人</dd></div>
         <div><dt>新人上手</dt><dd>3 天</dd></div>
       </dl>
-      <p class="dos-body">从零搭建基于 Claude Code 的 <b>SDD(规格驱动开发)</b>研发体系,覆盖需求 → 设计 → 编码 → 自动化测试 → 运维全链路。AI 产出的代码不直接进主干 — 全部经由 spec 评审把控质量;企业知识库 + MCP 接入让新成员 3 天即可独立开发业务。</p>
+      <p class="dos-body">从零搭建基于 Claude Code 的 <b>SDD(规格驱动开发)</b>研发体系,覆盖需求 → spec → 编码 → 自动化测试 → 运维全链路。需求先由 <b>AI 生成模板化 spec</b>,工程师评审把关后才进入编码;spec 同时是自动化测试与交付验收的<b>基准</b>,归档进企业知识库经 MCP 反哺 AI 与新人。效率 <b>+300%</b> 经需求交付周期、迭代吞吐、交付频率与返工率多口径交叉度量。</p>
       <figure class="dos-fig">
-        <svg viewBox="0 0 720 252" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="AI SDD 工作流架构示意">
+        <svg viewBox="0 0 720 412" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="AI SDD 工作流:AI 生成 spec、人工评审闸门、spec 基准交付与运维 Agent 矩阵">
+          <!-- Row A:spec 流水线 -->
           <g fill="none" stroke="#241A0E" stroke-width="2">
-            <rect x="14" y="38" width="118" height="46"/><rect x="158" y="38" width="118" height="46"/>
-            <rect x="302" y="38" width="118" height="46"/><rect x="446" y="38" width="118" height="46"/>
-            <rect x="590" y="38" width="118" height="46"/>
+            <rect x="30" y="16" width="120" height="46"/><rect x="180" y="16" width="160" height="46"/>
           </g>
-          <g font-family="Noto Serif SC, serif" font-weight="900" font-size="14" fill="#241A0E" text-anchor="middle">
-            <text x="73" y="58">需求卷宗</text><text x="217" y="58">SPEC 评审</text>
-            <text x="361" y="58">AI 编码</text><text x="505" y="58">自动化测试</text><text x="649" y="58">部署上线</text>
+          <rect x="370" y="16" width="180" height="46" fill="none" stroke="#7E1D12" stroke-width="2"/>
+          <g font-family="Noto Serif SC, serif" font-weight="900" font-size="13" text-anchor="middle">
+            <text x="90" y="38" fill="#241A0E">需求卷宗</text>
+            <text x="260" y="38" fill="#241A0E">AI 生成 SPEC</text>
+            <text x="460" y="38" fill="#7E1D12">工程师评审</text>
           </g>
-          <g font-family="IBM Plex Mono, monospace" font-size="9" fill="#7E1D12" text-anchor="middle">
-            <text x="73" y="74">REQUIREMENT</text><text x="217" y="74">质量闸门</text>
-            <text x="361" y="74">CLAUDE CODE</text><text x="505" y="74">CI GATE</text><text x="649" y="74">SHIP</text>
+          <g font-family="IBM Plex Mono, monospace" font-size="8" text-anchor="middle">
+            <text x="90" y="53" fill="#7E1D12">REQUIREMENT</text>
+            <text x="260" y="53" fill="#241A0E">模板化分节 · CLAUDE CODE 起草</text>
+            <text x="460" y="53" fill="#241A0E">质量闸门 · 缺项不准开工</text>
           </g>
           <g fill="#7E1D12" font-family="IBM Plex Mono, monospace" font-size="14" text-anchor="middle">
-            <text x="145" y="66">→</text><text x="289" y="66">→</text><text x="433" y="66">→</text><text x="577" y="66">→</text>
+            <text x="165" y="44">→</text><text x="355" y="44">→</text>
           </g>
-          <path d="M649,84 L649,124 L440,124" fill="none" stroke="#7E1D12" stroke-width="1.6" stroke-dasharray="5 4"/>
-          <rect x="160" y="106" width="280" height="52" fill="none" stroke="#7E1D12" stroke-width="2"/>
-          <text x="300" y="128" font-family="Noto Serif SC, serif" font-weight="900" font-size="13" fill="#7E1D12" text-anchor="middle">运维 Agent 矩阵(Lark 生态)</text>
-          <text x="300" y="146" font-family="IBM Plex Mono, monospace" font-size="9.5" fill="#241A0E" text-anchor="middle">日志巡检 · Bug 根因分析 · 智能客服</text>
-          <rect x="14" y="188" width="694" height="40" fill="none" stroke="#241A0E" stroke-width="2" stroke-dasharray="7 4"/>
-          <text x="361" y="212" font-family="IBM Plex Mono, monospace" font-size="10.5" fill="#241A0E" text-anchor="middle">底座:企业知识库 + MCP — 新人 3 天独立开发 · spec 沉淀为团队资产</text>
+          <path d="M460,16 Q360,2 262,15" fill="none" stroke="#7E1D12" stroke-width="1.3" stroke-dasharray="5 4"/>
+          <text x="360" y="10" font-family="IBM Plex Mono, monospace" font-size="7.5" fill="#7E1D12" text-anchor="middle">打回重写</text>
+          <text x="360" y="78" font-family="IBM Plex Mono, monospace" font-size="8" fill="#241A0E" text-anchor="middle">spec 分节:需求背景 / 技术方案 / 接口定义 / 测试用例</text>
+          <!-- 度量口径 -->
+          <rect x="580" y="16" width="120" height="120" fill="none" stroke="#241A0E" stroke-width="1.6" stroke-dasharray="6 4"/>
+          <text x="640" y="36" font-family="IBM Plex Mono, monospace" font-size="9" fill="#7E1D12" text-anchor="middle" letter-spacing="2">度量口径</text>
+          <g font-family="Noto Serif SC, serif" font-size="9.5" fill="#241A0E" text-anchor="middle">
+            <text x="640" y="56">需求交付周期对比</text>
+            <text x="640" y="72">迭代吞吐量</text>
+            <text x="640" y="88">交付频率 + 返工率</text>
+            <text x="640" y="104">典型案例实测</text>
+          </g>
+          <text x="640" y="126" font-family="IBM Plex Mono, monospace" font-size="10" fill="#7E1D12" text-anchor="middle">⇒ +300%</text>
+          <!-- 通过 → Row B -->
+          <line x1="460" y1="62" x2="200" y2="120" stroke="#241A0E" stroke-width="1.6"/>
+          <text x="315" y="98" font-family="IBM Plex Mono, monospace" font-size="8" fill="#241A0E" text-anchor="middle">评审通过</text>
+          <!-- Row B:交付流水线 -->
+          <g fill="none" stroke="#241A0E" stroke-width="2">
+            <rect x="110" y="122" width="170" height="46"/><rect x="310" y="122" width="180" height="46"/><rect x="520" y="122" width="130" height="46"/>
+          </g>
+          <g font-family="Noto Serif SC, serif" font-weight="900" font-size="13" fill="#241A0E" text-anchor="middle">
+            <text x="195" y="144">AI 编码</text><text x="400" y="144">自动化测试</text><text x="585" y="144">部署上线</text>
+          </g>
+          <g font-family="IBM Plex Mono, monospace" font-size="8" text-anchor="middle">
+            <text x="195" y="159" fill="#241A0E">CLAUDE CODE · SPEC 上下文</text>
+            <text x="400" y="159" fill="#7E1D12">以 SPEC 为验收基准</text>
+            <text x="585" y="159" fill="#241A0E">SHIP</text>
+          </g>
+          <g fill="#7E1D12" font-family="IBM Plex Mono, monospace" font-size="14" text-anchor="middle">
+            <text x="295" y="150">→</text><text x="505" y="150">→</text>
+          </g>
+          <!-- 线上反馈 → Agent 矩阵 -->
+          <line x1="585" y1="168" x2="500" y2="200" stroke="#7E1D12" stroke-width="1.4" stroke-dasharray="5 4"/>
+          <text x="590" y="192" font-family="IBM Plex Mono, monospace" font-size="8" fill="#7E1D12" text-anchor="middle">线上反馈</text>
+          <!-- Row C:运维 Agent 矩阵 -->
+          <rect x="30" y="200" width="540" height="118" fill="none" stroke="#7E1D12" stroke-width="2"/>
+          <text x="300" y="222" font-family="IBM Plex Mono, monospace" font-size="10" fill="#7E1D12" text-anchor="middle">运维 AGENT 矩阵 — LARK 生态 · CLAUDE CODE + MCP 驱动</text>
+          <line x1="46" y1="232" x2="554" y2="232" stroke="#241A0E" stroke-width="0.8" opacity="0.3"/>
+          <g fill="none" stroke="#241A0E" stroke-width="1.5">
+            <rect x="50" y="244" width="160" height="60"/><rect x="222" y="244" width="160" height="60"/><rect x="394" y="244" width="160" height="60"/>
+          </g>
+          <g font-family="Noto Serif SC, serif" font-weight="900" font-size="12" fill="#241A0E" text-anchor="middle">
+            <text x="130" y="264">日志巡检 Agent</text><text x="302" y="264">根因分析 Agent</text><text x="474" y="264">智能客服 Agent</text>
+          </g>
+          <g font-family="IBM Plex Mono, monospace" font-size="7.5" fill="#241A0E" text-anchor="middle">
+            <text x="130" y="280">定时巡检日志与监控</text><text x="302" y="280">告警触发 · 自动翻</text><text x="474" y="280">接企业知识库</text>
+            <text x="130" y="293">主动推送 LARK 告警</text><text x="302" y="293">日志 / 代码 / 最近发布</text><text x="474" y="293">工单与咨询处理</text>
+          </g>
+          <!-- 底座 -->
+          <line x1="300" y1="318" x2="300" y2="344" stroke="#241A0E" stroke-width="1.4" stroke-dasharray="4 3"/>
+          <rect x="30" y="346" width="660" height="52" fill="none" stroke="#241A0E" stroke-width="2" stroke-dasharray="7 4"/>
+          <text x="360" y="368" font-family="IBM Plex Mono, monospace" font-size="9.5" fill="#7E1D12" text-anchor="middle" letter-spacing="2">企业知识库 + MCP · KNOWLEDGE BASE</text>
+          <text x="360" y="386" font-family="IBM Plex Mono, monospace" font-size="9" fill="#241A0E" text-anchor="middle">评审过的 spec 归档为资产 · 业务上下文喂给 AI 与新人 — 新人 3 天独立开发</text>
         </svg>
-        <figcaption>FIG.A — 规格驱动全链路,AI 编码前后各设一道质量闸门</figcaption>
+        <figcaption>FIG.A — AI 产能用在生成,人的判断力用在把关;spec 是编码、测试与验收的同一基准</figcaption>
       </figure>
       <h4 class="dos-sub">关键决策</h4>
       <ul class="dos-list">
-        <li><b>spec 先行</b>:AI 写代码之前先过规格评审,把控质量的是流程而不是运气 — 这是效率 +300% 还能保住 99% 可用率的原因</li>
-        <li><b>运维也 AI 化</b>:日志巡检、Bug 根因分析做成 Lark 生态的 Agent 矩阵,告警到定位不再依赖人肉翻日志</li>
-        <li><b>知识库即入职流程</b>:业务知识沉淀进知识库并通过 MCP 喂给 AI,新人 3 天上手,团队不再受"老人依赖"绑架</li>
+        <li><b>AI 写 spec,人守闸门</b>:需求先由 AI 生成模板化 spec(需求背景 / 技术方案 / 接口定义 / 测试用例分节,缺项不准开工),工程师评审通过才进入编码 — AI 的产能用在生成,人的判断力用在把关</li>
+        <li><b>spec 即验收标准</b>:编码与自动化测试都以 spec 为基准,交付物对着 spec 验收 — "做完了"有客观定义,返工率随之可控</li>
+        <li><b>+300% 有度量口径</b>:需求交付周期对比、迭代吞吐量、交付频率 + 返工率、典型案例实测,四条线交叉验证 — 不是拍脑袋的数字</li>
+        <li><b>运维 Agent 各司其职</b>:巡检 Agent 定时扫日志监控、主动推 Lark 告警;告警触发根因 Agent 自动翻日志、代码与最近发布,产出定位报告;客服 Agent 接知识库处理工单 — 全部 Claude Code + MCP 驱动</li>
+        <li><b>知识库是体系的地基</b>:评审过的 spec 归档进知识库,经 MCP 同时喂给 AI 和新人 — 3 天上手不是培训出来的,是体系带出来的</li>
       </ul>
       <p class="dos-role"><span>ROLE · 角色</span>研发经理 — 体系设计者与推行者,从 0 到 15 人团队全员落地</p>
       <span class="dos-stamp">已归档</span>
@@ -643,39 +694,45 @@
       <dl class="dos-meta">
         <div><dt>交付端</dt><dd>三端</dd></div>
         <div><dt>人力</dt><dd>1 人</dd></div>
-        <div><dt>技术栈</dt><dd>Next.js</dd></div>
+        <div><dt>技术栈</dt><dd>Next.js + Java</dd></div>
         <div><dt>现场勘验</dt><dd><a class="link" href="https://www.nissan.com.cn/" target="_blank" rel="noopener">nissan.com.cn ↗</a></dd></div>
       </dl>
-      <p class="dos-body">主导日产中国官网的<b>全栈开发与部署</b>:Web 官网(Next.js)、Admin 管理后台(Antd Pro)、API 服务三端独立交付,并完成历史数据迁移。大型车企官网,一个人从接口设计写到上线部署。</p>
+      <p class="dos-body">主导日产中国官网的<b>全栈开发与部署</b>:Web 官网(Next.js SSR,含车型库 / 经销商查询 / 预约试驾 / 资讯等模块)、Admin 内容管理后台(Antd Pro,车型 / 页面 / 素材运营可配置)、<b>Java API 服务</b>三端独立交付;历史数据自老站 CMS <b>清洗迁移</b>,含图片附件搬迁。大型车企官网,一个人从接口设计写到上线部署。</p>
       <figure class="dos-fig">
-        <svg viewBox="0 0 720 222" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="日产官网三端架构示意">
+        <svg viewBox="0 0 720 286" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="日产官网架构:Next.js 官网、Antd Pro CMS、Java API 与老站数据迁移">
           <g fill="none" stroke="#241A0E" stroke-width="2">
-            <rect x="130" y="20" width="200" height="48"/><rect x="400" y="20" width="200" height="48"/>
+            <rect x="70" y="16" width="270" height="66"/><rect x="390" y="16" width="270" height="66"/>
           </g>
           <g font-family="Noto Serif SC, serif" font-weight="900" font-size="14" fill="#241A0E" text-anchor="middle">
-            <text x="230" y="42">Web 官网</text><text x="500" y="42">Admin 后台</text>
+            <text x="205" y="38">Web 官网</text><text x="525" y="38">Admin 后台</text>
           </g>
-          <g font-family="IBM Plex Mono, monospace" font-size="9.5" fill="#7E1D12" text-anchor="middle">
-            <text x="230" y="58">NEXT.JS · SSR/SEO</text><text x="500" y="58">ANTD PRO</text>
+          <g font-family="IBM Plex Mono, monospace" font-size="8.5" text-anchor="middle">
+            <text x="205" y="54" fill="#7E1D12">NEXT.JS · SSR / SEO</text><text x="525" y="54" fill="#7E1D12">ANTD PRO · 内容管理 CMS</text>
           </g>
-          <g stroke="#241A0E" stroke-width="1.6"><line x1="230" y1="68" x2="330" y2="102"/><line x1="500" y1="68" x2="400" y2="102"/></g>
-          <rect x="250" y="104" width="220" height="42" fill="none" stroke="#7E1D12" stroke-width="2"/>
-          <text x="360" y="130" font-family="Noto Serif SC, serif" font-weight="900" font-size="14" fill="#7E1D12" text-anchor="middle">API 服务</text>
-          <line x1="360" y1="146" x2="360" y2="172" stroke="#241A0E" stroke-width="1.6"/>
-          <rect x="270" y="174" width="180" height="34" fill="none" stroke="#241A0E" stroke-width="2"/>
-          <text x="360" y="196" font-family="IBM Plex Mono, monospace" font-size="10.5" fill="#241A0E" text-anchor="middle">DATABASE</text>
-          <rect x="40" y="110" width="150" height="42" fill="none" stroke="#241A0E" stroke-width="1.6" stroke-dasharray="6 4"/>
-          <text x="115" y="128" font-family="Noto Serif SC, serif" font-size="11.5" fill="#241A0E" text-anchor="middle">历史站点数据</text>
-          <text x="115" y="144" font-family="IBM Plex Mono, monospace" font-size="9" fill="#7E1D12" text-anchor="middle">MIGRATION</text>
-          <path d="M190,150 Q240,180 268,188" fill="none" stroke="#7E1D12" stroke-width="1.4" stroke-dasharray="5 4"/>
+          <g font-family="Noto Serif SC, serif" font-size="9.5" fill="#241A0E" text-anchor="middle">
+            <text x="205" y="71">车型库 · 经销商 · 预约试驾 · 资讯</text><text x="525" y="71">车型 / 页面 / 素材 — 运营可配置</text>
+          </g>
+          <g stroke="#241A0E" stroke-width="1.6"><line x1="205" y1="82" x2="320" y2="116"/><line x1="525" y1="82" x2="410" y2="116"/></g>
+          <rect x="250" y="118" width="230" height="46" fill="none" stroke="#7E1D12" stroke-width="2"/>
+          <text x="365" y="138" font-family="Noto Serif SC, serif" font-weight="900" font-size="13.5" fill="#7E1D12" text-anchor="middle">API 服务 — JAVA</text>
+          <text x="365" y="155" font-family="IBM Plex Mono, monospace" font-size="8" fill="#241A0E" text-anchor="middle">接口 · 鉴权 · 业务逻辑</text>
+          <line x1="365" y1="164" x2="365" y2="190" stroke="#241A0E" stroke-width="1.6"/>
+          <rect x="270" y="192" width="190" height="36" fill="none" stroke="#241A0E" stroke-width="2"/>
+          <text x="365" y="215" font-family="IBM Plex Mono, monospace" font-size="10.5" fill="#241A0E" text-anchor="middle">DATABASE</text>
+          <rect x="40" y="118" width="160" height="56" fill="none" stroke="#241A0E" stroke-width="1.6" stroke-dasharray="6 4"/>
+          <text x="120" y="140" font-family="Noto Serif SC, serif" font-weight="900" font-size="11.5" fill="#241A0E" text-anchor="middle">老站 CMS</text>
+          <text x="120" y="158" font-family="IBM Plex Mono, monospace" font-size="7.5" fill="#241A0E" text-anchor="middle">历史数据 · 图片附件</text>
+          <path d="M120,174 Q160,215 268,212" fill="none" stroke="#7E1D12" stroke-width="1.4" stroke-dasharray="5 4"/>
+          <text x="168" y="200" font-family="IBM Plex Mono, monospace" font-size="8" fill="#7E1D12" text-anchor="middle">清洗 → 迁移</text>
+          <text x="365" y="266" font-family="IBM Plex Mono, monospace" font-size="9.5" fill="#7E1D12" text-anchor="middle">三端一人交付 — 从接口设计到上线部署 · 含历史数据迁移</text>
         </svg>
-        <figcaption>FIG.C — 三端一人闭环,含历史数据迁移</figcaption>
+        <figcaption>FIG.C — 前端 Next.js 拿 SSR 红利,后端用回主武器 Java;Admin 即 CMS</figcaption>
       </figure>
       <h4 class="dos-sub">关键决策</h4>
       <ul class="dos-list">
-        <li><b>Next.js SSR</b>:车企官网的命脉是 SEO 与首屏 — 服务端渲染两个都保</li>
-        <li><b>Admin 用 Antd Pro 提效</b>:后台不炫技,把工期省下来花在官网体验与数据迁移的正确性上</li>
-        <li><b>迁移先行</b>:历史数据结构摸清并完成迁移方案后才动手写新系统,避免上线时被旧数据"伏击"</li>
+        <li><b>前端 Next.js,后端 Java</b>:车企官网的命脉是 SEO 与首屏,SSR 两个都保;API 用回主武器 Java,稳定与工程质量优先 — 选型各取所长,不为时髦买单</li>
+        <li><b>Admin 即 CMS</b>:车型、页面、素材全部运营可配置,上线后加内容不需要动代码 — 交付的是内容系统,不是一次性页面</li>
+        <li><b>迁移先行</b>:历史数据从老站 CMS 导出、清洗、再导入,含图片附件搬迁 — 先摸清旧数据结构再设计新库,上线时才不会被旧数据"伏击"</li>
       </ul>
       <p class="dos-role"><span>ROLE · 角色</span>独立承接 — API / Admin / Web 全栈 + 部署 + 数据迁移,一个人是一支队伍</p>
       <span class="dos-stamp">已归档</span>
