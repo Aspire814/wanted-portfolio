@@ -17,7 +17,19 @@ DEEPSEEK_API_KEY=sk-你的key node server/camp-terminal.mjs
 # 打开 http://127.0.0.1:8787 — 静态站 + API 同源,直接能聊
 ```
 
-## 二、服务器部署(推荐姿势:同机同域)
+## 一键部署(推荐)
+
+服务器上 root 执行两行,自动完成下文的全部步骤(装 nginx/Node、systemd、反代、自检):
+
+```bash
+git clone https://github.com/Aspire814/wanted-portfolio.git /opt/wanted-portfolio
+DEEPSEEK_API_KEY=sk-你的key bash /opt/wanted-portfolio/deploy/setup.sh
+```
+
+日常更新:`cd /opt/wanted-portfolio && git pull && systemctl restart camp-terminal`。
+想了解脚本每步做了什么,或需要手工定制,继续看下面的手动部署说明。
+
+## 二、服务器部署(手动姿势:同机同域)
 
 站点和 API 放同一台服务器同一个域名下,同源调用,无 CORS,国内访问快。
 
