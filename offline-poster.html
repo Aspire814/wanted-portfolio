@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<title>WANTED — 李斯 · 线下版</title>
+<link rel="stylesheet" href="fonts/fonts.css">
+<style>
+:root {
+  --paper: #E4D5AE; --paper-3: #CDB87F;
+  --ink: #241A0E; --ink-2: rgba(36,26,14,.68); --ink-3: rgba(36,26,14,.42);
+  --hair: rgba(36,26,14,.28); --red: #7E1D12;
+  --serif: "Noto Serif SC", "Songti SC", serif;
+  --west: "Rye", "Noto Serif SC", serif;
+  --mono: "IBM Plex Mono", ui-monospace, monospace;
+}
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body { background: #555; display: flex; justify-content: center; padding: 20px; }
+.page {
+  position: relative; width: 794px; height: 1123px; /* A4 @96dpi */
+  background:
+    radial-gradient(ellipse 120% 70% at 50% 0%, rgba(255,246,214,.5), transparent 60%),
+    var(--paper);
+  color: var(--ink); font-family: var(--serif);
+  padding: 34px 40px 30px; overflow: hidden;
+}
+.page::before {
+  content: ""; position: absolute; inset: 0; pointer-events: none;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='220' height='220'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.55' numOctaves='3'/%3E%3CfeColorMatrix values='0 0 0 0 0.2 0 0 0 0 0.13 0 0 0 0 0.04 0 0 0 0.07 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+}
+.frame {
+  position: relative; height: 100%;
+  border: 4px solid var(--ink); outline: 1.5px solid var(--ink); outline-offset: 4px;
+  padding: 22px 30px 18px; text-align: center;
+  display: flex; flex-direction: column;
+}
+.corner { position: absolute; font-size: 16px; line-height: 1; }
+.c1{top:5px;left:7px}.c2{top:5px;right:7px}.c3{bottom:5px;left:7px}.c4{bottom:5px;right:7px}
+.top-line { font-family: var(--mono); font-size: 9px; letter-spacing: .5em; color: var(--ink-2); }
+h1 { font-family: var(--west); font-weight: 400; font-size: 88px; line-height: .95; letter-spacing: .06em; text-shadow: 2.5px 2.5px 0 rgba(36,26,14,.15); margin-top: 4px; }
+.alive { font-family: var(--mono); font-size: 9.5px; letter-spacing: .3em; color: var(--red); font-weight: 600; border-block: 1px solid var(--hair); padding: 5px 0; margin: 8px 0 12px; }
+.name { font-weight: 900; font-size: 58px; line-height: 1.15; letter-spacing: .1em; }
+.name .star { color: var(--red); font-size: 22px; vertical-align: middle; margin: 0 14px; }
+.alias { font-family: var(--mono); font-size: 9.5px; letter-spacing: .2em; color: var(--ink-2); margin: 2px 0 10px; }
+.desc { max-width: 60ch; margin: 0 auto 12px; font-size: 12.5px; line-height: 1.75; color: var(--ink-2); }
+.desc b { color: var(--ink); font-weight: 900; }
+.reward { border-block: 3px double var(--ink); padding: 8px 0 6px; margin-bottom: 12px; }
+.reward .lbl { display: block; font-family: var(--mono); font-size: 8.5px; letter-spacing: .4em; color: var(--ink-2); }
+.reward .amt { display: block; font-family: var(--west); font-size: 46px; line-height: 1.1; color: var(--red); text-shadow: 1.5px 1.5px 0 rgba(126,29,18,.2); }
+.reward .amt i { font-style: normal; font-size: .5em; }
+.specs { display: grid; grid-template-columns: repeat(5,1fr); text-align: left; margin-bottom: 12px; }
+.specs > div { padding: 0 10px; border-right: 1px solid var(--hair); }
+.specs > div:last-child { border-right: 0; }
+.specs dt { font-family: var(--mono); font-size: 7.5px; letter-spacing: .18em; color: var(--ink-3); }
+.specs dd { font-family: var(--mono); font-size: 10px; font-weight: 600; }
+.specs dd.ok { color: #4A5D23; }
+.sec { text-align: left; margin-bottom: 10px; }
+.sec-h { display: flex; align-items: baseline; gap: 8px; border-bottom: 1.5px solid var(--ink); padding-bottom: 3px; margin-bottom: 6px; }
+.sec-h b { font-size: 13px; font-weight: 900; }
+.sec-h span { font-family: var(--mono); font-size: 7.5px; letter-spacing: .2em; color: var(--red); }
+table { width: 100%; border-collapse: collapse; }
+td { font-size: 10.5px; line-height: 1.5; padding: 2.5px 0; vertical-align: top; color: var(--ink-2); border-bottom: 1px dashed var(--hair); }
+tr:last-child td { border-bottom: 0; }
+td.y { font-family: var(--mono); font-size: 8.5px; white-space: nowrap; padding-right: 10px; color: var(--ink-3); }
+td.c { font-weight: 900; color: var(--ink); white-space: nowrap; padding-right: 10px; }
+td.m { font-family: var(--mono); font-size: 8.5px; color: var(--red); white-space: nowrap; text-align: right; padding-left: 10px; }
+.arsenal { font-size: 10px; line-height: 1.8; color: var(--ink-2); text-align: left; }
+.arsenal b { font-weight: 900; color: var(--ink); }
+.bottom { margin-top: auto; display: flex; align-items: center; gap: 20px; border-top: 3px double var(--ink); padding-top: 12px; text-align: left; }
+.qr { width: 108px; height: 108px; flex: none; padding: 6px; border: 2px solid var(--ink); }
+.qr img { width: 100%; height: 100%; display: block; }
+.cta { flex: 1; }
+.cta h3 { font-size: 15px; font-weight: 900; margin-bottom: 3px; }
+.cta p { font-size: 10px; line-height: 1.65; color: var(--ink-2); }
+.cta .mono { font-family: var(--mono); font-size: 9.5px; color: var(--red); font-weight: 600; }
+.stamp {
+  position: absolute; right: 18px; bottom: 130px;
+  font-weight: 900; font-size: 17px; color: var(--red); border: 3px solid var(--red);
+  border-radius: 5px; padding: 3px 12px; transform: rotate(9deg); opacity: .65;
+}
+.endline { font-family: var(--mono); font-size: 7.5px; letter-spacing: .24em; color: var(--ink-3); margin-top: 10px; text-transform: uppercase; }
+</style>
+</head>
+<body>
+<div class="page"><div class="frame">
+  <span class="corner c1">❈</span><span class="corner c2">❈</span><span class="corner c3">❈</span><span class="corner c4">❈</span>
+  <p class="top-line">☆ ☆ ☆ PROCLAMATION — 布告 ☆ ☆ ☆</p>
+  <h1>WANTED</h1>
+  <p class="alive">— 活捉:全栈工程师 · FULL-STACK OR NOTHING —</p>
+  <div class="name"><span class="star">★</span>李 斯<span class="star">★</span></div>
+  <p class="alias">a.k.a. "LI SI" — THE DEAD-EYE CODER · P7</p>
+  <p class="desc">此人潜伏于代码荒野八年,枪法奇准:为<b>千万级</b>用户的金融系统写过核心交易链路;近年拉起一支 <b>15 人</b>帮派,以 AI SDD 之名横行,交付效率暴涨 <b>+300%</b>,生产可用率长期 <b>99%</b>。极度危险,极度好用。</p>
+  <div class="reward">
+    <span class="lbl">REWARD · 悬赏</span>
+    <span class="amt">$300<i>%</i></span>
+  </div>
+  <dl class="specs">
+    <div><dt>STATUS</dt><dd class="ok">◉ OPEN TO WORK</dd></div>
+    <div><dt>GRADE</dt><dd>P7</dd></div>
+    <div><dt>EXP</dt><dd>8 YRS</dd></div>
+    <div><dt>EDU</dt><dd>中南大学 · 985</dd></div>
+    <div><dt>ARMS</dt><dd>JAVA · GO · TS</dd></div>
+  </dl>
+
+  <div class="sec">
+    <div class="sec-h"><b>八年足迹</b><span>THE TRAIL</span></div>
+    <table>
+      <tr><td class="y">2024-26</td><td class="c">Tiger EV · 研发经理</td><td>15 人 AI SDD 团队,Claude Code 全链路;全域架构迁移 Node→Java</td><td class="m">效率+300% · 6→3mo</td></tr>
+      <tr><td class="y">2024</td><td class="c">自由职业 · 全栈</td><td>日产中国官网三端一人交付(Next.js+Java);DeepSeek 客服 Agent</td><td class="m">nissan.com.cn</td></tr>
+      <tr><td class="y">2020-23</td><td class="c">Webull · 核心开发</td><td>账户合规 / 自研清算迁移 / 新老账户×单元化复合路由设计</td><td class="m">10M+ 用户 · 7×24</td></tr>
+      <tr><td class="y">2018-20</td><td class="c">草花互动 · 核心程序员</td><td>30+ 媒体投放平台;监测异步链路;归因 1→7 天;DMP 从 0 到 1</td><td class="m">峰值 PV 7000W+</td></tr>
+    </table>
+  </div>
+
+  <div class="sec">
+    <div class="sec-h"><b>随身军械</b><span>THE ARSENAL</span></div>
+    <p class="arsenal">
+      <b>主武器</b> Java · Go · Spring Cloud · 微服务 · 系统单元化 · JVM &nbsp;&nbsp;<b>弹药库</b> MySQL · MongoDB · Redis · Kafka · Hadoop/Hive<br>
+      <b>副武器</b> React · TypeScript · Next.js · NestJS · Tailwind &nbsp;&nbsp;<b>死眼技能</b> Claude Code · AI Agent · MCP · SDD · DeepSeek · Docker
+    </p>
+  </div>
+
+  <div class="sec">
+    <div class="sec-h"><b>已收赏金</b><span>BOUNTIES CLAIMED · 完整案卷见线上版</span></div>
+    <table>
+      <tr><td class="y">№1</td><td class="c">AI SDD 研发工作流</td><td>AI 生成 spec · 工程师评审闸门 · 运维 Agent 矩阵 · 知识库 + MCP,新人 3 天上手</td><td class="m">$300% · SLA 99%</td></tr>
+      <tr><td class="y">№2</td><td class="c">Webull 证券交易平台</td><td>单元化(GZone / 灰度单元 / 统一底座) · KYC 自动化 · 千万级日终批处理</td><td class="m">10M+ USERS</td></tr>
+      <tr><td class="y">№3</td><td class="c">日产中国官网</td><td>车型库 / 试驾预约 / Admin 即 CMS · 老站数据清洗迁移 · 三端一人交付</td><td class="m">NISSAN.COM.CN</td></tr>
+      <tr><td class="y">№4</td><td class="c">东南亚换电服务平台</td><td>多节点统一后端 · MQTT 硬件链路 · 消息队列对接 Odoo · 自建多租户 Admin</td><td class="m">迁移 0 事故</td></tr>
+      <tr><td class="y">№5</td><td class="c">草花投放监测系统</td><td>监测只收不算 + 异步消费 · 归因库冷热分层 1→7 天 · DMP 投放闭环</td><td class="m">峰值 PV 7000W+</td></tr>
+    </table>
+  </div>
+
+  <div class="bottom">
+    <div class="qr"><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAZAAAAGQCAYAAACAvzbMAAAAAklEQVR4AewaftIAAAmVSURBVO3Bsa0luZIFwMNEy2UAZfpvEWUaQAdq1RUGaCDnT9++eBERAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAD+yci/sObzhr/WPnekac3nTdM+d6RhzedN0z535APWfN58wD535Ius+bzhr7XPHWmoAEBDBQAaKgDQUAGAhgoANFQAoKECAA0VAGioAEBDBQAaKgDQUAGAhgoANFQAoOFXPmSfO8Jvrfm8+YB97kjTms+bhn3uSNOaz5umfe5I0z535Ius+bxp2ueOfMA+d4TfWvN584dVAKChAgANFQBoqABAQwUAGioA0FABgIYKADRUAKChAgANFQBoqABAQwUAGioA0PArX2jN580X2eeOfJk1nzd/2JrPm6Z97sgHrPm8+SL73JEfZM3nzRfZ5458kQoANFQAoKECAA0VAGioAEBDBQAaKgDQUAGAhgoANFQAoKECAA0VAGioAEBDBQAafgX+wT535Ius+bz5gH3uyBdZ83nTtM8dgf+nAgANFQBoqABAQwUAGioA0FABgIYKADRUAKChAgANFQBoqABAQwUAGioA0FABgIZfgf+xNZ83DfvckaZ97kjTms+bD1jzefOH7XNH4H+kAgANFQBoqABAQwUAGioA0FABgIYKADRUAKChAgANFQBoqABAQwUAGioA0PArX2ifO8J/as3nTdM+d+SL7HNHmtZ83nzAPnekYc3nTdM+d+TL7HNH+M9UAKChAgANFQBoqABAQwUAGioA0FABgIYKADRUAKChAgANFQBoqABAQwUAGioA0PArH7Lm8wb+nzWfN0373JGmNZ83TfvckaY1nzf81prPG/5KFQBoqABAQwUAGioA0FABgIYKADRUAKChAgANFQBoqABAQwUAGioA0FABgIYKADSMwF9izedN0z53pGnN580H7HNHmtZ83jTsc0fgf6QCAA0VAGioAEBDBQAaKgDQUAGAhgoANFQAoKECAA0VAGioAEBDBQAaKgDQUAGAhpF/Yc3nTdM+d6RpzedN0z535Ius+bz5gH3uSNOaz5uGfe5I05rPmy+zzx35w9Z83jTtc0c+YM3nTdM+d+QPW/N507TPHWla83nTtM8daagAQEMFABoqANBQAYCGCgA0VACgoQIADRUAaKgAQEMFABoqANBQAYCGCgA0VACg4Vf+hX3uCL+15vOmaZ878kOs+bxp2ueO8J9a83nTtM8dadrnjjSt+bz5w/a5I01rPm++SAUAGioA0FABgIYKADRUAKChAgANFQBoqABAQwUAGioA0FABgIYKADRUAKBh5EPWfN58mX3uyB+25vOmaZ870rTm8+aH2OeONK35vPmAfe7IF1nzedO0zx1pWvN580X2uSNNaz5vmva5Iw0VAGioAEBDBQAaKgDQUAGAhgoANFQAoKECAA0VAGioAEBDBQAaKgDQUAGAhgoANIz8C2s+b5r2uSNNaz5vmva5I01rPm8a9rkjH7Dm86ZpnzvStObzpmGfO9K05vPmA/a5I01rPm++yD535APWfN407XNHGtZ83jTtc0d+iAoANFQAoKECAA0VAGioAEBDBQAaKgDQUAGAhgoANFQAoKECAA0VAGioAEBDBQAafuUL7XNHmtZ83nyRNZ83/NY+d+QD1nzefMA+d6RhzedN05rPmx9inzvyZdZ83jTtc0caKgDQUAGAhgoANFQAoKECAA0VAGioAEBDBQAaKgDQUAGAhgoANFQAoKECAA0VAGgY+UJrPm8+YJ870rDm86ZpnzvStObz5gP2uSM/xJrPG35rnzvStObzpmmfO/JF1nzefMA+d6ShAgANFQBoqABAQwUAGioA0FABgIYKADRUAKChAgANFQBoqABAQwUAGioA0FABgIaRf2HN582X2eeOfJE1nzdN+9yRH2LN503TPnfky6z5vPnD9rkjTWs+bz5gnzvSsObz5gP2uSNNaz5vmva5Iw0VAGioAEBDBQAaKgDQUAGAhgoANFQAoKECAA0VAGioAEBDBQAaKgDQUAGAhgoANIz8MGs+b5r2uSMNaz5vmva5I19mzefNH7bPHfmANZ83TfvckaY1nzc/xD53hL9SBQAaKgDQUAGAhgoANFQAoKECAA0VAGioAEBDBQAaKgDQUAGAhgoANFQAoGHkX1jzefMB+9yRH2LN580Psc8daVrzefNl9rkjTWs+b/gr7XNHmtZ83jTtc0f+sAoANFQAoKECAA0VAGioAEBDBQAaKgDQUAGAhgoANFQAoKECAA0VAGioAEBDBQAaRuAfrPm8adrnjnyRNZ83TfvckQ9Y83nzh+1zR77Mms+bhn3uyJdZ83nTtM8daagAQEMFABoqANBQAYCGCgA0VACgoQIADRUAaKgAQEMFABoqANBQAYCGCgA0VACg4Vf+hTWfN/y19rkjH7Dm86ZhnzvyZdZ83nzAPnekYc3nzQes+bxp2ueO/GFrPm8+YJ878kUqANBQAYCGCgA0VACgoQIADRUAaKgAQEMFABoqANBQAYCGCgA0VACgoQIADRUAaPiVD9nnjvBbaz5vPmCfO9K05vOmYc3nzZfZ5440rfm8+SH2uSNfZJ870rTm8+YD9rkjf1gFABoqANBQAYCGCgA0VACgoQIADRUAaKgAQEMFABoqANBQAYCGCgA0VACgoQIADb/yhdZ83nyRfe7ID7LPHWlY83nTtM8d+YA1nzc/xJrPmx9izefNl1nzedO0zx1pqABAQwUAGioA0FABgIYKADRUAKChAgANFQBoqABAQwUAGioA0FABgIYKADT8CvBj7HNHvsyazxt+a5878odVAKChAgANFQBoqABAQwUAGioA0FABgIYKADRUAKChAgANFQBoqABAQwUAGioA0PAr8A/WfN58kTWfN0373JGmfe7IB6z5vPnD9rkjTWs+b5r2uSM/xJrPmw/Y5440VACgoQIADRUAaKgAQEMFABoqANBQAYCGCgA0VACgoQIADRUAaKgAQEMFABoqANDwK19onzvCf2qfO9K05vOmYZ878mXWfN407XNHfoh97kjTms+bH2KfO/JFKgDQUAGAhgoANFQAoKECAA0VAGioAEBDBQAaKgDQUAGAhgoANFQAoKECAA0VAGj4lQ9Z83nDX2vN503TPnekYc3nDf+pfe5I05rPmw/Y5440rfm8+cP2uSMfsObzpmmfO9JQAYCGCgA0VACgoQIADRUAaKgAQEMFABoqANBQAYCGCgA0VACgoQIADRUAaKgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAPAP/g+pBwc4EK2MVgAAAABJRU5ErkJggg==" alt="扫码访问互动版"></div>
+    <div class="cta">
+      <h3>本布告有一个活的版本。</h3>
+      <p>扫码进入互动版营地:可开枪的通缉令 · 五份带架构图的战功案卷 ·<br>一个由真 LLM 驱动的终端 — <b>可以直接向 AI 副手审问此人的任何战绩</b>。</p>
+      <p class="mono">http://47.115.219.82 &nbsp;·&nbsp; aspirelisi@gmail.com</p>
+    </div>
+  </div>
+  <span class="stamp">悬赏有效</span>
+  <p class="endline">— END OF PROCLAMATION · 本布告由 CLAUDE CODE 印制 —</p>
+</div></div>
+</body>
+</html>
