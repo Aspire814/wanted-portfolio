@@ -1642,3 +1642,21 @@ body.no-scroll { overflow: hidden; }
   font-size: 11.5px;
   color: var(--ink-3);
 }
+
+/* ============ ICP 备案号 ============ */
+.icp {
+  text-align: center;
+  padding-bottom: 6px;
+  font-family: var(--mono);
+  font-size: 10px;
+  letter-spacing: 0.12em;
+}
+
+.icp a {
+  color: var(--ink-3);
+  text-decoration: none;
+  border-bottom: 1px dotted var(--hair);
+  transition: color 0.15s;
+}
+
+.icp a:hover { color: var(--red); }
