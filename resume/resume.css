@@ -106,3 +106,14 @@ body.en .two p b { font-weight: 600; }
 /* 页脚 */
 .ft { margin-top: 12px; padding-top: 6px; border-top: 1px solid var(--hair); display: flex; justify-content: space-between; font-family: var(--mono); font-size: 7.6px; letter-spacing: .08em; color: var(--ink-3); }
 .ft b { color: var(--red); font-weight: 600; }
+
+/* ---- 项目经历 ---- */
+.proj { margin-bottom: 9px; }
+.proj-h, .proj-desc, .stack { break-after: avoid; }
+.proj-desc { font-size: 10px; color: var(--ink-3); margin: 1px 0 2px; line-height: 1.5; }
+.stack { font-size: 9.6px; color: var(--ink-2); margin-bottom: 3px; }
+.stack i { font-style: normal; font-family: var(--mono); font-size: 7.8px; color: var(--red); letter-spacing: .14em; margin-right: 6px; }
+.proj li { break-inside: avoid; }
+
+/* 标题块(标题行 / 描述 / 技术栈)内部不分页,且与后文首条保持同页 */
+.job-h, .proj-desc, .stack, .job-sub { break-inside: avoid; break-after: avoid; }
