@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Li Si — Full-Stack Engineer / Engineering Manager · Resume</title>
+<link rel="stylesheet" href="__SITEFONTS__">
+<link rel="stylesheet" href="__RFONTS__">
+<link rel="stylesheet" href="resume.css">
+</head>
+<body class="en">
+<div class="sheet">
+
+  <header class="hd">
+    <div class="hd-left">
+      <p class="kicker">★ OPEN TO WORK · FULL-STACK OR NOTHING ★</p>
+      <div class="name"><span class="cn">Li Si</span><span class="en">李 斯</span></div>
+      <p class="title">Full-Stack Engineer / Engineering Manager<i>P7 · 8 YRS · JAVA-FIRST · AI-DRIVEN DELIVERY</i></p>
+      <div class="contact">
+        <span>✉ <a href="mailto:aspirelisi@gmail.com">aspirelisi@gmail.com</a></span>
+        <span>⌂ <a href="https://framex-ai.com/"><b>framex-ai.com</b></a> (interactive resume · architecture case files · AI assistant)</span>
+        <span>⌥ <a href="https://github.com/Aspire814">github.com/Aspire814</a></span>
+      </div>
+    </div>
+    <div class="hd-right"><img src="__QR__" alt="QR code for framex-ai.com"><span>Scan for the<br>interactive version</span></div>
+  </header>
+
+  <p class="summary">Eight years of full-stack engineering along two tracks: <b>financial-grade backend architecture</b> and <b>AI-driven development workflows</b>. Core developer at Webull, a 10M+ user brokerage (account compliance, in-house clearing migration, cell-based architecture). Most recently built a <b>15-person AI SDD team</b> from scratch: a Claude Code spec-driven pipeline that lifted delivery velocity <b>+300%</b> with sustained <b>99%</b> production availability, while leading a company-wide migration from Node to Java (6 → 3 months, zero major incidents). Operating principle: AI for generation, human judgment for the gates.</p>
+
+  <h2><span class="cn">Core Strengths</span><span class="en">CORE STRENGTHS</span></h2>
+  <div class="caps">
+    <div class="cap"><i>SKILL·A</i><div><b>AI SDD Development System</b>End-to-end Claude Code pipeline: AI-drafted templated specs → engineer review gate → implementation → automated tests with the spec as acceptance baseline; ops agent matrix; knowledge base + MCP so new hires ship in 3 days</div></div>
+    <div class="cap"><i>SKILL·B</i><div><b>Financial-Grade Architecture</b>Cell-based (unitized) systems with GZone, canary cells and a shared platform base; full account-lifecycle compliance and risk control; million-user clearing migration; 10M-scale end-of-day batch and reconciliation</div></div>
+    <div class="cap"><i>SKILL·C</i><div><b>High-Throughput Data Systems</b>Ad tracking at 6M daily / 70M peak PV: accept-only ingestion plus message-queue async processing; hot/cold attribution storage extended from 1 to 7 days; Redis cluster memory governance</div></div>
+    <div class="cap"><i>SKILL·D</i><div><b>Team &amp; Engineering Culture</b>Architecture decisions, hiring and culture for a 15-person team; strangler-pattern domain-by-domain Node → Java migration with zero downtime; productivity gains measured on multiple axes</div></div>
+  </div>
+
+  <h2><span class="cn">Experience</span><span class="en">EXPERIENCE</span></h2>
+
+  <div class="job">
+    <div class="job-h"><span class="co">Tiger EV</span><span class="role">ENGINEERING MANAGER · TEAM OF 15</span><span class="when">Jun 2024 — Jun 2026</span></div>
+    <p class="job-sub">EV battery-swap and battery-rental platform across Southeast Asia; unified rider / merchant / supplier product</p>
+    <ul>
+      <li><b>Built the AI SDD system from zero</b>: requirements are first turned by AI into templated specs (background / technical design / API contract / test cases — incomplete specs do not proceed); engineers review before any code is written; the spec doubles as the baseline for automated tests and acceptance, then is archived to the knowledge base to feed both AI and new hires. Delivery velocity <span class="m">+300%</span> (cross-checked via lead time, iteration throughput, release frequency + rework rate, and measured case studies); production availability <span class="m">99%</span></li>
+      <li><b>Ops agent matrix</b> on the Lark ecosystem, driven by Claude Code + MCP: a log-patrol agent that scans on schedule and pushes alerts proactively; an alert-triggered root-cause agent that reads logs, code and recent releases to produce a localization report; a support agent wired to the enterprise knowledge base for tickets</li>
+      <li><b>Led the company-wide Node → Java migration</b> using a strangler pattern, domain by domain with old and new running in parallel; business stayed online throughout; schedule compressed from 6 to <span class="m">3 months</span> with zero major production incidents</li>
+      <li><b>Platform architecture</b>: unified gateway → nginx load balancing → multi-node unified backend (swap / rental / billing / risk); battery cabinets connected via MQTT with a hardware-sync service and task scheduler nodes; async integration with the internal Odoo system over a message queue; in-house Admin for multi-tenant management and operations</li>
+    </ul>
+  </div>
+
+  <div class="job">
+    <div class="job-h"><span class="co">Independent Consultant</span><span class="role">FULL-STACK · SOLO DELIVERY</span><span class="when">Jan 2024 — Jun 2024</span></div>
+    <ul>
+      <li><b>Nissan China official website (nissan.com.cn)</b>: delivered all three tiers alone — Next.js SSR web (model catalog, dealer lookup, test-drive booking, news), an Antd Pro content-management Admin (models / pages / assets editable by operations), and a Java API service; cleaned and migrated legacy CMS data including images and attachments</li>
+      <li>DeepSeek-based customer-service agent for a hardware-tools business (sales and order follow-up); complete backend / H5 / Admin delivery for a 400K-user health-watch product</li>
+    </ul>
+  </div>
+
+  <div class="job">
+    <div class="job-h"><span class="co">Webull · Fumi Technology (Global R&amp;D HQ)</span><span class="role">CORE DEVELOPER</span><span class="when">Jun 2020 — Dec 2023</span></div>
+    <p class="job-sub">US online brokerage, 10M+ users, Nasdaq-listed; 7×24 asset-trading platform (webull.com)</p>
+    <ul>
+      <li><b>Owned account onboarding and compliance</b>: automated KYC onboarding; risk-tiered trading permissions across stocks, options and margin; a full account-lifecycle state machine with risk controls (abnormal trading, restricted lists); designed the Canada-expansion account system from scratch</li>
+      <li><b>Statements / P&amp;L / funding / transfers</b>: end-of-day batch processing for 10M+ users (daily statements and P&amp;L), end-of-day reconciliation with clearing and banks, multi-channel deposits and withdrawals (ACH, wire), automated ACATS transfers</li>
+      <li><b>Clearing migration</b>: integrated the in-house clearing system that replaced a third party; migrated millions of users with triple safeguards (batched canary cut-over, parallel old/new reconciliation, per-account cash and position verification); <b>designed the composite routing that layers old/new account identification on top of cell-based sharding</b>, so the switch was invisible to users with no trading interruption</li>
+      <li><b>Contributed to the cell-based (unitized) re-architecture and the 7.0 gateway</b>: each cell is a complete microservice stack (quotes / trading / accounts / risk / funding / P&amp;L) with multi-instance services, cross-region DR, AZ isolation, elastic scaling and task scheduling; a low-spec canary cell serves designated users; a GZone layer handles global aggregation; shared platform base of Consul, unified cache, ES logging, monitoring and distributed tracing; the gateway consolidated five client surfaces</li>
+    </ul>
+  </div>
+
+  <div class="job">
+    <div class="job-h"><span class="co">Caohua Interactive</span><span class="role">CORE ENGINEER</span><span class="when">Mar 2018 — Mar 2020</span></div>
+    <p class="job-sub">Unified ad-buying platform for a million-user mobile-game publisher; 30+ media integrations (Toutiao, Tencent Ads, Baidu, UC …)</p>
+    <ul>
+      <li><b>Ad tracking service</b> at <span class="m">6M+</span> daily / <span class="m">70M+</span> peak PV: millisecond accept-only endpoints with parsing, de-duplication and attribution pushed through a message queue to async consumers — no timeouts and no lost billing events at peak</li>
+      <li><b>Extended MongoDB click-attribution retention from 1 to 7 days</b> via hot/cold tiering (Redis hot index + MongoDB cold store), sharded cluster with index tuning, compact document schemas, and daily collections with rolling TTL; Redis cluster memory governance (moving click detail out, data-structure redesign, big-key splitting, expiry policies)</li>
+      <li><b>Built the DMP automation platform from scratch</b>: audience building and media sync, automated bid and budget control, conversion postbacks driving media-side oCPX, performance reporting; Hadoop / Hive data warehouse</li>
+    </ul>
+  </div>
+
+  <h2><span class="cn">Proof of Work · Publicly Verifiable</span><span class="en">PROOF OF WORK</span></h2>
+  <div class="proofs">
+    <div class="proof"><b>Webull brokerage platform</b><span>10M+ users · cell-based architecture · in-house clearing migration</span><a href="https://www.webull.com/">webull.com</a></div>
+    <div class="proof"><b>Nissan China website</b><span>Next.js + Java, three tiers delivered solo</span><a href="https://www.nissan.com.cn/">nissan.com.cn</a></div>
+    <div class="proof"><b>Interactive resume &amp; case files</b><span>Five project dossiers (architecture diagrams / key decisions) + an LLM terminal</span><a href="https://framex-ai.com/">framex-ai.com</a></div>
+  </div>
+
+  <h2><span class="cn">Tech Stack</span><span class="en">ARSENAL</span></h2>
+  <dl class="skills">
+    <dt>PRIMARY</dt><dd><b>Java</b> · Go · Spring Cloud · microservices · cell-based architecture · JVM &amp; concurrency</dd>
+    <dt>DATA / MIDDLEWARE</dt><dd>MySQL · MongoDB · Redis · Kafka · Zookeeper · Consul · Quartz · Hadoop / Hive</dd>
+    <dt>FRONTEND / FULL-STACK</dt><dd>React · TypeScript · Next.js · NestJS · Hono.js · Tailwind · Antd Pro</dd>
+    <dt>AI ENGINEERING</dt><dd><b>Claude Code</b> · Cursor · Codex · AI agents · MCP · SDD (spec-driven development) · DeepSeek · Docker</dd>
+  </dl>
+
+  <div class="two">
+    <div>
+      <h2><span class="cn">Education</span><span class="en">EDUCATION</span></h2>
+      <p><b>Central South University</b> (Project 985) · B.Sc. Information and Computing Science</p>
+    </div>
+    <div>
+      <h2><span class="cn">Personal</span><span class="en">PERSONAL</span></h2>
+      <p>Outgoing, enjoys teaching and sharing, owns outcomes rather than passing blame. Travel, photography, ultimate frisbee.</p>
+    </div>
+  </div>
+
+  <footer class="ft"><span>LI SI · RESUME · OCT 2026</span><span>Full case files &amp; AI assistant → <b>https://framex-ai.com</b></span></footer>
+</div>
+</body>
+</html>
