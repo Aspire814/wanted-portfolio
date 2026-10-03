@@ -40,17 +40,16 @@
     <div class="job-h"><span class="co">Tiger EV</span><span class="role">ENGINEERING MANAGER · TEAM OF 15</span><span class="when">Jun 2024 — Jun 2026</span></div>
     <p class="job-sub">EV battery-swap and battery-rental platform across Southeast Asia; unified rider / merchant / supplier product</p>
     <ul>
-      <li><b>Built the AI SDD system from zero</b>: requirements are first turned by AI into templated specs (background / technical design / API contract / test cases — incomplete specs do not proceed); engineers review before any code is written; the spec doubles as the baseline for automated tests and acceptance, then is archived to the knowledge base to feed both AI and new hires. Delivery velocity <span class="m">+300%</span> (cross-checked via lead time, iteration throughput, release frequency + rework rate, and measured case studies); production availability <span class="m">99%</span></li>
-      <li><b>Ops agent matrix</b> on the Lark ecosystem, driven by Claude Code + MCP: a log-patrol agent that scans on schedule and pushes alerts proactively; an alert-triggered root-cause agent that reads logs, code and recent releases to produce a localization report; a support agent wired to the enterprise knowledge base for tickets</li>
-      <li><b>Led the company-wide Node → Java migration</b> using a strangler pattern, domain by domain with old and new running in parallel; business stayed online throughout; schedule compressed from 6 to <span class="m">3 months</span> with zero major production incidents</li>
-      <li><b>Platform architecture</b>: unified gateway → nginx load balancing → multi-node unified backend (swap / rental / billing / risk); battery cabinets connected via MQTT with a hardware-sync service and task scheduler nodes; async integration with the internal Odoo system over a message queue; in-house Admin for multi-tenant management and operations</li>
+      <li>Owned technical direction, architecture decisions, hiring and engineering culture for a 15-person team, including the development process and quality system</li>
+      <li>Built the Claude Code–based AI SDD development system and ops agent matrix from scratch: delivery velocity <span class="m">+300%</span>, sustained production availability <span class="m">99%</span></li>
+      <li>Led the platform-wide Node → Java migration; schedule compressed from 6 to <span class="m">3 months</span> with zero major production incidents</li>
     </ul>
   </div>
 
   <div class="job">
     <div class="job-h"><span class="co">Independent Consultant</span><span class="role">FULL-STACK · SOLO DELIVERY</span><span class="when">Jan 2024 — Jun 2024</span></div>
     <ul>
-      <li><b>Nissan China official website (nissan.com.cn)</b>: delivered all three tiers alone — Next.js SSR web (model catalog, dealer lookup, test-drive booking, news), an Antd Pro content-management Admin (models / pages / assets editable by operations), and a Java API service; cleaned and migrated legacy CMS data including images and attachments</li>
+      <li>Solely delivered the Nissan China official website (nissan.com.cn): web, Admin and API tiers, deployment and legacy data migration</li>
       <li>DeepSeek-based customer-service agent for a hardware-tools business (sales and order follow-up); complete backend / H5 / Admin delivery for a 400K-user health-watch product</li>
     </ul>
   </div>
@@ -59,10 +58,9 @@
     <div class="job-h"><span class="co">Webull · Fumi Technology (Global R&amp;D HQ)</span><span class="role">CORE DEVELOPER</span><span class="when">Jun 2020 — Dec 2023</span></div>
     <p class="job-sub">US online brokerage, 10M+ users, Nasdaq-listed; 7×24 asset-trading platform (webull.com)</p>
     <ul>
-      <li><b>Owned account onboarding and compliance</b>: automated KYC onboarding; risk-tiered trading permissions across stocks, options and margin; a full account-lifecycle state machine with risk controls (abnormal trading, restricted lists); designed the Canada-expansion account system from scratch</li>
-      <li><b>Statements / P&amp;L / funding / transfers</b>: end-of-day batch processing for 10M+ users (daily statements and P&amp;L), end-of-day reconciliation with clearing and banks, multi-channel deposits and withdrawals (ACH, wire), automated ACATS transfers</li>
-      <li><b>Clearing migration</b>: integrated the in-house clearing system that replaced a third party; migrated millions of users with triple safeguards (batched canary cut-over, parallel old/new reconciliation, per-account cash and position verification); <b>designed the composite routing that layers old/new account identification on top of cell-based sharding</b>, so the switch was invisible to users with no trading interruption</li>
-      <li><b>Contributed to the cell-based (unitized) re-architecture and the 7.0 gateway</b>: each cell is a complete microservice stack (quotes / trading / accounts / risk / funding / P&amp;L) with multi-instance services, cross-region DR, AZ isolation, elastic scaling and task scheduling; a low-spec canary cell serves designated users; a GZone layer handles global aggregation; shared platform base of Consul, unified cache, ES logging, monitoring and distributed tracing; the gateway consolidated five client surfaces</li>
+      <li>Owned account onboarding / compliance and the design of the Canada-expansion account system; responsible for statements, P&amp;L, funding and transfers</li>
+      <li>Integrated the in-house clearing system and migrated millions of users; designed the composite old/new-account × cell-sharding routing</li>
+      <li>Contributed to the cell-based (unitized) re-architecture and the 7.0 gateway consolidating five client surfaces</li>
     </ul>
   </div>
 
@@ -70,9 +68,80 @@
     <div class="job-h"><span class="co">Caohua Interactive</span><span class="role">CORE ENGINEER</span><span class="when">Mar 2018 — Mar 2020</span></div>
     <p class="job-sub">Unified ad-buying platform for a million-user mobile-game publisher; 30+ media integrations (Toutiao, Tencent Ads, Baidu, UC …)</p>
     <ul>
-      <li><b>Ad tracking service</b> at <span class="m">6M+</span> daily / <span class="m">70M+</span> peak PV: millisecond accept-only endpoints with parsing, de-duplication and attribution pushed through a message queue to async consumers — no timeouts and no lost billing events at peak</li>
-      <li><b>Extended MongoDB click-attribution retention from 1 to 7 days</b> via hot/cold tiering (Redis hot index + MongoDB cold store), sharded cluster with index tuning, compact document schemas, and daily collections with rolling TTL; Redis cluster memory governance (moving click detail out, data-structure redesign, big-key splitting, expiry policies)</li>
-      <li><b>Built the DMP automation platform from scratch</b>: audience building and media sync, automated bid and budget control, conversion postbacks driving media-side oCPX, performance reporting; Hadoop / Hive data warehouse</li>
+      <li>Owned the ad-tracking and click-attribution pipeline (6M+ daily / 70M+ peak PV) and 30+ media integrations</li>
+      <li>Built the DMP automation platform and the Hadoop / Hive marketing data warehouse from scratch</li>
+    </ul>
+  </div>
+
+  <h2><span class="cn">Projects</span><span class="en">PROJECTS</span></h2>
+
+  <div class="proj">
+    <div class="job-h"><span class="co">AI SDD Workflow &amp; Ops Agent Matrix</span><span class="role">TIGER EV · SYSTEM DESIGNER AND DRIVER</span><span class="when">Jun 2024 — Jun 2026</span></div>
+    <p class="proj-desc">Built a spec-driven development (SDD) system on Claude Code for a 15-person team, covering requirements → spec → implementation → automated tests → operations, and turned day-to-day operations into agents.</p>
+    <p class="stack"><i>STACK</i>Claude Code · MCP · AI agents · Lark Open Platform · enterprise knowledge base · CI/CD</p>
+    <ul>
+      <li><b>Spec template and review gate</b>: specs are structured into background / technical design / API contract / test cases, drafted by AI and reviewed by engineers before any code is written — incomplete specs do not proceed; the spec doubles as the baseline for automated tests and acceptance, so "done" has an objective definition</li>
+      <li><b>Measurement framework</b>: lead-time comparison, iteration throughput, release frequency + rework rate, and measured case studies, cross-checked — delivery velocity <span class="m">+300%</span>, production availability <span class="m">99%</span></li>
+      <li><b>Ops agent matrix</b> (Lark ecosystem, driven by Claude Code + MCP): a log-patrol agent that scans on schedule and pushes alerts proactively; an alert-triggered root-cause agent that reads logs, code and recent releases to produce a localization report; a support agent wired to the knowledge base for tickets</li>
+      <li><b>Knowledge base as onboarding</b>: reviewed specs are archived and served through MCP to both AI and people — new hires ship business features in <span class="m">3 days</span>; rolled out to all 15 engineers</li>
+    </ul>
+  </div>
+
+  <div class="proj">
+    <div class="job-h"><span class="co">Southeast Asia Battery-Swap Platform · Full Architecture Migration</span><span class="role">TIGER EV · MIGRATION LEAD</span><span class="when">Jun 2024 — Jun 2026</span></div>
+    <p class="proj-desc">EV battery-swap and rental platform across several Southeast Asian markets, unified rider / merchant / supplier product; migrated the early Node architecture to the Java ecosystem.</p>
+    <p class="stack"><i>STACK</i>Java · Spring Cloud · nginx · MQTT · message queue · MySQL · Redis · Odoo</p>
+    <ul>
+      <li><b>Strangler pattern, not big bang</b>: migrated domain by domain with old and new running in parallel, business online throughout; schedule compressed from 6 to <span class="m">3 months</span> with zero major production incidents</li>
+      <li><b>Platform architecture</b>: unified gateway → nginx load balancing → multi-node unified backend (swap / rental / billing / risk), horizontally scalable</li>
+      <li><b>Isolated hardware loop</b>: battery cabinets connect over MQTT; a hardware-sync service converges device state and task scheduler nodes run batch jobs — device-side jitter and reconnects never reach the business tier</li>
+      <li><b>Decoupled from the ERP</b>: async integration with the internal Odoo system over a message queue (peak shaving, replayable failures); in-house Admin centralizes multi-country, multi-tenant management and operations</li>
+    </ul>
+  </div>
+
+  <div class="proj">
+    <div class="job-h"><span class="co">Webull Account Compliance &amp; Clearing Migration</span><span class="role">WEBULL · CORE DEVELOPER, OWNER OF ACCOUNTS / COMPLIANCE / CLEARING</span><span class="when">Jun 2020 — Dec 2023</span></div>
+    <p class="proj-desc">US brokerage (Nasdaq-listed) with 10M+ users and 7×24 trading; owned account onboarding and compliance, responsible for funds and statements, and delivered the clearing switch with a million-user migration.</p>
+    <p class="stack"><i>STACK</i>Java · Spring Cloud · microservices · MySQL · Redis · Kafka · end-of-day batch processing</p>
+    <ul>
+      <li><b>Onboarding and compliance automation</b>: automated KYC; risk-tiered trading permissions across stocks, options and margin; a full account-lifecycle state machine with risk controls for abnormal trading and restricted lists; designed the Canada-expansion account system from scratch, handling multi-jurisdiction compliance differences</li>
+      <li><b>Statements / P&amp;L / funding / transfers</b>: end-of-day batch processing for 10M+ users (daily statements and P&amp;L); end-of-day reconciliation with clearing and banks with automatic discrepancy detection; multi-channel deposits and withdrawals (ACH, wire); automated ACATS transfers</li>
+      <li><b>Clearing migration with triple safeguards</b>: integrated the in-house clearing system that replaced a third party; migrated millions of users via batched canary cut-over, parallel old/new reconciliation and per-account cash and position verification</li>
+      <li><b>Composite routing design</b>: accounts moved with the clearing switch, so I designed the routing that layers old/new account identification on top of cell-based sharding — invisible to users, no trading interruption</li>
+    </ul>
+  </div>
+
+  <div class="proj">
+    <div class="job-h"><span class="co">Webull Cell-Based Re-Architecture &amp; 7.0 Gateway</span><span class="role">WEBULL · CORE DEVELOPER, CONTRIBUTOR</span><span class="when">Jun 2020 — Dec 2023</span></div>
+    <p class="proj-desc">Unitized trading architecture in the same lineage as Ant's LDC / multi-active designs, applied to a brokerage: multiple cells plus a GZone aggregation layer and a canary cell; the 7.0 gateway consolidated five client surfaces.</p>
+    <p class="stack"><i>STACK</i>Java microservices · Consul · unified cache · ES logging · monitoring &amp; distributed tracing · API gateway</p>
+    <ul>
+      <li><b>Each cell is a complete exchange</b>: a full microservice stack per cell (quotes / trading / accounts / risk / funding / P&amp;L) with multi-instance services, elastic scaling, task scheduling, AZ isolation and cross-region DR; user-sharded routing keeps the blast radius inside one cell, scaling means copying a cell, and failover is a routing switch</li>
+      <li><b>Canary on real topology</b>: a low-spec canary cell serves a small share of traffic and designated users so releases are validated on production architecture; GZone absorbs cross-cell aggregation and global views so cells stay purely sharded</li>
+      <li><b>Shared platform base</b>: Consul service discovery, unified cache, unified logging / ES query, monitoring, alerting and distributed tracing — cloning a cell does not clone operational cost; contributed to the 7.0 gateway consolidating app / web / desktop / H5 / OpenAPI</li>
+    </ul>
+  </div>
+
+  <div class="proj">
+    <div class="job-h"><span class="co">Nissan China Official Website · Full-Stack Delivery</span><span class="role">INDEPENDENT · SOLE OWNER OF API / ADMIN / WEB, DEPLOYMENT AND MIGRATION</span><span class="when">2024</span></div>
+    <p class="proj-desc">Official website of a major automaker (nissan.com.cn), delivered end to end by one engineer — from API design to production deployment, all three tiers.</p>
+    <p class="stack"><i>STACK</i>Next.js · React · Antd Pro · Java · SSR</p>
+    <ul>
+      <li><b>Next.js front, Java back</b>: SSR secures SEO and first paint for the site (model catalog, dealer lookup, test-drive booking, news); the API service is Java, chosen for stability and engineering quality</li>
+      <li><b>Admin as CMS</b>: models, pages and assets are fully editable by operations, so adding content after launch never requires code — a content system, not a one-off page</li>
+      <li><b>Migration first</b>: legacy data exported from the old CMS, cleaned and re-imported including images and attachments; the old schema was mapped before the new one was designed</li>
+    </ul>
+  </div>
+
+  <div class="proj">
+    <div class="job-h"><span class="co">Mobile-Game Ad Platform · Tracking / Attribution / DMP</span><span class="role">CAOHUA · CORE ENGINEER, TRACKING &amp; ATTRIBUTION LEAD, DMP 0 → 1</span><span class="when">Mar 2018 — Mar 2020</span></div>
+    <p class="proj-desc">Unified ad-buying system for a million-user mobile-game publisher with 30+ media integrations (Toutiao, Tencent Ads, Baidu, UC …), closing the loop from buying → tracking → attribution → postback → optimization.</p>
+    <p class="stack"><i>STACK</i>Java · MongoDB · Redis · message queue · Hadoop / Hive</p>
+    <ul>
+      <li><b>Accept-only ingestion as the first gate</b>: tracking at <span class="m">6M+</span> daily / <span class="m">70M+</span> peak PV; endpoints answer in milliseconds and push parsing, de-duplication and attribution through a message queue to async consumers — no timeouts and no lost billing events at peak</li>
+      <li><b>Attribution retention from 1 to 7 days</b>: hot/cold tiering (Redis hot index + MongoDB cold store), sharded cluster with index tuning, compact document schemas, daily collections with rolling TTL — a 7× attribution window on the same resources</li>
+      <li><b>Redis keeps only the hot set</b>: click detail moved to MongoDB; data-structure redesign, big-key splitting and expiry policies brought cluster memory back from the alert line to a safe level</li>
+      <li><b>DMP as a closed loop, not a report</b>: built audience building and media sync, automated bid and budget control, conversion postbacks driving media-side oCPX and performance reporting from scratch; Hadoop / Hive marketing warehouse; buying / tracking / postback protocol differences of 30+ media unified at the platform layer</li>
     </ul>
   </div>
 
