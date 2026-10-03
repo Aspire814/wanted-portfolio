@@ -12,3 +12,8 @@ dist/
 # 密钥与本地环境
 .env
 server/.env
+
+# 简历构建缓存(全量中文字体 ~43MB)
+resume/.cache/
+resume/.built-*.html
+resume/node_modules/

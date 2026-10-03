@@ -1,0 +1,108 @@
+/* ============ 简历共用样式(A4 · 打印优先) ============ */
+:root {
+  --paper: #FDFBF6;
+  --ink: #241A0E;
+  --ink-2: #4A3F30;
+  --ink-3: #8A7E6C;
+  --hair: rgba(36, 26, 14, 0.22);
+  --red: #7E1D12;
+  --serif-cn: "Noto Serif SC", "Songti SC", "STSong", serif;
+  --serif-en: "IBM Plex Serif", "Noto Serif SC", Georgia, serif;
+  --mono: "IBM Plex Mono", ui-monospace, Menlo, monospace;
+  --west: "Rye", serif;
+}
+* { margin: 0; padding: 0; box-sizing: border-box; }
+@page { size: A4; margin: 0; }
+html, body { background: var(--paper); }
+body {
+  width: 210mm;
+  margin: 0 auto;
+  color: var(--ink);
+  font-family: var(--serif-cn);
+  font-size: 11px;
+  line-height: 1.55;
+  -webkit-print-color-adjust: exact;
+  print-color-adjust: exact;
+}
+body.en { font-family: var(--serif-en); font-size: 10.6px; line-height: 1.5; }
+.sheet { padding: 13mm 15mm 14mm; }
+
+/* ---- 页眉 ---- */
+.hd { display: flex; justify-content: space-between; align-items: flex-start; gap: 18px; padding-bottom: 10px; border-bottom: 3px double var(--ink); }
+.hd-left { flex: 1; min-width: 0; }
+.kicker { font-family: var(--mono); font-size: 8px; letter-spacing: .32em; color: var(--red); margin-bottom: 4px; }
+.name { display: flex; align-items: baseline; gap: 12px; flex-wrap: wrap; }
+.name .cn { font-family: var(--serif-cn); font-weight: 900; font-size: 36px; line-height: 1.1; letter-spacing: .14em; }
+.name .en { font-family: var(--west); font-size: 15px; color: var(--ink-2); letter-spacing: .08em; }
+body.en .name .cn { font-family: var(--serif-en); font-weight: 600; font-size: 34px; letter-spacing: .02em; }
+body.en .name .en { font-family: var(--serif-cn); font-weight: 900; font-size: 20px; letter-spacing: .14em; }
+.title { margin-top: 3px; font-size: 12.5px; font-weight: 600; color: var(--ink); }
+.title i { font-style: normal; color: var(--red); font-family: var(--mono); font-size: 9.5px; font-weight: 600; letter-spacing: .06em; margin-left: 6px; }
+.contact { margin-top: 7px; display: flex; flex-wrap: wrap; gap: 4px 14px; font-family: var(--mono); font-size: 8.8px; color: var(--ink-2); letter-spacing: .02em; }
+.contact a { color: var(--ink-2); text-decoration: none; }
+.contact b { color: var(--red); font-weight: 600; }
+.hd-right { flex: none; text-align: center; width: 78px; }
+.hd-right img { width: 66px; height: 66px; display: block; margin: 0 auto 3px; padding: 4px; border: 1.5px solid var(--ink); background: #fff; }
+.hd-right span { font-family: var(--mono); font-size: 7px; letter-spacing: .08em; color: var(--ink-3); line-height: 1.3; display: block; }
+
+/* ---- 概要 ---- */
+.summary { margin: 10px 0 2px; font-size: 11.2px; line-height: 1.65; color: var(--ink-2); }
+.summary b { color: var(--ink); font-weight: 900; }
+body.en .summary b { font-weight: 600; }
+
+/* ---- 小节 ---- */
+h2 { display: flex; align-items: baseline; gap: 8px; margin: 13px 0 6px; padding-bottom: 3px; border-bottom: 1px solid var(--ink); break-after: avoid; }
+h2 .cn { font-family: var(--serif-cn); font-size: 13px; font-weight: 900; letter-spacing: .06em; }
+body.en h2 .cn { font-family: var(--serif-en); font-weight: 600; letter-spacing: .02em; }
+h2 .en { font-family: var(--mono); font-size: 7.8px; letter-spacing: .22em; color: var(--red); }
+
+/* 核心能力 */
+.caps { display: grid; grid-template-columns: 1fr 1fr; gap: 5px 16px; }
+.cap { display: flex; gap: 8px; break-inside: avoid; }
+.cap i { flex: none; font-family: var(--mono); font-size: 8px; color: var(--red); font-style: normal; letter-spacing: .1em; padding-top: 3px; width: 46px; }
+.cap div { font-size: 10.6px; line-height: 1.5; color: var(--ink-2); }
+.cap b { color: var(--ink); font-weight: 900; display: block; margin-bottom: 1px; }
+body.en .cap b { font-weight: 600; }
+
+/* 经历 */
+.job { margin-bottom: 9px; }
+.job-h, .job-sub { break-after: avoid; }
+.job li { break-inside: avoid; }
+.job-h { display: flex; align-items: baseline; gap: 10px; flex-wrap: wrap; }
+.job-h .co { font-weight: 900; font-size: 12.5px; }
+body.en .job-h .co { font-weight: 600; }
+.job-h .role { font-family: var(--mono); font-size: 8.8px; color: var(--red); font-weight: 600; letter-spacing: .04em; }
+.job-h .when { margin-left: auto; font-family: var(--mono); font-size: 8.8px; color: var(--ink-3); white-space: nowrap; }
+.job-sub { font-size: 10px; color: var(--ink-3); margin: 1px 0 4px; }
+ul { list-style: none; }
+li { position: relative; padding-left: 12px; margin-bottom: 2.5px; color: var(--ink-2); }
+li::before { content: "▸"; position: absolute; left: 0; top: 0; color: var(--red); font-size: 9px; }
+li b { color: var(--ink); font-weight: 900; }
+body.en li b { font-weight: 600; }
+li .m { font-family: var(--mono); font-size: 9px; color: var(--red); font-weight: 600; }
+
+/* 技能表 */
+.skills { display: grid; grid-template-columns: 78px 1fr; gap: 3px 10px; font-size: 10.6px; }
+body.en .skills { grid-template-columns: 136px 1fr; }
+.skills dt { font-family: var(--mono); font-size: 8px; letter-spacing: .12em; color: var(--red); padding-top: 3px; }
+.skills dd { color: var(--ink-2); }
+.skills dd b { color: var(--ink); font-weight: 900; }
+body.en .skills dd b { font-weight: 600; }
+
+/* 代表作 · 可查证 */
+.proofs { display: grid; grid-template-columns: repeat(3, 1fr); gap: 8px; }
+.proof { border: 1px solid var(--hair); padding: 6px 9px; break-inside: avoid; }
+.proof b { display: block; font-size: 10.6px; font-weight: 900; }
+body.en .proof b { font-weight: 600; }
+.proof span { display: block; font-size: 9.6px; color: var(--ink-2); line-height: 1.45; }
+.proof a { font-family: var(--mono); font-size: 8.4px; color: var(--red); text-decoration: none; }
+
+/* 两栏(教育 / 个人) */
+.two { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+.two p { color: var(--ink-2); }
+.two p b { color: var(--ink); font-weight: 900; }
+body.en .two p b { font-weight: 600; }
+
+/* 页脚 */
+.ft { margin-top: 12px; padding-top: 6px; border-top: 1px solid var(--hair); display: flex; justify-content: space-between; font-family: var(--mono); font-size: 7.6px; letter-spacing: .08em; color: var(--ink-3); }
+.ft b { color: var(--red); font-weight: 600; }
